@@ -30,7 +30,16 @@
 package org.quickconnect;
 
 import java.util.ArrayList;
-
+/**
+ * The ControlObject is an Interface that all control stack objects must implement.  It consists of one method, handleIt.  
+ * @author Lee S. Barney
+ *
+ */
 public interface ControlObject {
+	/**
+	 * 
+	 * @param parameters - The parameters that will be passed by the QuickConnect class to all of your control stack objects.
+	 * @return - return any object to make it available later in the control stack.  return <b>null</b> to terminate the execution of the stack.
+	 */
 	public Object  handleIt(ArrayList<Object> parameters);
 }

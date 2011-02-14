@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2011 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -32,7 +32,10 @@ package org.quickconnect;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/*
+ * This class is used by the QuickConnect class to do the actual work of executing the call stack.  Its methods 
+ * handle the threading issues such as when to execute control stack object handleIt methods in the main UI thread.
+ */
 public class QCRequestHandler implements Runnable {
 	private String command;
 	private ArrayList<Object> parameters;
@@ -58,10 +61,17 @@ public class QCRequestHandler implements Runnable {
 			isEnterprise = false;
 		}
 	}
-	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 * This method executes first, the validation control objects, then the business control objects, and then the view control objects.
+	 */
 	public void run() {
 		if(checkValidation(command, parameters)){
 			final ArrayList<Object> newParameters = dispatchToBCO(command, parameters);
+			if(newParameters == null){
+				return;
+			}
 			if(!isEnterprise){
 				if(isAndroid){
 					final QCRequestHandler self = this;
@@ -94,7 +104,11 @@ public class QCRequestHandler implements Runnable {
 			}
 		}
 	}
-	
+	/*
+	 * This method executes all of the Validation Control Objects that have been mapped to a specific command.  
+	 * If any of them return false the loop is terminated and false is returned.  
+	 * If they all return true, or no Validation Control Objects have been defined for the specific command, then true is returned.
+	 */
 	private boolean checkValidation(String command, ArrayList<Object> parameters){
 		Boolean result = true;
 		try{
@@ -120,15 +134,25 @@ public class QCRequestHandler implements Runnable {
 		}
 		return result;
 	}
-	
+	/*
+	 * A facade method that executes all Business Control Objects mapped to a specific command.
+	 */
 	private ArrayList<Object> dispatchToBCO(String command, ArrayList<Object> parameters){
 		return dispatchToHandlers(QuickConnect.getBusinessMap(), command, parameters);
 	}
-	
+	/*
+	 * A facade method that executes all View Control Objects mapped to a specific command.
+	 */
 	private ArrayList<Object> dispatchToVCO(String command, ArrayList<Object> parameters){
 		ArrayList<Object> retVal = (ArrayList<Object>)dispatchToHandlers(QuickConnect.getViewMap(), command, parameters);
 		return retVal;
 	}
+
+	/*
+	 * This method executes all of the Error Control Objects that have been mapped to a specific command.  
+	 * Error control object handleIt methods are executed in the main UI thread since it is assumed that they will be used
+	 * to communicate to the user.
+	 */
 	public ArrayList<Object> dispatchToECO(String command, ArrayList<Object> parameters){
 		
 		if(!isEnterprise){
@@ -168,7 +192,14 @@ public class QCRequestHandler implements Runnable {
 		}
 		return new ArrayList<Object>();
 	}
-	
+
+	/*
+	 * This method is the worker behind the dispatchToVCO and dispatchToBCO facade methods.  
+	 * It  executes all of the control objects that have been mapped to a specific command found in each of the HashMaps for the
+	 * VCO or BCO types.  If any VCO or BCO returns null then stack the dispatchToHandlers method returns null and stack execution 
+	 * is terminated.
+	 * 
+	 */
 	private ArrayList<Object> dispatchToHandlers(HashMap<String, ArrayList<ControlObject> > map, String command, ArrayList<Object> parameters){
 		//Log.d(QuickConnect.LOG_TAG, "handling command "+command);
 		ArrayList<Object> resultData = new ArrayList<Object>();
@@ -185,6 +216,10 @@ public class QCRequestHandler implements Runnable {
 				if(handler != null){
 					try {
 						result = ((ControlObject)handler).handleIt(resultData);
+						if(result == null){
+							resultData = null;
+							break;
+						}
 					} 
 					catch (Exception e) {
 						String message = handler.getClass().getCanonicalName()+"'s handleIt method threw an exception.  "+e.getCause();
