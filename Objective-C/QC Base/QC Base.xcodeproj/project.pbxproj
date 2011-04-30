@@ -30,6 +30,7 @@
 		71BB17E9132FBE24006D5060 /* QCRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCRequestHandler.m; sourceTree = "<group>"; };
 		71BB17EA132FBE24006D5060 /* QuickConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConnect.h; sourceTree = "<group>"; };
 		71BB17EB132FBE24006D5060 /* QuickConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConnect.m; sourceTree = "<group>"; };
+		9B2472C7136C9F61004CC4B7 /* Build Instructions!!!!.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Build Instructions!!!!.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +48,7 @@
 		71BB178C132FBD98006D5060 = {
 			isa = PBXGroup;
 			children = (
+				9B2472C7136C9F61004CC4B7 /* Build Instructions!!!!.txt */,
 				71BB179C132FBD98006D5060 /* QC Base */,
 				71BB1799132FBD98006D5060 /* Frameworks */,
 				71BB1798132FBD98006D5060 /* Products */,
