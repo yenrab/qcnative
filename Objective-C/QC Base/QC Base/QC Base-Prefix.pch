@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'QC Base' target in the 'QC Base' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
