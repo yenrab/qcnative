@@ -1,0 +1,261 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71BB179B132FBD98006D5060 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BB179A132FBD98006D5060 /* Foundation.framework */; };
+		71BB17EC132FBE24006D5060 /* QCControlObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17E4132FBE24006D5060 /* QCControlObject.h */; };
+		71BB17ED132FBE24006D5060 /* QCControlObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E5132FBE24006D5060 /* QCControlObject.m */; };
+		71BB17EE132FBE24006D5060 /* QCMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17E6132FBE24006D5060 /* QCMapper.h */; };
+		71BB17EF132FBE24006D5060 /* QCMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E7132FBE24006D5060 /* QCMapper.m */; };
+		71BB17F0132FBE24006D5060 /* QCRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17E8132FBE24006D5060 /* QCRequestHandler.h */; };
+		71BB17F1132FBE24006D5060 /* QCRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E9132FBE24006D5060 /* QCRequestHandler.m */; };
+		71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17EA132FBE24006D5060 /* QuickConnect.h */; };
+		71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17EB132FBE24006D5060 /* QuickConnect.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		71BB1797132FBD98006D5060 /* libQC Base.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libQC Base.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71BB179A132FBD98006D5060 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		71BB179E132FBD98006D5060 /* QC Base-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QC Base-Prefix.pch"; sourceTree = "<group>"; };
+		71BB17E4132FBE24006D5060 /* QCControlObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCControlObject.h; sourceTree = "<group>"; };
+		71BB17E5132FBE24006D5060 /* QCControlObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCControlObject.m; sourceTree = "<group>"; };
+		71BB17E6132FBE24006D5060 /* QCMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCMapper.h; sourceTree = "<group>"; };
+		71BB17E7132FBE24006D5060 /* QCMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCMapper.m; sourceTree = "<group>"; };
+		71BB17E8132FBE24006D5060 /* QCRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCRequestHandler.h; sourceTree = "<group>"; };
+		71BB17E9132FBE24006D5060 /* QCRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCRequestHandler.m; sourceTree = "<group>"; };
+		71BB17EA132FBE24006D5060 /* QuickConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConnect.h; sourceTree = "<group>"; };
+		71BB17EB132FBE24006D5060 /* QuickConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConnect.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71BB1794132FBD98006D5060 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71BB179B132FBD98006D5060 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71BB178C132FBD98006D5060 = {
+			isa = PBXGroup;
+			children = (
+				71BB179C132FBD98006D5060 /* QC Base */,
+				71BB1799132FBD98006D5060 /* Frameworks */,
+				71BB1798132FBD98006D5060 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71BB1798132FBD98006D5060 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71BB1797132FBD98006D5060 /* libQC Base.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71BB1799132FBD98006D5060 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71BB179A132FBD98006D5060 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71BB179C132FBD98006D5060 /* QC Base */ = {
+			isa = PBXGroup;
+			children = (
+				71BB17E4132FBE24006D5060 /* QCControlObject.h */,
+				71BB17E5132FBE24006D5060 /* QCControlObject.m */,
+				71BB17E6132FBE24006D5060 /* QCMapper.h */,
+				71BB17E7132FBE24006D5060 /* QCMapper.m */,
+				71BB17E8132FBE24006D5060 /* QCRequestHandler.h */,
+				71BB17E9132FBE24006D5060 /* QCRequestHandler.m */,
+				71BB17EA132FBE24006D5060 /* QuickConnect.h */,
+				71BB17EB132FBE24006D5060 /* QuickConnect.m */,
+				71BB179D132FBD98006D5060 /* Supporting Files */,
+			);
+			path = "QC Base";
+			sourceTree = "<group>";
+		};
+		71BB179D132FBD98006D5060 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71BB179E132FBD98006D5060 /* QC Base-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		71BB1795132FBD98006D5060 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71BB17EC132FBE24006D5060 /* QCControlObject.h in Headers */,
+				71BB17EE132FBE24006D5060 /* QCMapper.h in Headers */,
+				71BB17F0132FBE24006D5060 /* QCRequestHandler.h in Headers */,
+				71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		71BB1796132FBD98006D5060 /* QC Base */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71BB17A1132FBD98006D5060 /* Build configuration list for PBXNativeTarget "QC Base" */;
+			buildPhases = (
+				71BB1793132FBD98006D5060 /* Sources */,
+				71BB1794132FBD98006D5060 /* Frameworks */,
+				71BB1795132FBD98006D5060 /* Headers */,
+				71BB1879132FC126006D5060 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QC Base";
+			productName = "QC Base";
+			productReference = 71BB1797132FBD98006D5060 /* libQC Base.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71BB178E132FBD98006D5060 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 71BB1791132FBD98006D5060 /* Build configuration list for PBXProject "QC Base" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 71BB178C132FBD98006D5060;
+			productRefGroup = 71BB1798132FBD98006D5060 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71BB1796132FBD98006D5060 /* QC Base */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71BB1879132FC126006D5060 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# remove existing product lib file, just in case\nrm -rf /Developer/qc_base.a\n\n# combine lib files for various platforms into one\nlipo -create \"$BUILD_DIR/Release-iphoneos/libQC Base.a\" \"$BUILD_DIR/Release-iphonesimulator/libQC Base.a\" -output qc_base.a";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71BB1793132FBD98006D5060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71BB17ED132FBE24006D5060 /* QCControlObject.m in Sources */,
+				71BB17EF132FBE24006D5060 /* QCMapper.m in Sources */,
+				71BB17F1132FBE24006D5060 /* QCRequestHandler.m in Sources */,
+				71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		71BB179F132FBD98006D5060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		71BB17A0132FBD98006D5060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		71BB17A2132FBD98006D5060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/QC_Base.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QC Base/QC Base-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		71BB17A3132FBD98006D5060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/QC_Base.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QC Base/QC Base-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71BB1791132FBD98006D5060 /* Build configuration list for PBXProject "QC Base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71BB179F132FBD98006D5060 /* Debug */,
+				71BB17A0132FBD98006D5060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71BB17A1132FBD98006D5060 /* Build configuration list for PBXNativeTarget "QC Base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71BB17A2132FBD98006D5060 /* Debug */,
+				71BB17A3132FBD98006D5060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71BB178E132FBD98006D5060 /* Project object */;
+}
