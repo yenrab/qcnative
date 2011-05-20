@@ -29,6 +29,7 @@
  */
 package org.quickconnect;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.RejectedExecutionHandler;
@@ -66,19 +67,30 @@ public class QuickConnect{
 	private static HashMap<String, ArrayList<ControlObject> > errorMap;
 	private static Object theHandler;
 	private static boolean handlerAttempted = false;
-	private static ThreadPoolExecutor thePool = null;
+	private static Object thePool = null;
+    private static boolean usesPool = false;
 	
 	static{
 		validationMap = new HashMap<String, ArrayList<ControlObject>>();
 		businessMap = new HashMap<String, ArrayList<ControlObject>>();
 		viewMap = new HashMap<String, ArrayList<ControlObject>>();
 		errorMap = new HashMap<String, ArrayList<ControlObject>>();
-		SynchronousQueue<Runnable> worksQueue = new SynchronousQueue<Runnable>(true);
-		RejectedExecutionHandler executionHandler = new PoolRejectedExecutionHandler();
+        try{
+            SynchronousQueue<Runnable> worksQueue = new SynchronousQueue<Runnable>(true);
+            RejectedExecutionHandler executionHandler = new PoolRejectedExecutionHandler();
 
-		thePool  = new ThreadPoolExecutor(3, 3, 10,
-		        TimeUnit.SECONDS, worksQueue, executionHandler);
-		thePool.allowCoreThreadTimeOut(true);
+            thePool  = new ThreadPoolExecutor(3, 3, 10,
+                    TimeUnit.SECONDS, worksQueue, executionHandler);
+            Class[] paramtypes = new Class[1];
+            paramtypes[0] = boolean.class;
+            Method allowTimeoutMethod = ThreadPoolExecutor.class.getDeclaredMethod("alowCoreThreadTimeout", paramtypes);
+            allowTimeoutMethod.invoke(thePool, true);
+            usesPool = true;
+        }
+        catch(Exception e){
+            thePool = null;
+            usesPool = false;
+        }
 	}
 	/**
 	 * This method is the Control Object trigger.  Call it from anywhere in your code to execute any stack created using 
@@ -88,7 +100,7 @@ public class QuickConnect{
 	 * This ArrayList appears as the 'paramters' value passed into all Command Objects in the stack.
 	 */
 	public static void handleRequest(String command, ArrayList<Object> parameters){
-		System.out.println("handling request: "+command);
+		//System.out.println("handling request: "+command);
 		if(theHandler == null && !handlerAttempted){
 			try{
 				Class handlerClass = Class.forName("android.os.Handler");
@@ -106,19 +118,15 @@ public class QuickConnect{
 		}
 		catch(Exception e){
 			//is not enterprise Java
-			/*
-			Thread requestHandlingThread = null;
-			if(theHandler != null){
-				//must be android
-				requestHandlingThread = new Thread(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
-			}
-			else{
-				requestHandlingThread = new Thread(new QCRequestHandler(command, parameters, null));
-			}
-			requestHandlingThread.start();
-			*/
-			System.out.println("about to execute on new thread.");
-			thePool.execute(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
+            if(usesPool){
+            	//System.out.println("using pool "+theHandler);
+                ((ThreadPoolExecutor)thePool).execute(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
+            }
+            else{
+            	//System.out.println("using new thread "+theHandler);
+                Thread aThread = new Thread(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
+                aThread.start();
+            }
 		}
 	}
 	/**

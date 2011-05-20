@@ -86,6 +86,7 @@ public class QCRequestHandler implements Runnable {
 					try {
 						Class swingUtilsClass = Class.forName("javax.swing.SwingUtilities");
 						Method laterMethod = swingUtilsClass.getDeclaredMethod("invokeLater", Runnable.class);
+				
 
 						laterMethod.invoke(null,new Runnable() {
 						    public void run() {
@@ -168,11 +169,13 @@ public class QCRequestHandler implements Runnable {
 			}
 			else{
 				//must be JavaSE
+				
 				try {
 					final String aCommand = command;
 					final ArrayList<Object> someParameters = parameters;
+					
 					Class swingUtilsClass = Class.forName("javax.swing.SwingUtilities");
-					Method laterMethod = swingUtilsClass.getDeclaredMethod("invokeLater", swingUtilsClass);
+					Method laterMethod = swingUtilsClass.getDeclaredMethod("invokeLater", Runnable.class);
 					//Object[] params = new Object[1];
 					//params[0] = 
 					laterMethod.invoke(null, new Runnable() {
