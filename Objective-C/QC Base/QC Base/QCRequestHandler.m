@@ -121,7 +121,7 @@
 			QCControlObject *theControlClass = [theControlObjects objectAtIndex:i];
             //NSLog(@"Control Object: %@",theControlClass);
 			id result = [[theControlClass class] doCommand:self.parameters];
-            //NSLog(@"result: %@",result);
+            //NSLog(@"result of CO call: %@",result);
 			if(result == nil ||
 					([result isKindOfClass:[NSString class]] && [((NSString*)result) isEqual:@"NO"])){
 				retVal = NO;
