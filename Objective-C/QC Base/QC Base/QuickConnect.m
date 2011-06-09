@@ -43,20 +43,20 @@
 	[aHandler release];
 }
 
-- (void) mapCommandToBCO:(NSString*)aCommand withObject:(NSString*)aHandlerClassName{
-    [theMapper mapCommandToBCO:aCommand withHandler:aHandlerClassName];
+- (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass{
+    [theMapper mapCommandToBCO:aCommand withHandler:aClass];
 }
-- (void) mapCommandToVCO:(NSString*)aCommand withObject:(NSString*)aHandlerClassName{
-	[theMapper mapCommandToVCO:aCommand withHandler:aHandlerClassName];
+- (void) mapCommandToVCO:(NSString*)aCommand withObject:(Class)aClass{
+	[theMapper mapCommandToVCO:aCommand withHandler:aClass];
 }
-- (void) mapCommandToValCO:(NSString*)aCommand withObject:(NSString*)aHandlerClassName{
-	[theMapper mapCommandToValCO:aCommand withHandler:aHandlerClassName];
+- (void) mapCommandToValCO:(NSString*)aCommand withObject:(Class)aClass{
+	[theMapper mapCommandToValCO:aCommand withHandler:aClass];
 }
-- (void) mapCommandToECO:(NSString*)aCommand withObject:(NSString*)aHandlerClassName{
-	[theMapper mapCommandToECO:aCommand withHandler:aHandlerClassName];
+- (void) mapCommandToECO:(NSString*)aCommand withObject:(Class)aClass{
+	[theMapper mapCommandToECO:aCommand withHandler:aClass];
 }
-- (void) mapCommandToSCO:(NSString*)aCommand withObject:(NSString*)aHandlerClassName{
-	[theMapper mapCommandToSCO:aCommand withHandler:aHandlerClassName];
+- (void) mapCommandToSCO:(NSString*)aCommand withObject:(Class)aClass{
+	[theMapper mapCommandToSCO:aCommand withHandler:aClass];
 }
 
 - (QuickConnect*) init{
