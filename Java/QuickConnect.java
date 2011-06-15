@@ -96,11 +96,11 @@ public class QuickConnect{
 	 * This method is the Control Object trigger.  Call it from anywhere in your code to execute any stack created using 
 	 * the mapCommandTo** methods.  
 	 * @param command - the command string that is the key associated with the desired Command Object stack.
-	 * @param parameters - an ArrayList containing any values you wish to pass to all Command Objects' in the stack.  
-	 * This ArrayList appears as the 'paramters' value passed into all Command Objects in the stack.
+	 * @param parameters - a HashMap containing any key-value pairs you wish to pass to all Command Objects' in the stack.  
+	 * This HashMap mutable appears as the 'parameters' value passed into all Command Objects in the stack.
 	 */
-	public static void handleRequest(String command, ArrayList<Object> parameters){
-		//System.out.println("handling request: "+command);
+	public static void handleRequest(String command, HashMap<String,Object> parameters){
+		//System.out.println("handling a request: "+command+"using handler: "+theHandler);
 		if(theHandler == null && !handlerAttempted){
 			try{
 				Class handlerClass = Class.forName("android.os.Handler");
@@ -108,7 +108,6 @@ public class QuickConnect{
 				theHandler = handlerClass.newInstance();
 			}
 			catch(Exception e){
-				
 			}
 		}
 		try{
@@ -117,10 +116,12 @@ public class QuickConnect{
 			new QCRequestHandler(command, parameters, null).run();
 		}
 		catch(Exception e){
+			//System.out.println("not enterprise.  usesPool: "+usesPool);
 			//is not enterprise Java
             if(usesPool){
-            	//System.out.println("using pool "+theHandler);
+            	//System.out.println("using pool "+thePool+" with handler "+theHandler);
                 ((ThreadPoolExecutor)thePool).execute(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
+                
             }
             else{
             	//System.out.println("using new thread "+theHandler);
@@ -139,7 +140,7 @@ public class QuickConnect{
 	 * @param parameters - an ArrayList containing any values you wish to pass to all Error Command Objects' in the stack.  
 	 * This ArrayList appears as the 'paramters' value passed into all Error Command Objects in the stack.
 	 */
-	public static void handleError(String command, ArrayList<Object> parameters){
+	public static void handleError(String command, HashMap<String,Object> parameters){
 		if(theHandler == null && !handlerAttempted){
 			try{
 				Class handlerClass = Class.forName("android.os.Handler");

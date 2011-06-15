@@ -38,13 +38,14 @@ import java.util.HashMap;
  */
 public class QCRequestHandler implements Runnable {
 	private String command;
-	private ArrayList<Object> parameters;
+	private HashMap<String,Object> parameters;
 	private boolean isAndroid = true;
 	private boolean isEnterprise = true;
 	private android.os.Handler theHandler;
 	
 	
-	public QCRequestHandler(String command, ArrayList<Object> parameters, android.os.Handler aHandler){
+	public QCRequestHandler(String command, HashMap<String, Object> parameters, android.os.Handler aHandler){
+    
 		this.command = command;
 		this.parameters = parameters;
 		theHandler = aHandler;
@@ -67,14 +68,17 @@ public class QCRequestHandler implements Runnable {
 	 * This method executes first, the validation control objects, then the business control objects, and then the view control objects.
 	 */
 	public void run() {
+		//System.out.println("running");
 		if(checkValidation(command, parameters)){
-			final ArrayList<Object> newParameters = dispatchToBCO(command, parameters);
+			//System.out.println("passed validation");
+			final HashMap<String, Object> newParameters = dispatchToBCO(command, parameters);
 			if(newParameters == null){
 				return;
 			}
 			if(!isEnterprise){
 				if(isAndroid){
 					final QCRequestHandler self = this;
+					//System.out.println("posting to run vco's");
 					theHandler.post(new Runnable(){
 						  public void run() {
 							self.dispatchToVCO(command, newParameters);
@@ -110,7 +114,7 @@ public class QCRequestHandler implements Runnable {
 	 * If any of them return false the loop is terminated and false is returned.  
 	 * If they all return true, or no Validation Control Objects have been defined for the specific command, then true is returned.
 	 */
-	private boolean checkValidation(String command, ArrayList<Object> parameters){
+	private boolean checkValidation(String command, HashMap<String, Object> parameters2){
 		Boolean result = true;
 		try{
 			ArrayList<ControlObject> COList = QuickConnect.getValidationMap().get(command);
@@ -119,7 +123,7 @@ public class QCRequestHandler implements Runnable {
 				for(int i = 0; i < numValCOs; i++){
 					try {
 						ControlObject handler = COList.get(i);
-						result = (Boolean)handler.handleIt(parameters);
+						result = (Boolean)handler.handleIt(parameters2);
 						if(result == false){
 							break;
 						}
@@ -138,15 +142,14 @@ public class QCRequestHandler implements Runnable {
 	/*
 	 * A facade method that executes all Business Control Objects mapped to a specific command.
 	 */
-	private ArrayList<Object> dispatchToBCO(String command, ArrayList<Object> parameters){
+	private HashMap<String, Object> dispatchToBCO(String command, HashMap<String, Object> parameters){
 		return dispatchToHandlers(QuickConnect.getBusinessMap(), command, parameters);
 	}
 	/*
 	 * A facade method that executes all View Control Objects mapped to a specific command.
 	 */
-	private ArrayList<Object> dispatchToVCO(String command, ArrayList<Object> parameters){
-		ArrayList<Object> retVal = (ArrayList<Object>)dispatchToHandlers(QuickConnect.getViewMap(), command, parameters);
-		return retVal;
+	private HashMap<String,Object> dispatchToVCO(String command, HashMap<String,Object> parameters){
+		return dispatchToHandlers(QuickConnect.getViewMap(), command, parameters);
 	}
 
 	/*
@@ -154,16 +157,16 @@ public class QCRequestHandler implements Runnable {
 	 * Error control object handleIt methods are executed in the main UI thread since it is assumed that they will be used
 	 * to communicate to the user.
 	 */
-	public ArrayList<Object> dispatchToECO(String command, ArrayList<Object> parameters){
+	public HashMap<String,Object> dispatchToECO(String command, HashMap<String,Object> parameters){
 		
 		if(!isEnterprise){
 			if(isAndroid){
 					final QCRequestHandler self = this;
 					final String aCommand = command;
-					final ArrayList<Object> newParameters = parameters;
+					final HashMap<String,Object> newParameters = parameters;
 					theHandler.post(new Runnable(){
 						  public void run() {
-							  Object result = (ArrayList<Object>)self.dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, newParameters);
+							  Object result = (HashMap<String,Object>)self.dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, newParameters);
 						  }
 					});
 			}
@@ -172,7 +175,7 @@ public class QCRequestHandler implements Runnable {
 				
 				try {
 					final String aCommand = command;
-					final ArrayList<Object> someParameters = parameters;
+					final HashMap<String,Object> someParameters = parameters;
 					
 					Class swingUtilsClass = Class.forName("javax.swing.SwingUtilities");
 					Method laterMethod = swingUtilsClass.getDeclaredMethod("invokeLater", Runnable.class);
@@ -180,7 +183,7 @@ public class QCRequestHandler implements Runnable {
 					//params[0] = 
 					laterMethod.invoke(null, new Runnable() {
 					    public void run() {
-					    	Object result = (ArrayList<Object>)dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, someParameters);
+					    	Object result = (HashMap<String,Object>)dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, someParameters);
 					    }
 					  });
 				} catch (Exception e) {
@@ -191,9 +194,9 @@ public class QCRequestHandler implements Runnable {
 		}
 		else{
 			//running in enterprise environment
-			Object result = (ArrayList<Object>)dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
+			dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
 		}
-		return new ArrayList<Object>();
+		return new HashMap<String,Object>();
 	}
 
 	/*
@@ -203,12 +206,14 @@ public class QCRequestHandler implements Runnable {
 	 * is terminated.
 	 * 
 	 */
-	private ArrayList<Object> dispatchToHandlers(HashMap<String, ArrayList<ControlObject> > map, String command, ArrayList<Object> parameters){
-		//Log.d(QuickConnect.LOG_TAG, "handling command "+command);
-		ArrayList<Object> resultData = new ArrayList<Object>();
+	private HashMap<String,Object> dispatchToHandlers(HashMap<String, ArrayList<ControlObject> > map, String command, HashMap<String, Object> parameters){
+		
+		HashMap<String,Object> resultData = new HashMap<String,Object>();
 		if(parameters != null){
-			resultData.addAll(parameters);
+			resultData.putAll(parameters);
 		}
+		ArrayList<Object> results = new ArrayList<Object>();
+		resultData.put("bcoResults", results);
 		ArrayList<ControlObject> COList = map.get(command);
 		if(COList != null){
 			int numCOs = COList.size();
@@ -232,7 +237,7 @@ public class QCRequestHandler implements Runnable {
 						}
 					}
 				}if(result != null){
-					resultData.add(result);
+					results.add(result);
 				}
 			}
 		}
