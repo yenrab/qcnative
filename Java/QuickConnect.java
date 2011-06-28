@@ -65,8 +65,8 @@ public class QuickConnect{
 	private static HashMap<String, ArrayList<ControlObject> > businessMap;
 	private static HashMap<String, ArrayList<ControlObject> > viewMap;
 	private static HashMap<String, ArrayList<ControlObject> > errorMap;
-	private static Object theHandler;
-	private static boolean handlerAttempted = false;
+	private static Object theAndroidActivity;
+	private static boolean isEnterprise = false;
 	private static Object thePool = null;
     private static boolean usesPool = false;
 	
@@ -81,16 +81,29 @@ public class QuickConnect{
 
             thePool  = new ThreadPoolExecutor(3, 3, 10,
                     TimeUnit.SECONDS, worksQueue, executionHandler);
+            /*  This will be in Java 7.  Add it back in when it is available.
             Class[] paramtypes = new Class[1];
             paramtypes[0] = boolean.class;
             Method allowTimeoutMethod = ThreadPoolExecutor.class.getDeclaredMethod("alowCoreThreadTimeout", paramtypes);
             allowTimeoutMethod.invoke(thePool, true);
+            */
             usesPool = true;
         }
         catch(Exception e){
             thePool = null;
             usesPool = false;
         }
+        try{
+			Class.forName("javax.servlet.GenericServlet");
+			//is enterprise Java if no exception thrown
+			isEnterprise = true;
+		}
+		catch(Exception e){
+		}
+	}
+	
+	public static void setAndroidActivity(Object anAndroidActivity){
+		theAndroidActivity = anAndroidActivity;
 	}
 	/**
 	 * This method is the Control Object trigger.  Call it from anywhere in your code to execute any stack created using 
@@ -100,35 +113,18 @@ public class QuickConnect{
 	 * This HashMap mutable appears as the 'parameters' value passed into all Command Objects in the stack.
 	 */
 	public static void handleRequest(String command, HashMap<String,Object> parameters){
-		//System.out.println("handling a request: "+command+"using handler: "+theHandler);
-		if(theHandler == null && !handlerAttempted){
-			try{
-				Class handlerClass = Class.forName("android.os.Handler");
-				handlerAttempted = true;
-				theHandler = handlerClass.newInstance();
-			}
-			catch(Exception e){
-			}
-		}
-		try{
-			Class.forName("javax.servlet.GenericServlet");
-			//is enterprise Java if no exception thrown
+		
+		if(isEnterprise){
 			new QCRequestHandler(command, parameters, null).run();
 		}
-		catch(Exception e){
-			//System.out.println("not enterprise.  usesPool: "+usesPool);
-			//is not enterprise Java
-            if(usesPool){
-            	//System.out.println("using pool "+thePool+" with handler "+theHandler);
-                ((ThreadPoolExecutor)thePool).execute(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
+		else if(usesPool){
+            ((ThreadPoolExecutor)thePool).execute(new QCRequestHandler(command, parameters, theAndroidActivity));
                 
-            }
-            else{
-            	//System.out.println("using new thread "+theHandler);
-                Thread aThread = new Thread(new QCRequestHandler(command, parameters, (android.os.Handler) theHandler));
-                aThread.start();
-            }
-		}
+        }
+        else{
+        	Thread aThread = new Thread(new QCRequestHandler(command, parameters, theAndroidActivity));
+            aThread.start();
+        }
 	}
 	/**
 	 * This method is similar to handleRequest but is used to trigger stacks made of Error Control Objects.  Call it from 
@@ -141,26 +137,14 @@ public class QuickConnect{
 	 * This ArrayList appears as the 'paramters' value passed into all Error Command Objects in the stack.
 	 */
 	public static void handleError(String command, HashMap<String,Object> parameters){
-		if(theHandler == null && !handlerAttempted){
-			try{
-				Class handlerClass = Class.forName("android.os.Handler");
-				handlerAttempted = true;
-				theHandler = handlerClass.newInstance();
-			}
-			catch(Exception e){
-				
-			}
-		}
-		try{
-			Class.forName("javax.servlet.GenericServlet");
-			//is enterprise Java if no exception thrown
+		if(isEnterprise){
 			new QCRequestHandler(command, parameters, null).dispatchToECO(command, parameters);
 		}
-		catch(Exception e){
+		else{
 			//is not enterprise Java
-			if(theHandler != null){
+			if(theAndroidActivity != null){
 				//must be android
-				new QCRequestHandler(command, parameters, (android.os.Handler) theHandler).dispatchToECO(command, parameters);
+				new QCRequestHandler(command, parameters, theAndroidActivity).dispatchToECO(command, parameters);
 			}
 			else{
 				new QCRequestHandler(command, parameters, null).dispatchToECO(command, parameters);

@@ -40,26 +40,33 @@ public class QCRequestHandler implements Runnable {
 	private String command;
 	private HashMap<String,Object> parameters;
 	private boolean isAndroid = true;
-	private boolean isEnterprise = true;
-	private android.os.Handler theHandler;
+	private boolean isEnterprise = false;
+	private Object theAndroidActivity;
 	
 	
-	public QCRequestHandler(String command, HashMap<String, Object> parameters, android.os.Handler aHandler){
+	public QCRequestHandler(String command, HashMap<String, Object> parameters, Object anAndroidActivity){
     
 		this.command = command;
 		this.parameters = parameters;
-		theHandler = aHandler;
-		try{
-			Class.forName("android.os.Looper");
+		theAndroidActivity = anAndroidActivity;
+		if(anAndroidActivity != null){
+			try {
+				Class ActivityClass = Class.forName("android.app.Activity");
+				
+				isEnterprise = false;
+				theAndroidActivity = anAndroidActivity;
+			} catch (ClassNotFoundException e) {
+				isAndroid = false;
+			}
 		}
-		catch(Exception e){
+		else{
 			isAndroid = false;
-		}
-		try{
-			Class.forName("javax.servlet.GenericServlet");
-		}
-		catch(Exception e){
-			isEnterprise = false;
+			try{
+				Class.forName("javax.servlet.GenericServlet");
+			}
+			catch(Exception e){
+				isEnterprise = false;
+			}
 		}
 	}
 	/*
@@ -68,9 +75,7 @@ public class QCRequestHandler implements Runnable {
 	 * This method executes first, the validation control objects, then the business control objects, and then the view control objects.
 	 */
 	public void run() {
-		//System.out.println("running");
 		if(checkValidation(command, parameters)){
-			//System.out.println("passed validation");
 			final HashMap<String, Object> newParameters = dispatchToBCO(command, parameters);
 			if(newParameters == null){
 				return;
@@ -78,12 +83,18 @@ public class QCRequestHandler implements Runnable {
 			if(!isEnterprise){
 				if(isAndroid){
 					final QCRequestHandler self = this;
-					//System.out.println("posting to run vco's");
-					theHandler.post(new Runnable(){
-						  public void run() {
-							self.dispatchToVCO(command, newParameters);
-						  }
-					});
+					try {
+						Class androidActivityClass = Class.forName("android.app.Activity");
+						Method runOnUiThreadMethod = androidActivityClass.getDeclaredMethod("runOnUiThread", Runnable.class);
+						runOnUiThreadMethod.invoke(Class.forName("android.app.Activity").cast(theAndroidActivity), new Runnable(){
+							  public void run() {
+								  self.dispatchToVCO(command, newParameters);
+							  }
+						});
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
 				}
 				else{
 					//must be JavaSE
@@ -161,18 +172,24 @@ public class QCRequestHandler implements Runnable {
 		
 		if(!isEnterprise){
 			if(isAndroid){
-					final QCRequestHandler self = this;
-					final String aCommand = command;
-					final HashMap<String,Object> newParameters = parameters;
-					theHandler.post(new Runnable(){
+				final QCRequestHandler self = this;
+				final String aCommand = command;
+				final HashMap<String,Object> newParameters = parameters;
+				try {
+					Class androidActivityClass = Class.forName("android.app.Activity");
+					Method runOnUiThreadMethod = androidActivityClass.getDeclaredMethod("runonUiThread", Runnable.class);
+					runOnUiThreadMethod.invoke(Class.forName("android.app.Activity").cast(theAndroidActivity), new Runnable(){
 						  public void run() {
-							  Object result = (HashMap<String,Object>)self.dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, newParameters);
+							  self.dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, newParameters);
 						  }
 					});
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			else{
 				//must be JavaSE
-				
 				try {
 					final String aCommand = command;
 					final HashMap<String,Object> someParameters = parameters;
@@ -183,7 +200,7 @@ public class QCRequestHandler implements Runnable {
 					//params[0] = 
 					laterMethod.invoke(null, new Runnable() {
 					    public void run() {
-					    	Object result = (HashMap<String,Object>)dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, someParameters);
+					    	dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, someParameters);
 					    }
 					  });
 				} catch (Exception e) {
