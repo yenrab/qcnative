@@ -39,7 +39,7 @@ import java.util.HashMap;
 public class QCRequestHandler implements Runnable {
 	private String command;
 	private HashMap<String,Object> parameters;
-	private boolean isAndroid = true;
+	private Class androidActivityClass;
 	private boolean isEnterprise = false;
 	private Object theAndroidActivity;
 	
@@ -49,18 +49,19 @@ public class QCRequestHandler implements Runnable {
 		this.command = command;
 		this.parameters = parameters;
 		theAndroidActivity = anAndroidActivity;
+		System.out.println("building request handler with activity: "+anAndroidActivity);
 		if(anAndroidActivity != null){
 			try {
-				Class ActivityClass = Class.forName("android.app.Activity");
+				androidActivityClass = Class.forName("android.app.Activity");
 				
 				isEnterprise = false;
 				theAndroidActivity = anAndroidActivity;
 			} catch (ClassNotFoundException e) {
-				isAndroid = false;
+				System.out.println("not android");
+				e.printStackTrace();
 			}
 		}
 		else{
-			isAndroid = false;
 			try{
 				Class.forName("javax.servlet.GenericServlet");
 			}
@@ -81,12 +82,12 @@ public class QCRequestHandler implements Runnable {
 				return;
 			}
 			if(!isEnterprise){
-				if(isAndroid){
+				System.out.println("not enterprise");
+				if(androidActivityClass != null){
 					final QCRequestHandler self = this;
 					try {
-						Class androidActivityClass = Class.forName("android.app.Activity");
 						Method runOnUiThreadMethod = androidActivityClass.getDeclaredMethod("runOnUiThread", Runnable.class);
-						runOnUiThreadMethod.invoke(Class.forName("android.app.Activity").cast(theAndroidActivity), new Runnable(){
+						runOnUiThreadMethod.invoke(androidActivityClass.cast(theAndroidActivity), new Runnable(){
 							  public void run() {
 								  self.dispatchToVCO(command, newParameters);
 							  }
@@ -171,14 +172,13 @@ public class QCRequestHandler implements Runnable {
 	public HashMap<String,Object> dispatchToECO(String command, HashMap<String,Object> parameters){
 		
 		if(!isEnterprise){
-			if(isAndroid){
+			if(androidActivityClass != null){
 				final QCRequestHandler self = this;
 				final String aCommand = command;
 				final HashMap<String,Object> newParameters = parameters;
 				try {
-					Class androidActivityClass = Class.forName("android.app.Activity");
 					Method runOnUiThreadMethod = androidActivityClass.getDeclaredMethod("runonUiThread", Runnable.class);
-					runOnUiThreadMethod.invoke(Class.forName("android.app.Activity").cast(theAndroidActivity), new Runnable(){
+					runOnUiThreadMethod.invoke(androidActivityClass.cast(theAndroidActivity), new Runnable(){
 						  public void run() {
 							  self.dispatchToHandlers(QuickConnect.getErrorMap(), aCommand, newParameters);
 						  }
