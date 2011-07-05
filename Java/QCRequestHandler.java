@@ -49,7 +49,7 @@ public class QCRequestHandler implements Runnable {
 		this.command = command;
 		this.parameters = parameters;
 		theAndroidActivity = anAndroidActivity;
-		System.out.println("building request handler with activity: "+anAndroidActivity);
+		//System.out.println("building request handler with activity: "+anAndroidActivity);
 		if(anAndroidActivity != null){
 			try {
 				androidActivityClass = Class.forName("android.app.Activity");
@@ -57,8 +57,8 @@ public class QCRequestHandler implements Runnable {
 				isEnterprise = false;
 				theAndroidActivity = anAndroidActivity;
 			} catch (ClassNotFoundException e) {
-				System.out.println("not android");
-				e.printStackTrace();
+				//System.out.println("not android");
+				//e.printStackTrace();
 			}
 		}
 		else{
@@ -82,7 +82,7 @@ public class QCRequestHandler implements Runnable {
 				return;
 			}
 			if(!isEnterprise){
-				System.out.println("not enterprise");
+				//System.out.println("not enterprise");
 				if(androidActivityClass != null){
 					final QCRequestHandler self = this;
 					try {
