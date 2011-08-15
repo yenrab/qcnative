@@ -33,7 +33,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.quickconnectfamily.hybrid.QCAndroid;
+import android.app.Activity;
+
 /*
  * This class is used by the QuickConnect class to do the actual work of executing the call stack.  Its methods 
  * handle the threading issues such as when to execute control stack object handleIt methods in the main UI thread.
@@ -81,7 +82,7 @@ public class QCRequestHandler implements Runnable {
 				if(isAndroid){
 					final QCRequestHandler self = this;
 					//System.out.println("posting to run vco's");
-					QCAndroid act = (QCAndroid) newParameters.get("activity");
+					Activity act = (Activity) newParameters.get("activity");
 					act.runOnUiThread(new Runnable(){
 						  public void run() {
 							self.dispatchToVCO(command, newParameters);
