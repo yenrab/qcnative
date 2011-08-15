@@ -35,7 +35,7 @@
 @interface QCMapper (Private)
 
 //this is the active method for which the public mapCommandTo*** methods are a facade.
-- (void) mapCommandToCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName toMap:(NSMutableDictionary*)aMap;
+- (void) mapCommandToCO:(NSString*)aCommand withHandler:(Class)aHandlerClass toMap:(NSMutableDictionary*)aMap;
 
 //this is the active method for which the public dispatchTo***CO methods are a facade
 - (id) dispatchToCO: (NSString*)command withParameters: (NSArray*)parameters andMap:(NSDictionary*)aMap;
@@ -81,28 +81,28 @@
 }
 
 
-- (void) mapCommandToValCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName{ 
+- (void) mapCommandToValCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{ 
 	//NSLog(@"mapping ValCO");
-	[self mapCommandToCO:aCommand withHandler:aHandlerClassName toMap:self->validationMap];
+	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->validationMap];
 }
-- (void) mapCommandToBCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName{
+- (void) mapCommandToBCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{
 	//NSLog(@"mapping BCO");
-	[self mapCommandToCO:aCommand withHandler:aHandlerClassName toMap:self->businessMap];
+	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->businessMap];
 }
-- (void) mapCommandToVCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName{
+- (void) mapCommandToVCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{
 	//NSLog(@"mapping VCO");
-	[self mapCommandToCO:aCommand withHandler:aHandlerClassName toMap:self->viewMap];
+	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->viewMap];
 }
-- (void) mapCommandToECO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName{
+- (void) mapCommandToECO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{
 	//NSLog(@"mapping ECO");
-	[self mapCommandToCO:aCommand withHandler:aHandlerClassName toMap:self->errorMap];
+	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->errorMap];
 }
-- (void) mapCommandToSCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName{
+- (void) mapCommandToSCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{
 	//NSLog(@"mapping SCO");
-	[self mapCommandToCO:aCommand withHandler:aHandlerClassName toMap:self->securityMap];
+	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->securityMap];
 }
 
-- (void) mapCommandToCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName toMap:(NSMutableDictionary*)aMap{
+- (void) mapCommandToCO:(NSString*)aCommand withHandler:(Class)aHandlerClass toMap:(NSMutableDictionary*)aMap{
 	NSMutableArray *controlObjects = [aMap objectForKey:aCommand];
 	if(controlObjects == nil){
 		//NSLog(@"adding a new list");
@@ -112,12 +112,12 @@
 		[tmpCntrlObjs release];
 	}
 	//get the control object's class for the given name and add an object of that type to the array for the command.
-	Class aClass = NSClassFromString(aHandlerClassName);
-	if(aClass != nil){
-		[controlObjects addObject:aClass];
+	//Class aClass = NSClassFromString(aHandlerClassName);
+	if(aHandlerClass != nil){
+		[controlObjects addObject:aHandlerClass];
 	}
 	else{
-		NSLog(@"Error: unable to map the %@ class.  Make sure that it exists under this name and try again.",aHandlerClassName);
+		NSLog(@"Error: unable to map the %@ class.  Make sure that it exists under this name and try again.",aHandlerClass);
 	}
 }
 

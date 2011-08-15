@@ -1,0 +1,325 @@
+TQC Base
+v3
+r1
+cCheck dependencies
+cProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+cLibtool "/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386
+cPhaseScriptExecution "Run Script" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh"
+
+N/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk
+c000000004D5C9B4E0000000000000110
+t1297914702
+s272
+
+N/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h
+c000000004D54D01A000000000000046B
+t1297403930
+s1131
+
+N/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreCoordinator.h
+c000000004D54D01A0000000000002D76
+t1297403930
+s11638
+
+N/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004D54CFE5000000000029DA70
+t1297403877
+s2742896
+
+N/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004D54CFB80000000000001466
+t1297403832
+s5222
+
+N/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004D5615B40000000000000AA1
+t1297487284
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk
+c000000004D5C9B4E0000000000000110
+t1297914702
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h
+c000000004D54D01A000000000000046B
+t1297403930
+s1131
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreCoordinator.h
+c000000004D54D01A0000000000002D76
+t1297403930
+s11638
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004D54CFE5000000000029DA70
+t1297403877
+s2742896
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004D54CFB80000000000001466
+t1297403832
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004D5615B40000000000000AA1
+t1297487284
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk
+c000000004DF0EFD20000000000000154
+t1307635666
+s340
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h
+c000000004DD35D8E000000000000053B
+t1305697678
+s1339
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreCoordinator.h
+c000000004DD35D8E000000000000339D
+t1305697678
+s13213
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004DD9FE6700000000003519F0
+t1306132071
+s3480048
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004DD9FE510000000000001534
+t1306132049
+s5428
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004DDC89B70000000000000BCB
+t1306298807
+s3019
+
+N/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a
+t1307644919
+s60224
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QC Base-Prefix.pch
+c000000004DBF1929000000000000009B
+t1304369449
+s155
+i<Foundation/Foundation.h>
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.h
+c000000004DBF19290000000000000706
+t1304369449
+s1798
+i<UIKit/UIKit.h>
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.m
+c000000004DBF192900000000000006C9
+t1304369449
+s1737
+i"QCControlObject.h"
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.h
+c000000004DF10F1F0000000000000ACA
+t1307643679
+s2762
+i<UIKit/UIKit.h>
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.m
+c000000004DF10FF30000000000001451
+t1307643891
+s5201
+i"QCMapper.h"
+i"QCControlObject.h"
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.h
+c000000004DBF192900000000000004A3
+t1304369449
+s1187
+i<Foundation/Foundation.h>
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.m
+c000000004DEECF63000000000000155B
+t1307496291
+s5467
+i"QCRequestHandler.h"
+i"QCMapper.h"
+i"QCControlObject.h"
+i<CoreData/CoreData.h>
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.h
+c000000004DF111F100000000000009E4
+t1307644401
+s2532
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+i"QCMapper.h"
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.m
+c000000004DF1121F0000000000000BAD
+t1307644447
+s2989
+i"QuickConnect.h"
+i"QCMapper.h"
+i"QCRequestHandler.h"
+i<CoreData/NSPersistentStoreCoordinator.h>
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QC Base.LinkFileList
+c000000004DBF19560000000000000233
+t1304369494
+s563
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o
+t1307644918
+s3292
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o
+t1307644919
+s17348
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o
+t1307644919
+s24820
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o
+t1307644919
+s13392
+
+N/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh
+c000000004DBF19560000000000001172
+t1304369494
+s4466
+
+N/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch.gch
+t1307643894
+s9162992
+
+N/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-enneyryvanjxypbtvvfbsdqhcrwu/QC Base-Prefix.pch.gch
+t2
+s0
+
+N/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-fjsfecyfdchbqyahirzgfkqueosa/QC Base-Prefix.pch.gch
+t1304369494
+s8380240
+
+CCheck dependencies
+r0
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies88b8b5af72a8b341^282da8b072a8b341^---0#1#0#--18"Check dependencies
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+s329806512.664239
+e329806513.623306
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o
+x/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.m60adaab072a8b341^f38e9fb172a8b341^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QCControlObject.m0000000000000000^2422"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o" "QC Base/QCControlObject.m" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -include "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch" -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCControlObject.m" -o "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o"
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+s329806512.664360
+e329806513.639414
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o
+x/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.m7974abb072a8b341^75afa3b172a8b341^---0#0#0#-19%DVTDocumentLocation2@85"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QCMapper.m0000000000000000^2394"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o" "QC Base/QCMapper.m" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -include "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch" -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCMapper.m" -o "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o"
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+s329806512.664198
+e329806513.809220
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o
+x/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.medbbaab072a8b341^2926cfb172a8b341^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QCRequestHandler.m0000000000000000^2426"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o" "QC Base/QCRequestHandler.m" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -include "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch" -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QCRequestHandler.m" -o "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o"
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.m" normal i386 objective-c com.apple.compilers.llvmgcc42
+s329806512.664373
+e329806513.644233
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o
+x/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.mc1aaaab072a8b341^6ceaa4b172a8b341^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QuickConnect.m0000000000000000^2410"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o" "QC Base/QuickConnect.m" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -include "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch" -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QuickConnect.m" -o "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o"
+
+CLibtool "/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386
+s329806513.809981
+e329806513.854337
+r1
+xLibtool
+x/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a
+xnormal
+xi386
+o/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection161"Libtool "/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386d7bfcfb172a8b341^c8b4dab172a8b341^-136"/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#0#--1122"Libtool "/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/libtool -static -arch_only i386 -syslibroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -L/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -filelist "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QC Base.LinkFileList" -ObjC -framework Foundation -o "/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a"
+
+CPhaseScriptExecution "Run Script" "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh"
+s329806513.855683
+e329806513.883948
+r1
+xPhaseScriptExecution
+xRun Script
+x/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh
+oXCode has selected SDK: iphonesimulator with version: 5.0 (although back-targetting: 4.3)
+o...therefore, OTHER_SDK_TO_BUILD = iphoneos5.0
+oRECURSION: I am NOT the root invocation, so I'm NOT going to recurse
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Run custom shell script 'Run Script'bb45dcb172a8b341^056de2b172a8b341^-206"XCode has selected SDK: iphonesimulator with version: 5.0 (although back-targetting: 4.3)...therefore, OTHER_SDK_TO_BUILD = iphoneos5.0RECURSION: I am NOT the root invocation, so I'm NOT going to recurse3(21%IDEActivityLogMessage2@90"XCode has selected SDK: iphonesimulator with version: 5.0 (although back-targetting: 4.3)-329806513#0#90#-0#-----2@47"...therefore, OTHER_SDK_TO_BUILD = iphoneos5.0-329806513#90#47#-0#-----2@69"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse-329806513#137#69#-0#-----0#0#0#--17710"PhaseScriptExecution "Run Script" "build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh"    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER barneyl    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv AVAILABLE_PLATFORMS "iphonesimulator macosx iphoneos"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products    setenv BUILD_ROOT /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products    setenv BUILD_STYLE     setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator    setenv CACHE_ROOT /var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/JavaClasses"    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH "/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/libQC Base.a"    setenv COMBINE_HIDPI_IMAGES NO    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Release    setenv CONFIGURATION_BUILD_DIR /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator    setenv CONFIGURATION_TEMP_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator"    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP YES    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources"    setenv DERIVED_FILE_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources"    setenv DERIVED_SOURCES_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources"    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/QC_Base.dst    setenv DWARF_DSYM_FILE_NAME "libQC Base.a.dSYM"    setenv DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT NO    setenv DWARF_DSYM_FOLDER_PATH /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn .git *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLE_EXTENSION a    setenv EXECUTABLE_NAME "libQC Base.a"    setenv EXECUTABLE_PATH "libQC Base.a"    setenv EXECUTABLE_PREFIX lib    setenv EXECUTABLE_SUFFIX .a    setenv FILE_LIST "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects/LinkFileList"    setenv FIXED_FILES_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/FixedFiles"    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME "libQC Base.a"    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD gnu99    setenv GCC_ENABLE_SYMBOL_SEPARATION NO    setenv GCC_OBJC_LEGACY_DISPATCH YES    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER "QC Base/QC Base-Prefix.pch"    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION com.apple.compilers.llvmgcc42    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvmgcc42    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE NO    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include\" "    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PREPROCESS NO    setenv INSTALL_DIR /tmp/QC_Base.dst/usr/local/lib    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER barneyl    setenv INSTALL_PATH /usr/local/lib    setenv INSTALL_ROOT /tmp/QC_Base.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 4.3    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-LinkMap-normal-i386.txt"    setenv LD_NO_PIE NO    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEGACY_DEVELOPER_DIR /Developer/Library/Xcode/PrivatePlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator\" "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QC Base.LinkFileList"    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE staticlib    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 10J4138    setenv MAC_OS_X_VERSION_ACTUAL 1067    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0607    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ABI_VERSION 2    setenv OBJECT_FILE_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects"    setenv OBJECT_FILE_DIR_normal "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal"    setenv OBJROOT "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build"    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS -ObjC    setenv PACKAGE_TYPE com.apple.package-type.static-library    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PFE_FILE_C_DIALECTS objective-c    setenv PKGINFO_FILE_PATH "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/PkgInfo"    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Library/Xcode/PrivatePlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLATFORM_PREFERRED_ARCH i386    setenv PLATFORM_PRODUCT_BUILD_VERSION 9A5220p    setenv PLATFORM_VERSION_AVAILABILITY_H_FORMAT 50000    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/PrefixHeaders"    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH /usr/local/include    setenv PRODUCT_NAME "QC Base"    setenv PRODUCT_SETTINGS_PATH     setenv PRODUCT_TYPE com.apple.product-type.library.static    setenv PROFILING_CODE NO    setenv PROJECT "QC Base"    setenv PROJECT_DERIVED_FILE_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/DerivedSources"    setenv PROJECT_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv PROJECT_FILE_PATH "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base.xcodeproj"    setenv PROJECT_NAME "QC Base"    setenv PROJECT_TEMP_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build"    setenv PUBLIC_HEADERS_FOLDER_PATH /usr/local/include    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_GIT_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/ResourceManagerResources"    setenv REZ_EXECUTABLE YES    setenv REZ_OBJECTS_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/ResourceManagerResources/Objects"    setenv REZ_SEARCH_PATHS "\"/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk    setenv SDK_NAME iphonesimulator5.0    setenv SDK_PRODUCT_BUILD_VERSION 9A5220p    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP YES    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHARED_DERIVED_FILE_DIR /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/DerivedSources    setenv SHARED_PRECOMPS_DIR /var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SKIP_INSTALL NO    setenv SOURCE_ROOT "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv SRCROOT "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE debugging    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SUPPORTED_PLATFORMS "iphonesimulator iphoneos"    setenv SYMBOL_REPOSITORY_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/SymbolRepositories"    setenv SYMROOT "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build"    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1    setenv TARGETNAME "QC Base"    setenv TARGET_BUILD_DIR /Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator    setenv TARGET_NAME "QC Base"    setenv TARGET_TEMP_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build"    setenv TEMP_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build"    setenv TEMP_FILES_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build"    setenv TEMP_FILE_DIR "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build"    setenv TEMP_ROOT "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build"    setenv TEST_AFTER_BUILD YES    setenv UID 501    setenv UNSTRIPPED_PRODUCT NO    setenv USER barneyl    setenv USER_APPS_DIR /Users/barneyl/Applications    setenv USER_LIBRARY_DIR /Users/barneyl/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSION_INFO_BUILDER barneyl    setenv VERSION_INFO_FILE "QC Base_vers.c"    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:QC Base  PROJECT:QC Base-\""    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_PRODUCT_BUILD_VERSION 4C104    setenv XCODE_VERSION_ACTUAL 0420    setenv XCODE_VERSION_MAJOR 0400    setenv XCODE_VERSION_MINOR 0420    setenv YACC /Developer/usr/bin/yacc    /bin/sh -c "\"/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh\""
+
+CProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42
+s329336694.593516
+e329336694.974881
+r1
+xProcessPCH
+x/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch.gch
+xQC Base/QC Base-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Precompile QC Base/QC Base-Prefix.pch7384987647a1b341^718ff97647a1b341^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QC%20Base-Prefix.pch0000000000000000^2352"ProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QC Base-Prefix.pch" -o "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-bzifaaeownojfpdgrmtoocimuyam/QC Base-Prefix.pch.gch"
+
+CProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-enneyryvanjxypbtvvfbsdqhcrwu/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42
+s329337718.070204
+e329337718.793911
+r1
+xProcessPCH
+x/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-enneyryvanjxypbtvvfbsdqhcrwu/QC Base-Prefix.pch.gch
+xQC Base/QC Base-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Precompile QC Base/QC Base-Prefix.pchb87612764ba1b341^293dcb764ba1b341^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QC%20Base-Prefix.pch0000000000000000^2386"ProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-enneyryvanjxypbtvvfbsdqhcrwu/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer copy/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer copy/usr/bin:/Developer copy/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer copy/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer copy/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2" -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot "/Developer copy/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk" -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QC Base-Prefix.pch" -o "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-enneyryvanjxypbtvvfbsdqhcrwu/QC Base-Prefix.pch.gch"
+
+CProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-fjsfecyfdchbqyahirzgfkqueosa/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42
+s326062294.716040
+e326062295.090931
+r1
+xProcessPCH
+x/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-fjsfecyfdchbqyahirzgfkqueosa/QC Base-Prefix.pch.gch
+xQC Base/QC Base-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Precompile QC Base/QC Base-Prefix.pch73a0b7d6506fb341^dc4617d7506fb341^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/barneyl/junk/qcjava/Objective-C/QC%20Base/QC%20Base/QC%20Base-Prefix.pch0000000000000000^2352"ProcessPCH "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-fjsfecyfdchbqyahirzgfkqueosa/QC Base-Prefix.pch.gch" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvmgcc42    cd "/Users/barneyl/junk/qcjava/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator/include "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/barneyl/junk/qcjava/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/barneyl/Library/Developer/Xcode/DerivedData/QC_Base-fueymtrjkhfxevgraynngwysjxan/Build/Products/Release-iphonesimulator -c "/Users/barneyl/junk/qcjava/Objective-C/QC Base/QC Base/QC Base-Prefix.pch" -o "/var/folders/39/39mbwlS7GEGg7vOQTGtEM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-fjsfecyfdchbqyahirzgfkqueosa/QC Base-Prefix.pch.gch"
+

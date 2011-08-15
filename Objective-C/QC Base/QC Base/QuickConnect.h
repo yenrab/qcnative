@@ -54,11 +54,11 @@
 
 - (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters;
 
-- (void) mapCommandToBCO:(NSString*)aCommand withObject:(NSString*)aClassName;
-- (void) mapCommandToVCO:(NSString*)aCommand withObject:(NSString*)aClassName;
-- (void) mapCommandToValCO:(NSString*)aCommand withObject:(NSString*)aClassName;
-- (void) mapCommandToECO:(NSString*)aCommand withObject:(NSString*)aClassName;
-- (void) mapCommandToSCO:(NSString*)aCommand withObject:(NSString*)aClassName;
+- (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass;
+- (void) mapCommandToVCO:(NSString*)aCommand withObject:(Class)aClass;
+- (void) mapCommandToValCO:(NSString*)aCommand withObject:(Class)aClass;
+- (void) mapCommandToECO:(NSString*)aCommand withObject:(Class)aClass;
+- (void) mapCommandToSCO:(NSString*)aCommand withObject:(Class)aClass;
 
 
 @end

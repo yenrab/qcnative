@@ -111,14 +111,17 @@
     //set the default return to be YES so that if no command objects have been mapped processing still continues.
 	BOOL retVal = YES;
     NSArray *theControlObjects = [aDictionary objectForKey:self.command];
+    //NSLog(@"control objects: %@",theControlObjects);
 	if(theControlObjects != nil){
         if ([self.parameters objectForKey:@"qcrequest handler"] == nil) {
             [self.parameters setObject:self forKey:@"qcrequest handler"];
         }
-		int numCommandObjects = [theControlObjects count];
-		for(int i = startingIndex; i < numCommandObjects; i++){
+		int numControlObjects = [theControlObjects count];
+		for(int i = startingIndex; i < numControlObjects; i++){
 			QCControlObject *theControlClass = [theControlObjects objectAtIndex:i];
+            //NSLog(@"Control Object: %@",theControlClass);
 			id result = [[theControlClass class] doCommand:self.parameters];
+            //NSLog(@"result of CO call: %@",result);
 			if(result == nil ||
 					([result isKindOfClass:[NSString class]] && [((NSString*)result) isEqual:@"NO"])){
 				retVal = NO;

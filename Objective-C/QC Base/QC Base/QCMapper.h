@@ -50,10 +50,10 @@
  *	Below are a series of helper methods for mapping various types of methods to commands.
  *	Use these methods to create your command/action relationships in the buildMaps method.
  */
-- (void) mapCommandToValCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName;
-- (void) mapCommandToBCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName;
-- (void) mapCommandToVCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName;
-- (void) mapCommandToECO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName;
-- (void) mapCommandToSCO:(NSString*)aCommand withHandler:(NSString*)aHandlerClassName;
+- (void) mapCommandToValCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
+- (void) mapCommandToBCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
+- (void) mapCommandToVCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
+- (void) mapCommandToECO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
+- (void) mapCommandToSCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
 
 @end
