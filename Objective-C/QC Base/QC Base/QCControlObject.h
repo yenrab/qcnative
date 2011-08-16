@@ -47,5 +47,5 @@
  @param parameters The <b>NSMutableDictionary</b> instance passed into the QuickConnect handleRequest:withParameters: method by your application
  @returns <b>QC_STACK_CONTINUE</b> if no errors or exceptions happened within the handleIt: call or <b>QC_STACK_EXIT</b> if they did.
  */
-+ (id) handleIt:(NSMutableDictionary*) parameters;
++ (BOOL) handleIt:(NSMutableDictionary*) parameters;
 @end

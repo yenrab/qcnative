@@ -57,7 +57,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "QCMapper.h"
+
+@class QCMapper;
 
 @class NSPersistentStoreCoordinator;
 

@@ -134,9 +134,9 @@
 		for(int i = startingIndex; i < numControlObjects; i++){
 			QCControlObject *theControlClass = [theControlObjects objectAtIndex:i];
             //NSLog(@"Control Object: %@",theControlClass);
-			id result = [[theControlClass class] handleIt:self.parameters];
+			BOOL result = [[theControlClass class] handleIt:self.parameters];
             //NSLog(@"result of CO call: %@",result);
-			if(result == nil || result == QC_STACK_EXIT){
+			if(result == QC_STACK_EXIT){
 				retVal = NO;
 				break;
 			}
@@ -148,7 +148,6 @@
                     [parameterDictionary setObject:results forKey:@"BCOresults"];
                     [results release];
                 }
-                [results addObject:result];
 			}
 		} 
 	}

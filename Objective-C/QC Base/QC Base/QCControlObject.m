@@ -28,8 +28,8 @@
 /*
  *	Override this method to implement your custom behavior
  */
-+ (id) handleIt:(NSMutableDictionary*) parameters{
-	return parameters;
++ (BOOL) handleIt:(NSMutableDictionary*) parameters{
+	return QC_STACK_CONTINUE;
 }
 @end
 
