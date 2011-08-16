@@ -3596,7 +3596,7 @@
 		</dict>
 		<string>IDEWorkspaceTabController_4CA08EF7-01E7-427A-A3CD-8A7C3C1BA6D6</string>
 		<string>IDEWorkspaceWindowControllerUniqueIdentifier</string>
-		<string>{{279, 76}, {1400, 952}}</string>
+		<string>{{279, 112}, {1226, 916}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4260,8 +4260,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335157002.72039402</real>
-		<string>{2976, 3482}</string>
+		<real>335157136.62942398</real>
+		<string>{0, 2942}</string>
 		<string>{2993, 0}</string>
 		<dict>
 			<key>$class</key>
@@ -4295,7 +4295,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {1140, 876}}</string>
+		<string>{{0, 0}, {966, 840}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4477,7 +4477,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>298</real>
+		<real>252</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4507,7 +4507,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>841</real>
+		<real>713</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4576,7 +4576,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>298</real>
+		<real>252</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4606,7 +4606,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>841</real>
+		<real>713</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4785,7 +4785,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>652</real>
+		<real>616</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5009,7 +5009,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {259, 832}}</string>
+		<string>{{0, 0}, {259, 796}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5226,7 +5226,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>1140</real>
+		<real>966</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5929,8 +5929,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>335157002.719625</real>
-		<string>{2976, 3482}</string>
+		<real>335157136.62897199</real>
+		<string>{0, 2942}</string>
 		<string>{2993, 0}</string>
 		<dict>
 			<key>$class</key>
