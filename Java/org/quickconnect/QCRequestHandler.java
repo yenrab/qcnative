@@ -127,7 +127,7 @@ public class QCRequestHandler implements Runnable {
 					try {
 						ControlObject handler = COList.get(i);
 						result = (Boolean)handler.handleIt(parameters2);
-						if(result == false){
+						if(result == QC.EXIT_STACK){
 							break;
 						}
 					} catch (Exception e) {
@@ -227,7 +227,7 @@ public class QCRequestHandler implements Runnable {
 				if(handler != null){
 					try {
 						result = ((ControlObject)handler).handleIt(resultData);
-						if(result == null){
+						if(result == null || result == QC.EXIT_STACK){
 							resultData = null;
 							break;
 						}

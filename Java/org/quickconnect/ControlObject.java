@@ -31,7 +31,9 @@ package org.quickconnect;
 
 import java.util.HashMap;
 /**
- * The ControlObject is an Interface that all control stack objects must implement.  It consists of one method, handleIt.  
+ * The ControlObject is an Interface that all control stack objects must implement.  It consists of one method, handleIt.
+ * 
+ *   Your ControlObjects must implement this interface.
  * @author Lee S. Barney
  *
  */
@@ -40,7 +42,7 @@ public interface ControlObject {
 	 * 
 	 * @param parameters - The parameters that will be passed by the QuickConnect class to all of your control stack objects.
 	 *   The parameters HashMap is mutable.  Add key-value pairs to it to use them in later control objects.
-	 * @return - Return <b>null</b> to terminate the execution of the stack containing this ControlObject. Return any value to continue stack execution.
+	 * @return - Return <b>QC.EXIT_STACK</b> to terminate the execution of the stack containing this ControlObject or <b>QC.CONTINUE_STACK</b> to continue execution of the stack.
 	 */
 	public Object  handleIt(HashMap<String,Object> parameters);
 }

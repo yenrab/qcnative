@@ -10,13 +10,6 @@
  The above copyright notice and this permission notice shall be 
  included in all copies or substantial portions of the Software.
  
- The end-user documentation included with the redistribution, if any, must 
- include the following acknowledgment: 
- "This product was created using the QuickConnect framework.  http://www.quickconnectfamily.org", 
- in the same place and form as other third-party acknowledgments.   Alternately, this acknowledgment 
- may appear in the software itself, in the same form and location as other 
- such third-party acknowledgments.
- 
  
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
@@ -35,7 +28,7 @@
 /*
  *	Override this method to implement your custom behavior
  */
-+ (id) doCommand:(NSMutableDictionary*) parameters{
++ (id) handleIt:(NSMutableDictionary*) parameters{
 	return parameters;
 }
 @end
