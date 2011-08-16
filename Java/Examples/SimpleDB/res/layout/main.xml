@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+    
+    <EditText  android:id="@+id/nameEntry"
+			  android:layout_width="300sp"
+			  android:layout_height="40sp"
+			  android:singleLine="True"/>
+			  
+	<EditText  android:id="@+id/urlEntry"
+			  android:layout_width="300sp"
+			  android:layout_height="40sp"
+			  android:singleLine="True"/>
+	
+    <Button android:id="@+id/queryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Names" />
+    
+    <Button android:id="@+id/insertButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Store Name" />
+    
+    <Button android:id="@+id/httpQueryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make HTTP Request" />
+            
+	<TextView   android:id="@+id/results"
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content" 
+		    android:text="@string/hello"/>
+</LinearLayout>

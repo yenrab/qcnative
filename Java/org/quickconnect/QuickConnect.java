@@ -227,7 +227,7 @@ public class QuickConnect {
 	 *            - the class of BCO to be added to the stack. There may be as
 	 *            many different kinds of these added as needed.
 	 */
-	public static void mapCommandToBCO(String command, Class<ControlObject> handlerClass) {
+	public static void mapCommandToBCO(String command, Class handlerClass) {
 		mapCommandToHandler(command, handlerClass, businessMap);
 	}
 
@@ -245,7 +245,7 @@ public class QuickConnect {
 	 *            - the class of VCO to be added to the stack. There may be as
 	 *            many different kinds of these added as needed.
 	 */
-	public static void mapCommandToVCO(String command, Class<ControlObject> handlerClass) {
+	public static void mapCommandToVCO(String command, Class handlerClass) {
 		mapCommandToHandler(command, handlerClass, viewMap);
 	}
 
@@ -261,7 +261,7 @@ public class QuickConnect {
 	 *            - the class of ValCO to be added to the stack. There may be as
 	 *            many different kinds of these added as needed.
 	 */
-	public static void mapCommandToValCO(String command, Class<ControlObject> handlerClass) {
+	public static void mapCommandToValCO(String command, Class handlerClass) {
 		mapCommandToHandler(command, handlerClass, validationMap);
 	}
 
@@ -279,11 +279,11 @@ public class QuickConnect {
 	 *            - the class of ECO to be added to the stack. There may be as
 	 *            many different kinds of these added as needed.
 	 */
-	public static void mapCommandToECO(String command, Class<ControlObject> handlerClass) {
+	public static void mapCommandToECO(String command, Class handlerClass) {
 		mapCommandToHandler(command, handlerClass, errorMap);
 	}
 
-	private static void mapCommandToHandler(String command, Class<ControlObject> handlerClass,
+	private static void mapCommandToHandler(String command, Class handlerClass,
 			HashMap<String, ArrayList<ControlObject>> aMap) {
 		if (command != null) {
 			ArrayList<ControlObject> handlers = null;
