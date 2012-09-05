@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import javax.swing.SwingUtilities;
 /*
  * QCJavaEE uses the CommandDescriptor, ControlObject, PoolRejectedExecutionHandler, QC, StackCallback, and StackWaitMonitor classes
  * found in the QCAndroid src directory.

@@ -71,8 +71,12 @@ public class QCRequestHandler implements Runnable {
 			if(checkValidation(command, parameters) == QC.STACK_CONTINUE){
 				//System.out.println("passed validation");
 				if(dispatchToDCO(command, parameters) == QC.STACK_CONTINUE){
-					QCRequestHandler.this.dispatchToVCO(command, parameters);
-					checkExecuteCallback();
+					SwingUtilities.invokeLater(new Runnable(){
+						  public void run() {
+							  QCRequestHandler.this.dispatchToVCO(command, parameters);
+							  checkExecuteCallback();	
+						  }
+					});
 				}
 				else{
 					  checkExecuteCallback();
@@ -113,7 +117,11 @@ public class QCRequestHandler implements Runnable {
 	 * to communicate to the user.
 	 */
 	public void dispatchToECO(final String command, final HashMap<Object,Object> parameters){
-		QCRequestHandler.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
+		SwingUtilities.invokeLater(new Runnable(){
+			  public void run() {
+				  QCRequestHandler.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
+			  }
+		});
 	}
 
 	/*
