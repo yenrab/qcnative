@@ -8,7 +8,7 @@ import org.quickconnectfamily.QC;
 public class StuffVCO implements ControlObject {
 
 	@Override
-	public Boolean handleIt(HashMap<Object, Object> parameters) {
+	public int handleIt(HashMap<Object, Object> parameters) {
 		System.out.println("ui thread: "+Thread.currentThread().getId());
 		Thing aThing = (Thing)parameters.get("stuff");
 		Double origNum = (Double)parameters.get("num");

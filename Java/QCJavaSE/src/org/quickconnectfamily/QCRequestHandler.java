@@ -26,7 +26,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import android.os.Handler;
+import javax.swing.SwingUtilities;
+/*
+ * QCJavaSE uses the CommandDescriptor, ControlObject, PoolRejectedExecutionHandler, QC, StackCallback, and StackWaitMonitor classes
+ * found in the QCAndroid src directory.
+ */
 
 /*
  * This class is used by the QuickConnect class to do the actual work of executing the call stack.  Its methods 
@@ -37,17 +41,15 @@ public class QCRequestHandler implements Runnable {
 	private HashMap<Object,Object> parameters;
 	private StackCallback aCallback;
 	private AtomicInteger numRequestsToTrack;
-	private Handler theHandler;
 	private StackWaitMonitor theMonitor;
 	
 	
-	public QCRequestHandler(String command, HashMap<Object, Object> parameters, StackCallback aCallback, AtomicInteger numRequestsToTrack, Handler aHandler){
+	public QCRequestHandler(String command, HashMap<Object, Object> parameters, StackCallback aCallback, AtomicInteger numRequestsToTrack){
     
 		this.command = command;
 		this.parameters = parameters;
 		this.aCallback = aCallback;
 		this.numRequestsToTrack = numRequestsToTrack;
-		this.theHandler = aHandler;
 		this.theMonitor = new StackWaitMonitor();
 		parameters.put("stackMonitor", this.theMonitor);
 	}
@@ -69,12 +71,8 @@ public class QCRequestHandler implements Runnable {
 			if(checkValidation(command, parameters) == QC.STACK_CONTINUE){
 				//System.out.println("passed validation");
 				if(dispatchToDCO(command, parameters) == QC.STACK_CONTINUE){
-					theHandler.post(new Runnable(){
-						  public void run() {
-							  QCRequestHandler.this.dispatchToVCO(command, parameters);
-							  checkExecuteCallback();	
-						  }
-					});
+					QCRequestHandler.this.dispatchToVCO(command, parameters);
+					checkExecuteCallback();
 				}
 				else{
 					  checkExecuteCallback();
@@ -115,11 +113,7 @@ public class QCRequestHandler implements Runnable {
 	 * to communicate to the user.
 	 */
 	public void dispatchToECO(final String command, final HashMap<Object,Object> parameters){
-		theHandler.post(new Runnable(){
-			  public void run() {
-				  QCRequestHandler.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
-			  }
-		});
+		QCRequestHandler.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
 	}
 
 	/*

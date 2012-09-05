@@ -9,7 +9,7 @@ import org.quickconnectfamily.QuickConnect;
 
 public class StuffValCO implements ControlObject {
 	@Override
-	public Boolean handleIt(HashMap<Object, Object> parameters) {
+	public int handleIt(HashMap<Object, Object> parameters) {
 		Object aThing = parameters.get("stuff");
 		Object aNumber = parameters.get("num");
 		if(aThing == null || aNumber == null){

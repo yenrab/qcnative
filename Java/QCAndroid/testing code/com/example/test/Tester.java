@@ -10,28 +10,27 @@ import org.quickconnectfamily.QC;
 public class Tester implements ControlObject {
 	@SuppressWarnings("unchecked")
 	@Override
-	public Boolean handleIt(HashMap<Object, Object> parameters) {
+	public int handleIt(HashMap<Object, Object> parameters) {
         System.out.println("worker thread: "+Thread.currentThread().getId());
 		WeakReference<Object>theStuff = (WeakReference<Object>)parameters.get("stuff");
 		int test = 50;
 		while(test > 0){
 			test--;
 			System.out.println("weak ref is: "+theStuff);
-			//Object theButton = theStuff.get();
 			if(theStuff.get() == null){
-				System.out.println("the button is: null");
+				System.out.println("the weak reference is: null");
 				break;
 			}
 			else{
 				/*
-				 * This will cause a memory leak.
+				 * This will cause a memory leak on android.
 				 * Why does this happen??? Defect in Dalvik????
 				 */
 				Thing aThing = (Thing)theStuff.get();
-				System.out.println("the button is: "+aThing.getName());
+				System.out.println("the weakReference is: "+aThing.getName());
 				
 				/*
-				 * This will not cause a memory leak.
+				 * This will not cause a memory leak on Android.
 				 */
 				//System.out.println("the thing is: "+((Thing)theStuff.get()).getName());
 			}

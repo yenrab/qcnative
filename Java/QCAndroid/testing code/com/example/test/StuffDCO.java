@@ -8,7 +8,7 @@ import org.quickconnectfamily.QC;
 public class StuffDCO implements ControlObject {
 
 	@Override
-	public Boolean handleIt(HashMap<Object, Object> parameters) {
+	public int handleIt(HashMap<Object, Object> parameters) {
 		System.out.println("worker thread: "+Thread.currentThread().getId());
 		double aValue = (Double)parameters.get("num");
 		aValue = 10 + aValue;

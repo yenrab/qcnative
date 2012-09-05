@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
 		//QuickConnect.mapCommandToValCO("hello", Tester.class);
 
 		QuickConnect.mapCommandToValCO("hello", StuffValCO.class);
+		QuickConnect.mapCommandToDCO("hello", AsyncDCO.class);
 		QuickConnect.mapCommandToDCO("hello", StuffDCO.class);
 		QuickConnect.mapCommandToVCO("hello", StuffVCO.class);
 		
@@ -31,17 +32,18 @@ public class MainActivity extends Activity {
         parameters.put("stuff", aThing);
         parameters.put("num", 3.5);
         aThing = null;
-/*
+
         String[] commands = {"hello","hello"};
+ /*       QuickConnect.handleRequest(commands, parameters, true, new TestCallback());
         QuickConnect.handleRequest(commands, parameters, true, new TestCallback());
-        QuickConnect.handleRequest(commands, parameters, true, new TestCallback());
-*/
+
         TestCallback theCallback = new TestCallback();
         CommandDescriptor[] theDescriptors = {new CommandDescriptor("hello",parameters,theCallback, true)
         									 ,new CommandDescriptor("hello",parameters,theCallback, true)};
         QuickConnect.handleBatchRequest(theDescriptors);
-
+*/
         //QuickConnect.handleRequest("hello", parameters);
+        QuickConnect.handleRequest("hello", parameters, true, new TestCallback());
         System.gc();
         System.out.println("leaving scope.");
 
