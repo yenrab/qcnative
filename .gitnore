@@ -1,0 +1,4 @@
+.DS_Store
+*.a
+Objective-C/QC Base/build/**/*
+Objective-C/QC Base/QC Base.xcodeproj/project.xcworkspace/xcuserdata/**/*

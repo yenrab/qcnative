@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -22,15 +22,13 @@
 
 
 #import <UIKit/UIKit.h>
+#import "QCReturnValues.h"
 
 #ifdef UI_USER_INTERFACE_IDIOM
 #define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #else
 #define IS_IPAD() (false)
 #endif
-
-#define QC_STACK_CONTINUE      (BOOL)1            
-#define QC_STACK_EXIT          (BOOL)0
 
 /**
  The QCControlObject class is the class from which all Control Objects you create for your stacks inherit.  All ValCO, BCO, VCO, and ECO objects must inherit from this class in order to be processed correctly.
@@ -47,5 +45,5 @@
  @param parameters The <b>NSMutableDictionary</b> instance passed into the QuickConnect handleRequest:withParameters: method by your application
  @returns <b>QC_STACK_CONTINUE</b> if no errors or exceptions happened within the handleIt: call or <b>QC_STACK_EXIT</b> if they did.
  */
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters;
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters;
 @end

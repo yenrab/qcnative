@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -23,6 +23,7 @@
 #import "QCRequestHandler.h"
 #import "QCMapper.h"
 #import "QCControlObject.h"
+#import "StackWaitMonitor.h"
 #import <CoreData/CoreData.h>
 
 
@@ -48,13 +49,13 @@
 @synthesize command;
 @synthesize parameters;
 @synthesize mapper;
-@synthesize condition;
+@synthesize theMonitor;
 @synthesize coordinator;
 
 @synthesize queue;
 
 - (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator{
-	[super init];
+	if (!(self = [super init])) return nil;
 	
 	self.command = aCommand;
 	self.parameters = theParameters;
@@ -62,14 +63,14 @@
     self.coordinator = aCoordinator;
 	
 	NSCondition *theCondition = [[NSCondition alloc] init];
-	self.condition = theCondition;
-	[theCondition release];
-	
-	
+	self.theMonitor = [[StackWaitMonitor alloc]initWithCondition:theCondition];
+	return self;
+}
+
+- (void)run{
 	NSOperationQueue *theQueue = [[NSOperationQueue alloc] init];
 	self.queue = theQueue;
 	[theQueue addOperation:self];
-	return self;
 }
 
 
@@ -106,7 +107,7 @@
 - (BOOL) dispatchToECO: (NSString*)errorCommand withParameters: (NSMutableDictionary*)errorParameters{
     self.command = errorCommand;
 	//NSLog(@"\n\n******************doing error********************\n\n\n");
-	NSArray *allParams = [NSArray arrayWithObjects:errorCommand,errorParameters,nil];
+	NSArray *allParams = @[errorCommand,errorParameters];
 	[self performSelectorOnMainThread:@selector(executeECOs:)
 						   withObject:allParams
 						waitUntilDone:NO];
@@ -134,21 +135,15 @@
 		for(int i = startingIndex; i < numControlObjects; i++){
 			QCControlObject *theControlClass = [theControlObjects objectAtIndex:i];
             //NSLog(@"Control Object: %@",theControlClass);
-			BOOL result = [[theControlClass class] handleIt:self.parameters];
+			QCReturnValue result = [[theControlClass class] handleIt:self.parameters];
             //NSLog(@"result of CO call: %@",result);
 			if(result == QC_STACK_EXIT){
 				retVal = NO;
 				break;
 			}
-			if(aDictionary == self.mapper.businessMap){
-                NSMutableDictionary *parameterDictionary = (NSMutableDictionary*) self.parameters;
-                NSMutableArray *results = [parameterDictionary objectForKey:@"BCOresults"];
-                if (results == nil) {
-                    results = [[NSMutableArray alloc] initWithCapacity:1];
-                    [parameterDictionary setObject:results forKey:@"BCOresults"];
-                    [results release];
-                }
-			}
+            else if(result == QC_STACK_WAIT){
+                [self.theMonitor makeStackWait];
+            }
 		} 
 	}
 	return retVal;
@@ -171,9 +166,5 @@
 
 
 
-- (void)dealloc {
-	self.condition = nil;
-	[super dealloc];
-}
 
 @end

@@ -16,6 +16,8 @@
 		71BB17F1132FBE24006D5060 /* QCRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E9132FBE24006D5060 /* QCRequestHandler.m */; };
 		71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17EA132FBE24006D5060 /* QuickConnect.h */; };
 		71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17EB132FBE24006D5060 /* QuickConnect.m */; };
+		9BC9C5971608CF6000B30592 /* StackWaitMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */; };
+		9BC9C5981608CF6000B30592 /* StackWaitMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC9C5961608CF6000B30592 /* StackWaitMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		71BB17EA132FBE24006D5060 /* QuickConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConnect.h; sourceTree = "<group>"; };
 		71BB17EB132FBE24006D5060 /* QuickConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConnect.m; sourceTree = "<group>"; };
 		9B2472C7136C9F61004CC4B7 /* Build Instructions!!!!.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Build Instructions!!!!.txt"; sourceTree = "<group>"; };
+		9BC9C5931608CD2200B30592 /* QCReturnValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCReturnValues.h; sourceTree = "<group>"; };
+		9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackWaitMonitor.h; sourceTree = "<group>"; };
+		9BC9C5961608CF6000B30592 /* StackWaitMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackWaitMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,9 @@
 				71BB17EA132FBE24006D5060 /* QuickConnect.h */,
 				71BB17EB132FBE24006D5060 /* QuickConnect.m */,
 				71BB179D132FBD98006D5060 /* Supporting Files */,
+				9BC9C5931608CD2200B30592 /* QCReturnValues.h */,
+				9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */,
+				9BC9C5961608CF6000B30592 /* StackWaitMonitor.m */,
 			);
 			path = "QC Base";
 			sourceTree = "<group>";
@@ -106,6 +114,7 @@
 				71BB17EE132FBE24006D5060 /* QCMapper.h in Headers */,
 				71BB17F0132FBE24006D5060 /* QCRequestHandler.h in Headers */,
 				71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */,
+				9BC9C5971608CF6000B30592 /* StackWaitMonitor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +186,7 @@
 				71BB17EF132FBE24006D5060 /* QCMapper.m in Sources */,
 				71BB17F1132FBE24006D5060 /* QCRequestHandler.m in Sources */,
 				71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */,
+				9BC9C5981608CF6000B30592 /* StackWaitMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,9 +226,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/QC_Base.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QC Base/QC Base-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/QC Base\"",
@@ -232,9 +244,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/QC_Base.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QC Base/QC Base-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/QC Base\"",

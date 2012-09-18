@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -28,7 +28,7 @@
 /*
  *	Override this method to implement your custom behavior
  */
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
 	return QC_STACK_CONTINUE;
 }
 @end

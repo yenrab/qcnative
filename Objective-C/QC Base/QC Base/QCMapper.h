@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -32,12 +32,12 @@
 	NSMutableDictionary *databases;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *validationMap;
-@property (nonatomic, retain) NSMutableDictionary *businessMap;
-@property (nonatomic, retain) NSMutableDictionary *viewMap;
-@property (nonatomic, retain) NSMutableDictionary *errorMap;
-@property (nonatomic, retain) NSMutableDictionary *securityMap;
-@property (nonatomic, retain) NSMutableDictionary *databases;
+@property (nonatomic, strong) NSMutableDictionary *validationMap;
+@property (nonatomic, strong) NSMutableDictionary *businessMap;
+@property (nonatomic, strong) NSMutableDictionary *viewMap;
+@property (nonatomic, strong) NSMutableDictionary *errorMap;
+@property (nonatomic, strong) NSMutableDictionary *securityMap;
+@property (nonatomic, strong) NSMutableDictionary *databases;
 
 /*
  *	Below are a series of helper methods for mapping various types of methods to commands.

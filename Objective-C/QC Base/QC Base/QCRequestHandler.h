@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -24,23 +24,24 @@
 
 @class QCMapper;
 @class NSPersistentStoreCoordinator;
+@class StackWaitMonitor;
 
 @interface QCRequestHandler : NSOperation {
 	NSString *command;
 	NSMutableDictionary *parameters;
     NSOperationQueue *queue;
 	QCMapper *mapper;
-    
-	NSCondition *condition;
+    StackWaitMonitor *theMonitor;
+	//NSCondition *condition;
     NSPersistentStoreCoordinator *coordinator;
 	
 }
-@property(nonatomic,retain) NSString *command;
-@property(nonatomic,retain) NSMutableDictionary *parameters;
-@property(nonatomic,retain) QCMapper *mapper;
-@property(nonatomic, retain) NSCondition *condition;
-@property(nonatomic, retain) NSOperationQueue *queue;
-@property(nonatomic, retain) NSPersistentStoreCoordinator *coordinator;
+@property(nonatomic,strong) NSString *command;
+@property(nonatomic,strong) NSMutableDictionary *parameters;
+@property(nonatomic,strong) QCMapper *mapper;
+@property(nonatomic, strong) StackWaitMonitor *theMonitor;
+@property(nonatomic, strong) NSOperationQueue *queue;
+@property(nonatomic, strong) NSPersistentStoreCoordinator *coordinator;
 
 - (BOOL) dispatchToValCO;
 - (BOOL) dispatchToBCO;
@@ -49,5 +50,7 @@
 
 
 - (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator;
+
+- (void) run;
 
 @end

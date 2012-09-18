@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -102,7 +102,6 @@
 		NSMutableArray *tmpCntrlObjs = [[NSMutableArray alloc] initWithCapacity:1];
 		[aMap setObject: tmpCntrlObjs forKey:aCommand];
 		controlObjects = tmpCntrlObjs;
-		[tmpCntrlObjs release];
 	}
 	//get the control object's class for the given name and add an object of that type to the array for the command.
 	//Class aClass = NSClassFromString(aHandlerClassName);
@@ -114,13 +113,5 @@
 	}
 }
 
--(void)dealloc{
-	[self->validationMap dealloc];
-	[self->businessMap dealloc];
-	[self->viewMap dealloc];
-	[self->errorMap dealloc];
-	[self->securityMap dealloc];
-	[super dealloc];
-}
 
 @end

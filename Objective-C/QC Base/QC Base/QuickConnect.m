@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -40,7 +40,7 @@
 
 - (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters{
 	QCRequestHandler *aHandler = [[QCRequestHandler alloc] initWithCommand:aCmd andParameters:parameters usingController:self.theMapper andCoordinator:theCoordinator];
-	[aHandler release];
+    [aHandler run];
 }
 
 - (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass{
@@ -67,9 +67,5 @@
 - (QuickConnect*) initWithPersistentStoreCoodinator:(NSPersistentStoreCoordinator *)aCoordinator{
     self.theCoordinator = aCoordinator;
     return [self init];
-}
-- (void) dealloc{
-	[theMapper release];
-	[super dealloc];
 }
 @end
