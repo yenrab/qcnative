@@ -44,7 +44,7 @@
  *	Use these methods to create your command/action relationships in the buildMaps method.
  */
 - (void) mapCommandToValCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
-- (void) mapCommandToDCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
+- (void) mapCommandToBCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
 - (void) mapCommandToVCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
 - (void) mapCommandToECO:(NSString*)aCommand withHandler:(Class)aHandlerClass;
 - (void) mapCommandToSCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;

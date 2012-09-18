@@ -78,7 +78,7 @@
 	//NSLog(@"mapping ValCO");
 	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->validationMap];
 }
-- (void) mapCommandToBCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{
+- (void) mapCommandToDCO:(NSString*)aCommand withHandler:(Class)aHandlerClass;{
 	//NSLog(@"mapping BCO");
 	[self mapCommandToCO:aCommand withHandler:aHandlerClass toMap:self->businessMap];
 }

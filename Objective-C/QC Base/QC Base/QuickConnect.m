@@ -44,7 +44,10 @@
 }
 
 - (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass{
-    [theMapper mapCommandToBCO:aCommand withHandler:aClass];
+    [self mapCommandToDCO:aCommand withObject:aClass];
+}
+- (void) mapCommandToDCO:(NSString*)aCommand withObject:(Class)aClass{
+    [theMapper mapCommandToDCO:aCommand withHandler:aClass];
 }
 - (void) mapCommandToVCO:(NSString*)aCommand withObject:(Class)aClass{
 	[theMapper mapCommandToVCO:aCommand withHandler:aClass];

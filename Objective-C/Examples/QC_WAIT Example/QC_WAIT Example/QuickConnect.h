@@ -116,8 +116,7 @@
  @param aCommand The <b>NSString</b> that uniquely identifies the stack of Control Objects being created.
  @param aClass The <b>Class</b> of the Control Object to be added to the stack.  Example: [GetUserBCO class] 
  */
-- (void) mapCommandToDCO:(NSString*)aCommand withObject:(Class)aClass;
-- (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass DEPRECATED_ATTRIBUTE;
+- (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass;
 /**
  This method maps a specific View Control Object, see the description at the top of this page, to the view modification portion of the stack indicated by the command string.
  

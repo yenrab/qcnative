@@ -50,7 +50,6 @@
 @synthesize parameters;
 @synthesize mapper;
 @synthesize theMonitor;
-@synthesize coordinator;
 
 @synthesize queue;
 
@@ -75,6 +74,8 @@
 
 
 - (void)main {
+    
+    [self.parameters setObject:self forKey:@"qcrequest handler"];
 	[[NSRunLoop currentRunLoop] run];
 	if([self dispatchToValCO]){
 		if([self dispatchToBCO]){
@@ -128,9 +129,6 @@
     NSArray *theControlObjects = [aDictionary objectForKey:self.command];
     //NSLog(@"control objects: %@",theControlObjects);
 	if(theControlObjects != nil){
-        if ([self.parameters objectForKey:@"qcrequest handler"] == nil) {
-            [self.parameters setObject:self forKey:@"qcrequest handler"];
-        }
 		int numControlObjects = [theControlObjects count];
 		for(int i = startingIndex; i < numControlObjects; i++){
 			QCControlObject *theControlClass = [theControlObjects objectAtIndex:i];
