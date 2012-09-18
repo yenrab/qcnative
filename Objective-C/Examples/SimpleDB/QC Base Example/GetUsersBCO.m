@@ -13,7 +13,7 @@
 @implementation GetUsersBCO
 
 
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
 
     //get the managed object context for use in the core data request
     QCRequestHandler *theHandler = [parameters objectForKey:@"qcrequest handler"];

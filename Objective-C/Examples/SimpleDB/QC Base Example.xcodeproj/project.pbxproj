@@ -28,6 +28,7 @@
 		712E11461340F4F600698278 /* GenericECO.m in Sources */ = {isa = PBXBuildFile; fileRef = 712E113B1340F4F600698278 /* GenericECO.m */; };
 		712E11471340F4F600698278 /* MissingValueECO.m in Sources */ = {isa = PBXBuildFile; fileRef = 712E113D1340F4F600698278 /* MissingValueECO.m */; };
 		71A41ADA1341024700AE350C /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71A41AD91341024700AE350C /* About.txt */; };
+		9BC9C5D01608DF7100B30592 /* HideKeyboardVCO.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC9C5CF1608DF7000B30592 /* HideKeyboardVCO.m */; };
 		9BF0F99E13FA16A500F324AE /* qc_native.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF0F99D13FA16A500F324AE /* qc_native.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,10 @@
 		712E113C1340F4F600698278 /* MissingValueECO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissingValueECO.h; sourceTree = "<group>"; };
 		712E113D1340F4F600698278 /* MissingValueECO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissingValueECO.m; sourceTree = "<group>"; };
 		71A41AD91341024700AE350C /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
+		9BC9C59D1608DAA000B30592 /* QCReturnValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCReturnValues.h; sourceTree = "<group>"; };
+		9BC9C59F1608DB0C00B30592 /* QCRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCRequestHandler.h; sourceTree = "<group>"; };
+		9BC9C5CE1608DF7000B30592 /* HideKeyboardVCO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HideKeyboardVCO.h; sourceTree = "<group>"; };
+		9BC9C5CF1608DF7000B30592 /* HideKeyboardVCO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HideKeyboardVCO.m; sourceTree = "<group>"; };
 		9BF0F99D13FA16A500F324AE /* qc_native.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = qc_native.a; sourceTree = "<group>"; };
 		9BF0F99F13FA16CA00F324AE /* QCControlObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCControlObject.h; sourceTree = "<group>"; };
 		9BF0F9A013FA16CA00F324AE /* QuickConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConnect.h; sourceTree = "<group>"; };
@@ -135,6 +140,8 @@
 		712E110C1340F1C300698278 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BC9C59F1608DB0C00B30592 /* QCRequestHandler.h */,
+				9BC9C59D1608DAA000B30592 /* QCReturnValues.h */,
 				9BF0F99F13FA16CA00F324AE /* QCControlObject.h */,
 				9BF0F9A013FA16CA00F324AE /* QuickConnect.h */,
 				9BF0F99D13FA16A500F324AE /* qc_native.a */,
@@ -169,6 +176,8 @@
 				712E113B1340F4F600698278 /* GenericECO.m */,
 				712E113C1340F4F600698278 /* MissingValueECO.h */,
 				712E113D1340F4F600698278 /* MissingValueECO.m */,
+				9BC9C5CE1608DF7000B30592 /* HideKeyboardVCO.h */,
+				9BC9C5CF1608DF7000B30592 /* HideKeyboardVCO.m */,
 			);
 			name = "Control Objects";
 			sourceTree = "<group>";
@@ -208,6 +217,9 @@
 /* Begin PBXProject section */
 		712E10F61340F1C300698278 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+			};
 			buildConfigurationList = 712E10F91340F1C300698278 /* Build configuration list for PBXProject "QC Base Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -257,6 +269,7 @@
 				712E11451340F4F600698278 /* DisplayHtmlVCO.m in Sources */,
 				712E11461340F4F600698278 /* GenericECO.m in Sources */,
 				712E11471340F4F600698278 /* MissingValueECO.m in Sources */,
+				9BC9C5D01608DF7100B30592 /* HideKeyboardVCO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,10 +333,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QC Base Example/QC Base Example-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "QC Base Example/QC Base Example-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,9 +353,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QC Base Example/QC Base Example-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "QC Base Example/QC Base Example-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

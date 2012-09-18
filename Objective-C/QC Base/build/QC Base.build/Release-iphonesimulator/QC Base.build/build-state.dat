@@ -1,0 +1,216 @@
+TQC Base
+v5
+r1
+cCheck dependencies
+cProcessPCH "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch.pth" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool "/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386
+cPhaseScriptExecution "Run Script" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh"
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
+c000000005047798C0000000000000110
+t1346861452
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004FE3921E0000000000353830
+t1340314142
+s3487792
+
+N/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a
+t1347985853
+s75952
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QC Base-Prefix.pch
+c000000005047828F000000000000009B
+t1346863759
+s155
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.h
+c0000000050589A740000000000000925
+t1347983988
+s2341
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.m
+c0000000050589A740000000000000532
+t1347983988
+s1330
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.h
+c0000000050589CDC0000000000000922
+t1347984604
+s2338
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.m
+c0000000050589CDC00000000000011DA
+t1347984604
+s4570
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.h
+c0000000050589DD900000000000008A2
+t1347984857
+s2210
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.m
+c0000000050589DE80000000000001661
+t1347984872
+s5729
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCReturnValues.h
+c0000000050589A7400000000000004DF
+t1347983988
+s1247
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.h
+c0000000050589CDC000000000000205B
+t1347984604
+s8283
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.m
+c0000000050589DF50000000000000B76
+t1347984885
+s2934
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.h
+c0000000050589CDC0000000000000533
+t1347984604
+s1331
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.m
+c0000000050589A7000000000000005BF
+t1347983984
+s1471
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QC Base.LinkFileList
+c000000005058A1B000000000000002EB
+t1347985840
+s747
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o
+t1347985841
+s4496
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o
+t1347985841
+s18264
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o
+t1347985841
+s27796
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o
+t1347985841
+s15624
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.o
+t1347985841
+s8192
+
+N/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh
+c000000005058A1B00000000000001174
+t1347985840
+s4468
+
+N/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch.pth
+t1347984614
+s2583520
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies337088ddd908b641^3f1c94ddd908b641^---0#1#0#--18"Check dependencies36"46A7E685-E8AB-4A6B-8072-56596B86CB86-
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s369678640.833196
+e369678641.043549
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o
+x/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.m5131d630d908b641^df360b31d908b641^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/lee/qc_github_repo/qcnative/Objective-C/QC%20Base/QC%20Base/QCControlObject.m0000000000000000^4386"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o" "QC Base/QCControlObject.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator -include "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch" -MMD -MT dependencies -MF "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.d" --serialize-diagnostics "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.dia" -c "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCControlObject.m" -o "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCControlObject.o"36"9D5B6B93-3715-486D-A94F-9C09C43F965C-
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s369678640.833215
+e369678641.060095
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o
+x/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.m7b2fd630d908b641^3b730f31d908b641^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/lee/qc_github_repo/qcnative/Objective-C/QC%20Base/QC%20Base/QCMapper.m0000000000000000^4344"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o" "QC Base/QCMapper.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator -include "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch" -MMD -MT dependencies -MF "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.d" --serialize-diagnostics "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.dia" -c "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCMapper.m" -o "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCMapper.o"36"8F4E89C8-4857-4DEF-B3FB-E18D29D662D3-
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s369678640.833394
+e369678641.103555
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o
+x/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.m7634d630d908b641^73821a31d908b641^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/lee/qc_github_repo/qcnative/Objective-C/QC%20Base/QC%20Base/QCRequestHandler.m0000000000000000^4392"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o" "QC Base/QCRequestHandler.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator -include "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch" -MMD -MT dependencies -MF "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.d" --serialize-diagnostics "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.dia" -c "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QCRequestHandler.m" -o "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QCRequestHandler.o"36"9345DCFC-20EA-4852-B0E2-7D76A320FE30-
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s369678640.833227
+e369678641.026616
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o
+x/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.me146d630d908b641^9e960731d908b641^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Users/lee/qc_github_repo/qcnative/Objective-C/QC%20Base/QC%20Base/QuickConnect.m0000000000000000^4368"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o" "QC Base/QuickConnect.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator -include "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch" -MMD -MT dependencies -MF "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.d" --serialize-diagnostics "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.dia" -c "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/QuickConnect.m" -o "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QuickConnect.o"36"3E188047-B8FD-48A6-B02C-3BC79E6F666F-
+
+CCompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.o" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s369678641.029797
+e369678641.074988
+r1
+xCompileC
+xbuild/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.o
+x/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.mb54e0831d908b641^46421331d908b641^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/lee/qc_github_repo/qcnative/Objective-C/QC%20Base/QC%20Base/StackWaitMonitor.m0000000000000000^4392"CompileC "build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.o" "QC Base/StackWaitMonitor.m" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-generated-files.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-own-target-headers.hmap" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-all-target-headers.hmap" -iquote "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/QC Base-project-headers.hmap" -I/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources/i386" "-I/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/DerivedSources" -F/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator -include "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch" -MMD -MT dependencies -MF "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.d" --serialize-diagnostics "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.dia" -c "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base/StackWaitMonitor.m" -o "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/StackWaitMonitor.o"36"06240231-D51A-4464-977F-93D309C35F8E-
+
+CLibtool "/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386
+s369678641.110438
+e369678641.120741
+r1
+xLibtool
+x/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a
+xnormal
+xi386
+o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection157"Libtool "/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a" normal i38665a61c31d908b641^19e81e31d908b641^-159"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#0#--1919"Libtool "/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a" normal i386    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -L/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator "-L/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/QC Base" -filelist "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Objects-normal/i386/QC Base.LinkFileList" -ObjC -framework Foundation -o "/Users/lee/Library/Developer/Xcode/DerivedData/QC_Base-afkyiguloovktgfdbcxrcpexskfs/Build/Products/Release-iphonesimulator/libQC Base.a"36"EF2F3C42-A61F-460D-BFF8-6B2BAD8A8526-
+
+CPhaseScriptExecution "Run Script" "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh"
+s369678813.609621
+e369678813.631305
+r1
+xPhaseScriptExecution
+xRun Script
+x/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh
+oXCode has selected SDK: iphonesimulator with version: 5.1 (although back-targetting: 4.3)
+o...therefore, OTHER_SDK_TO_BUILD = iphoneos5.1
+oRECURSION: I am NOT the root invocation, so I'm NOT going to recurse
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Run custom shell script 'Run Script'64ae9cddd908b641^8d9ca1ddd908b641^-206"XCode has selected SDK: iphonesimulator with version: 5.1 (although back-targetting: 4.3)...therefore, OTHER_SDK_TO_BUILD = iphoneos5.1RECURSION: I am NOT the root invocation, so I'm NOT going to recurse3(21%IDEActivityLogMessage2@90"XCode has selected SDK: iphonesimulator with version: 5.1 (although back-targetting: 4.3)-369678813#0#90#-0#-----2@47"...therefore, OTHER_SDK_TO_BUILD = iphoneos5.1-369678813#90#47#-0#-----2@69"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse-369678813#137#69#-0#-----0#0#0#--362"PhaseScriptExecution "Run Script" "build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh"    cd "/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base"    /bin/sh -c "\"/Users/lee/qc_github_repo/qcnative/Objective-C/QC Base/build/QC Base.build/Release-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh\""36"59A12E66-5E70-47FE-B1F3-1391D093297F-
+
+CProcessPCH "/var/folders/wx/fmw1jfgn72zdyfmlcs76tt000000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/QC Base-Prefix-cjufqvivcpvocpchpycnavckhqcw/QC Base-Prefix.pch.pth" "QC Base/QC Base-Prefix.pch" normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+

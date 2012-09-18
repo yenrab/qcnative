@@ -13,7 +13,7 @@
 
 @implementation AddUserBCO
 
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     
 	//get the managed object context for use in the core data request
     QCRequestHandler *theHandler = [parameters objectForKey:@"qcrequest handler"];
@@ -35,7 +35,7 @@
 	//create a UUID for the user
     CFUUIDRef	userUUID = CFUUIDCreate(nil);//create a new UUID
     //get the string representation of the UUID
-    NSString	*userUuidString = (NSString*)CFUUIDCreateString(nil, userUUID);
+    NSString	*userUuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(nil, userUUID));
     CFRelease(userUUID);
     //get the name entered
     NSString *uname = [parameters objectForKey:@"name"];

@@ -11,11 +11,11 @@
 
 @implementation ShowSuccessVCO
 
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     UITextView *resultView = [parameters objectForKey:@"resultDisplay"];
     NSString *displayString = [NSString stringWithFormat:@"%@ entered!",[parameters objectForKey:@"name"]];
     resultView.text = displayString;
-    return QC_STACK_EXIT;
+    return QC_STACK_CONTINUE;
 }
 @end
 

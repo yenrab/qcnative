@@ -18,6 +18,7 @@
 #import "DisplayHtmlVCO.h"
 #import "GenericECO.h"
 #import "MissingValueECO.h"
+#import "HideKeyboardVCO.h"
 
 @implementation QC_Base_ExampleAppDelegate
 
@@ -54,12 +55,14 @@
     [aQuickConnect mapCommandToValCO:@"add" withObject:[CheckNameValCO class]];
 	[aQuickConnect mapCommandToBCO:@"add" withObject:[AddUserBCO class]];
 	[aQuickConnect mapCommandToVCO:@"add" withObject:[ShowSuccessVCO class]];
+    [aQuickConnect mapCommandToVCO:@"add" withObject:[HideKeyboardVCO class]];
     
     /*
      * control stack for displaying all user information
      */
 	[aQuickConnect mapCommandToBCO:@"query" withObject:[GetUsersBCO class]];
 	[aQuickConnect mapCommandToVCO:@"query" withObject:[ListUsersVCO class]];
+    [aQuickConnect mapCommandToVCO:@"query" withObject:[HideKeyboardVCO class]];
     
     
     /*
@@ -69,6 +72,7 @@
     [aQuickConnect mapCommandToValCO:@"requestHtml" withObject:[UrlCheckValCO class]];
 	[aQuickConnect mapCommandToBCO:@"requestHtml" withObject:[GetRequestBCO class]];
 	[aQuickConnect mapCommandToVCO:@"requestHtml" withObject:[DisplayHtmlVCO class]];
+    [aQuickConnect mapCommandToVCO:@"requestHtml" withObject:[HideKeyboardVCO class]];
     
     
 	/*
@@ -92,15 +96,15 @@
  */
 
 -(void) doInsert: (id) sender{
-    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.nameInput.text, @"name", self.resultView, @"resultDisplay", nil];
+    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.nameInput, @"nameInput", self.urlInput, @"urlInput", nil];
     [aQuickConnect handleRequest:@"add" withParameters:paramsDictionary];
 }
 -(void) doQuery: (id) sender{
-    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.resultView, @"resultDisplay", nil];
+    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.nameInput, @"nameInput", self.urlInput, @"urlInput",self.resultView, @"resultDisplay", nil];
     [aQuickConnect handleRequest:@"query" withParameters:paramsDictionary];
 }
 -(void) doHTTPRequest: (id) sender{
-    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.urlInput.text, @"url", self.resultView, @"resultDisplay", nil];
+    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.nameInput, @"nameInput", self.urlInput, @"urlInput",self.urlInput.text, @"url", self.resultView, @"resultDisplay", nil];
     [aQuickConnect handleRequest:@"requestHtml" withParameters:paramsDictionary];
 }
 
@@ -141,14 +145,6 @@
     [self saveContext];
 }
 
-- (void)dealloc
-{
-    [_window release];
-    [__managedObjectContext release];
-    [__managedObjectModel release];
-    [__persistentStoreCoordinator release];
-    [super dealloc];
-}
 
 - (void)awakeFromNib
 {

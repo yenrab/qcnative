@@ -10,7 +10,7 @@
 
 
 @implementation GenericECO
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     UITextView *resultView = [parameters objectForKey:@"resultDisplay"];
     resultView.text = [NSString stringWithFormat:@"%@.  %@.",[parameters objectForKey:@"description"], [parameters objectForKey:@"reason"]];
     return QC_STACK_EXIT;

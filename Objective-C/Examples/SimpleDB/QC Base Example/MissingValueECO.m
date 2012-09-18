@@ -11,7 +11,7 @@
 
 @implementation MissingValueECO
 
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     UITextView *resultView = [parameters objectForKey:@"resultDisplay"];
     resultView.text = @"You must enter a value in the required field.";
     return QC_STACK_EXIT;

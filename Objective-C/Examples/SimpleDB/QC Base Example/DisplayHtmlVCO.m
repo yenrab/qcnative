@@ -10,11 +10,11 @@
 
 
 @implementation DisplayHtmlVCO
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     UITextView *resultView = [parameters objectForKey:@"resultDisplay"];
     NSString *displayString = [parameters objectForKey:@"html"];
     resultView.text = displayString;
-    return QC_STACK_EXIT;
+    return QC_STACK_CONTINUE;
 
 }
 @end

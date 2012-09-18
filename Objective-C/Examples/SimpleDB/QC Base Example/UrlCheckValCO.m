@@ -11,9 +11,11 @@
 
 
 @implementation UrlCheckValCO
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     
-    NSString *aUrl = [parameters objectForKey:@"url"];
+    UITextView *urlInput = [parameters objectForKey:@"urlInput"];
+    NSString *aUrl = urlInput.text;
+    [parameters setValue:aUrl forKey:@"url"];
     aUrl = [aUrl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([aUrl length] == 0) {
         //an example of how to handle a validation failure

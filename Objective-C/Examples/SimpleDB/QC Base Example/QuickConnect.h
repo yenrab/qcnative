@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2008, 2009 Lee Barney
+ Copyright (c) 2008, 2009, 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a 
  copy of this software and associated documentation files (the "Software"), 
  to deal in the Software without restriction, including without limitation the 
@@ -85,8 +85,8 @@
 	
 	
 }
-@property (nonatomic, retain) QCMapper *theMapper;
-@property (nonatomic, retain) NSPersistentStoreCoordinator *theCoordinator;
+@property (nonatomic, strong) QCMapper *theMapper;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *theCoordinator;
 
 /*
  *	parameters is an optional parameter to this method

@@ -13,7 +13,8 @@
 @implementation ListUsersVCO
 
 
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
+    
     UITextView *resultView = [parameters objectForKey:@"resultDisplay"];
     NSMutableString *theText = [NSMutableString stringWithCapacity:0];
 	[theText appendString:@"\tUUID\t\t\t\t\t\t\t\t\t\t\tuname\n\n"];
@@ -27,7 +28,7 @@
          aUser.id, aUser.name];
     }
 	resultView.text = theText;
-    return QC_STACK_EXIT;
+    return QC_STACK_CONTINUE;
 }
 
 @end

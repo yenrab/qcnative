@@ -10,7 +10,7 @@
 #import "QCRequestHandler.h"
 
 @implementation GetRequestBCO
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     QCRequestHandler *theHandler = [parameters objectForKey:@"qcrequest handler"];
     NSURL *url = [parameters objectForKey:@"url"];
     NSError *error = nil;

@@ -10,10 +10,11 @@
 
 @implementation CheckNameValCO
 
-+ (BOOL) handleIt:(NSMutableDictionary*) parameters{
++ (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     BOOL retVal = QC_STACK_EXIT;
-    
-    NSString *aName = [parameters objectForKey:@"name"];
+    UITextView *nameInput = [parameters objectForKey:@"nameInput"];
+    NSString *aName = nameInput.text;
+    [parameters setValue:aName forKey:@"name"];
     aName = [aName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([aName length] > 0) {
         retVal = QC_STACK_CONTINUE;
