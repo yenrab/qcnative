@@ -1,9 +1,8 @@
 package com.example.test;
 
 import java.util.HashMap;
-import java.util.concurrent.locks.Condition;
 
-import org.quickconnectfamily.StackWaitMonitor;
+import org.quickconnectfamily.ControlObjectStack;
 
 public class SimulatedAsyncBehavior implements Runnable {
 
@@ -15,15 +14,14 @@ public class SimulatedAsyncBehavior implements Runnable {
 	}
 
 
-
 	@Override
 	public void run() {
 		
 		try {
 			System.out.println("simulate waiting on some fake background task. "+Thread.currentThread().getName());
 			Thread.sleep(5000);
-			StackWaitMonitor stackMonitor = (StackWaitMonitor) parameters.get("stackMonitor");
-			stackMonitor.continueStack();
+			ControlObjectStack theStack = (ControlObjectStack) parameters.get("co_stack");
+			theStack.resume();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

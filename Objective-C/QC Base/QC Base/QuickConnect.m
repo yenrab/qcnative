@@ -29,7 +29,7 @@
 
 #import "QuickConnect.h"
 #import "QCMapper.h"
-#import "QCRequestHandler.h"
+#import "ControlObjectStack.h"
 #import <CoreData/NSPersistentStoreCoordinator.h>
 
 
@@ -39,7 +39,7 @@
 @synthesize theCoordinator;
 
 - (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters{
-	QCRequestHandler *aHandler = [[QCRequestHandler alloc] initWithCommand:aCmd andParameters:parameters usingController:self.theMapper andCoordinator:theCoordinator];
+	ControlObjectStack *aHandler = [[ControlObjectStack alloc] initWithCommand:aCmd andParameters:parameters usingController:self.theMapper andCoordinator:theCoordinator];
     [aHandler run];
 }
 

@@ -39,7 +39,6 @@ public class StackWaitMonitor {
 		try {
 			theCondition.await();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally{

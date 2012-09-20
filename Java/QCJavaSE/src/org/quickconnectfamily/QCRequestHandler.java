@@ -36,7 +36,7 @@ import javax.swing.SwingUtilities;
  * This class is used by the QuickConnect class to do the actual work of executing the call stack.  Its methods 
  * handle the threading issues such as when to execute control stack object handleIt methods in the main UI thread.
  */
-public class QCRequestHandler implements Runnable {
+public class ControlObjectStack implements Runnable {
 	private String command;
 	private HashMap<Object,Object> parameters;
 	private StackCallback aCallback;
@@ -44,14 +44,18 @@ public class QCRequestHandler implements Runnable {
 	private StackWaitMonitor theMonitor;
 	
 	
-	public QCRequestHandler(String command, HashMap<Object, Object> parameters, StackCallback aCallback, AtomicInteger numRequestsToTrack){
+	public ControlObjectStack(String command, HashMap<Object, Object> parameters, StackCallback aCallback, AtomicInteger numRequestsToTrack){
     
 		this.command = command;
 		this.parameters = parameters;
 		this.aCallback = aCallback;
 		this.numRequestsToTrack = numRequestsToTrack;
 		this.theMonitor = new StackWaitMonitor();
-		parameters.put("stackMonitor", this.theMonitor);
+		parameters.put("co_stack", this);
+	}
+	
+	public void resume(){
+		this.theMonitor.continueStack();
 	}
 	/*
 	 * (non-Javadoc)
@@ -73,7 +77,7 @@ public class QCRequestHandler implements Runnable {
 				if(dispatchToDCO(command, parameters) == QC.STACK_CONTINUE){
 					SwingUtilities.invokeLater(new Runnable(){
 						  public void run() {
-							  QCRequestHandler.this.dispatchToVCO(command, parameters);
+							  ControlObjectStack.this.dispatchToVCO(command, parameters);
 							  checkExecuteCallback();	
 						  }
 					});
@@ -119,7 +123,7 @@ public class QCRequestHandler implements Runnable {
 	public void dispatchToECO(final String command, final HashMap<Object,Object> parameters){
 		SwingUtilities.invokeLater(new Runnable(){
 			  public void run() {
-				  QCRequestHandler.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
+				  ControlObjectStack.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
 			  }
 		});
 	}

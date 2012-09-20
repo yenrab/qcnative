@@ -12,8 +12,8 @@
 		71BB17ED132FBE24006D5060 /* QCControlObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E5132FBE24006D5060 /* QCControlObject.m */; };
 		71BB17EE132FBE24006D5060 /* QCMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17E6132FBE24006D5060 /* QCMapper.h */; };
 		71BB17EF132FBE24006D5060 /* QCMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E7132FBE24006D5060 /* QCMapper.m */; };
-		71BB17F0132FBE24006D5060 /* QCRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17E8132FBE24006D5060 /* QCRequestHandler.h */; };
-		71BB17F1132FBE24006D5060 /* QCRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E9132FBE24006D5060 /* QCRequestHandler.m */; };
+		71BB17F0132FBE24006D5060 /* ControlObjectStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17E8132FBE24006D5060 /* ControlObjectStack.h */; };
+		71BB17F1132FBE24006D5060 /* ControlObjectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E9132FBE24006D5060 /* ControlObjectStack.m */; };
 		71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17EA132FBE24006D5060 /* QuickConnect.h */; };
 		71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17EB132FBE24006D5060 /* QuickConnect.m */; };
 		9BC9C5971608CF6000B30592 /* StackWaitMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */; };
@@ -28,8 +28,8 @@
 		71BB17E5132FBE24006D5060 /* QCControlObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCControlObject.m; sourceTree = "<group>"; };
 		71BB17E6132FBE24006D5060 /* QCMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCMapper.h; sourceTree = "<group>"; };
 		71BB17E7132FBE24006D5060 /* QCMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCMapper.m; sourceTree = "<group>"; };
-		71BB17E8132FBE24006D5060 /* QCRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCRequestHandler.h; sourceTree = "<group>"; };
-		71BB17E9132FBE24006D5060 /* QCRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCRequestHandler.m; sourceTree = "<group>"; };
+		71BB17E8132FBE24006D5060 /* ControlObjectStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlObjectStack.h; sourceTree = "<group>"; };
+		71BB17E9132FBE24006D5060 /* ControlObjectStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlObjectStack.m; sourceTree = "<group>"; };
 		71BB17EA132FBE24006D5060 /* QuickConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConnect.h; sourceTree = "<group>"; };
 		71BB17EB132FBE24006D5060 /* QuickConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConnect.m; sourceTree = "<group>"; };
 		9BC9C5931608CD2200B30592 /* QCReturnValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCReturnValues.h; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 				71BB17E5132FBE24006D5060 /* QCControlObject.m */,
 				71BB17E6132FBE24006D5060 /* QCMapper.h */,
 				71BB17E7132FBE24006D5060 /* QCMapper.m */,
-				71BB17E8132FBE24006D5060 /* QCRequestHandler.h */,
-				71BB17E9132FBE24006D5060 /* QCRequestHandler.m */,
+				71BB17E8132FBE24006D5060 /* ControlObjectStack.h */,
+				71BB17E9132FBE24006D5060 /* ControlObjectStack.m */,
 				71BB17EA132FBE24006D5060 /* QuickConnect.h */,
 				71BB17EB132FBE24006D5060 /* QuickConnect.m */,
 				71BB179D132FBD98006D5060 /* Supporting Files */,
@@ -110,7 +110,7 @@
 			files = (
 				71BB17EC132FBE24006D5060 /* QCControlObject.h in Headers */,
 				71BB17EE132FBE24006D5060 /* QCMapper.h in Headers */,
-				71BB17F0132FBE24006D5060 /* QCRequestHandler.h in Headers */,
+				71BB17F0132FBE24006D5060 /* ControlObjectStack.h in Headers */,
 				71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */,
 				9BC9C5971608CF6000B30592 /* StackWaitMonitor.h in Headers */,
 			);
@@ -183,7 +183,7 @@
 			files = (
 				71BB17ED132FBE24006D5060 /* QCControlObject.m in Sources */,
 				71BB17EF132FBE24006D5060 /* QCMapper.m in Sources */,
-				71BB17F1132FBE24006D5060 /* QCRequestHandler.m in Sources */,
+				71BB17F1132FBE24006D5060 /* ControlObjectStack.m in Sources */,
 				71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */,
 				9BC9C5981608CF6000B30592 /* StackWaitMonitor.m in Sources */,
 			);
