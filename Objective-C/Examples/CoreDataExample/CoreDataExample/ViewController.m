@@ -117,7 +117,7 @@
  */
 
 -(void) doInsert: (id) sender{
-    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.nameInput.text, @"name", self.nameInput, @"nameInput", self.urlInput, @"urlInput", nil];
+    NSMutableDictionary *paramsDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.nameInput.text, @"name", self.nameInput, @"nameInput", self.urlInput, @"urlInput",self.resultView, @"resultDisplay", nil];
     [aQC handleRequest:@"add" withParameters:paramsDictionary];
 }
 -(void) doQuery: (id) sender{

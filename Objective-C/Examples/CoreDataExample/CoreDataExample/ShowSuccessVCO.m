@@ -13,7 +13,7 @@
 
 + (QCReturnValue) handleIt:(NSMutableDictionary*) parameters{
     UITextView *resultView = [parameters objectForKey:@"resultDisplay"];
-    NSString *displayString = [NSString stringWithFormat:@"%@ entered!",[parameters objectForKey:@"name"]];
+    NSString *displayString = [NSString stringWithFormat:@"%@ inserted!",[parameters objectForKey:@"name"]];
     resultView.text = displayString;
     return QC_STACK_CONTINUE;
 }
