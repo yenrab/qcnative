@@ -26,6 +26,8 @@
 @class NSPersistentStoreCoordinator;
 @class StackWaitMonitor;
 
+typedef void (^Callback)();
+
 @interface ControlObjectStack : NSOperation
 
 @property(nonatomic,strong) NSString *command;
@@ -35,7 +37,7 @@
 @property(nonatomic, strong) NSOperationQueue *queue;
 @property(nonatomic, strong) NSPersistentStoreCoordinator *coordinator;
 @property(readwrite) int numberOfRequestsToTrack;
-@property(nonatomic, strong) NSOperation *callback;
+@property(readwrite, copy) Callback callback;
 
 - (BOOL) dispatchToValCO;
 - (BOOL) dispatchToBCO;
@@ -43,7 +45,7 @@
 - (BOOL) dispatchToECO: (NSString*)errorCommand withParameters: (NSMutableDictionary*)parameters;
 
 
-- (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator trackingRequestCount:(int)numberOfRequestsToTrack withCallback:(NSOperation*)aCallback;
+- (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator trackingRequestCount:(int)numberOfRequestsToTrack withCallback:(void (^)(void))aCallbackBlock;
 
 - (void) run;
 

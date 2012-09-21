@@ -51,18 +51,19 @@
 @synthesize mapper;
 @synthesize theMonitor;
 @synthesize numberOfRequestsToTrack;
+@synthesize callback;
 
 @synthesize queue;
 
-- (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator trackingRequestCount:(int)numberOfRequestsToTrack withCallback:(NSOperation*)aCallback{
+- (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator trackingRequestCount:(int)theNumberOfRequestsToTrack withCallback:(void (^)(void))aCallbackBlock{
 	if (!(self = [super init])) return nil;
 	
 	self.command = aCommand;
 	self.parameters = theParameters;
 	self.mapper = theAppController;
     self.coordinator = aCoordinator;
-    self.numberOfRequestsToTrack = numberOfRequestsToTrack;
-    self.callback = aCallback;
+    self.numberOfRequestsToTrack = theNumberOfRequestsToTrack;
+    self.callback = aCallbackBlock;
 	
 	NSCondition *theCondition = [[NSCondition alloc] init];
 	self.theMonitor = [[StackWaitMonitor alloc]initWithCondition:theCondition];
@@ -175,7 +176,7 @@
 
 - (void) executeCallback{
     if (self.numberOfRequestsToTrack-- <= 0) {
-        [[NSOperationQueue currentQueue] addOperation:self.callback];
+        self.callback();
     }
 }
 

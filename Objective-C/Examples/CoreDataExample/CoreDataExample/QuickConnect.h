@@ -109,11 +109,14 @@
  */
 - (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters;
 
-- (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(NSOperation*) aCallback;
-- (void) handleMultipleRequests: (NSArray*) commands withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(NSOperation*) aCallback;
+- (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(void (^)(void))aCallbackBlock;
+
+- (void) handleArrayOfRequests: (NSArray*) commands withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(void (^)(void))aCallbackBlock;
 
 - (void) handleRequest: (CommandDescriptor*)aDescriptor;
+
 - (void) handleBatchRequest: (NSArray*)theDescriptors;
+
 
 
 
