@@ -50,16 +50,19 @@
 @synthesize parameters;
 @synthesize mapper;
 @synthesize theMonitor;
+@synthesize numberOfRequestsToTrack;
 
 @synthesize queue;
 
-- (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator{
+- (id) initWithCommand:(NSString*)aCommand andParameters:(NSMutableDictionary*)theParameters usingController:(QCMapper*)theAppController andCoordinator:(NSPersistentStoreCoordinator*)aCoordinator trackingRequestCount:(int)numberOfRequestsToTrack withCallback:(NSOperation*)aCallback{
 	if (!(self = [super init])) return nil;
 	
 	self.command = aCommand;
 	self.parameters = theParameters;
 	self.mapper = theAppController;
     self.coordinator = aCoordinator;
+    self.numberOfRequestsToTrack = numberOfRequestsToTrack;
+    self.callback = aCallback;
 	
 	NSCondition *theCondition = [[NSCondition alloc] init];
 	self.theMonitor = [[StackWaitMonitor alloc]initWithCondition:theCondition];
@@ -153,7 +156,9 @@
 }
 
 - (BOOL) executeVCOs:(NSString*)aCommand{
-	return [self executeCOsInDictionary:self.mapper.viewMap];
+	[self executeCOsInDictionary:self.mapper.viewMap];
+    [self executeCallback];
+    return YES;
 }
 
 
@@ -165,6 +170,13 @@
 
 - (BOOL) executeCOsInDictionary:(NSDictionary*) theDictionary{
 	return [self dispatchToCO:theDictionary];
+}
+
+
+- (void) executeCallback{
+    if (self.numberOfRequestsToTrack-- <= 0) {
+        [[NSOperationQueue currentQueue] addOperation:self.callback];
+    }
 }
 
 

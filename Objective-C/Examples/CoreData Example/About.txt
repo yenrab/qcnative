@@ -1,1 +1,0 @@
-This is an example of how to use the Objective-C implementation of the QuickConnect design pattern to interact with CoreData and doing an http request.

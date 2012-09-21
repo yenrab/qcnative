@@ -16,6 +16,8 @@
 		71BB17F1132FBE24006D5060 /* ControlObjectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17E9132FBE24006D5060 /* ControlObjectStack.m */; };
 		71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = 71BB17EA132FBE24006D5060 /* QuickConnect.h */; };
 		71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB17EB132FBE24006D5060 /* QuickConnect.m */; };
+		9BB4BDBD160CD21900714472 /* CommandDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB4BDBB160CD21900714472 /* CommandDescriptor.h */; };
+		9BB4BDBE160CD21900714472 /* CommandDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4BDBC160CD21900714472 /* CommandDescriptor.m */; };
 		9BC9C5971608CF6000B30592 /* StackWaitMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */; };
 		9BC9C5981608CF6000B30592 /* StackWaitMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC9C5961608CF6000B30592 /* StackWaitMonitor.m */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		71BB17E9132FBE24006D5060 /* ControlObjectStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlObjectStack.m; sourceTree = "<group>"; };
 		71BB17EA132FBE24006D5060 /* QuickConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConnect.h; sourceTree = "<group>"; };
 		71BB17EB132FBE24006D5060 /* QuickConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConnect.m; sourceTree = "<group>"; };
+		9BB4BDBB160CD21900714472 /* CommandDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandDescriptor.h; sourceTree = "<group>"; };
+		9BB4BDBC160CD21900714472 /* CommandDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandDescriptor.m; sourceTree = "<group>"; };
 		9BC9C5931608CD2200B30592 /* QCReturnValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCReturnValues.h; sourceTree = "<group>"; };
 		9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackWaitMonitor.h; sourceTree = "<group>"; };
 		9BC9C5961608CF6000B30592 /* StackWaitMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackWaitMonitor.m; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				9BC9C5931608CD2200B30592 /* QCReturnValues.h */,
 				9BC9C5951608CF6000B30592 /* StackWaitMonitor.h */,
 				9BC9C5961608CF6000B30592 /* StackWaitMonitor.m */,
+				9BB4BDBB160CD21900714472 /* CommandDescriptor.h */,
+				9BB4BDBC160CD21900714472 /* CommandDescriptor.m */,
 			);
 			path = "QC Base";
 			sourceTree = "<group>";
@@ -113,6 +119,7 @@
 				71BB17F0132FBE24006D5060 /* ControlObjectStack.h in Headers */,
 				71BB17F2132FBE24006D5060 /* QuickConnect.h in Headers */,
 				9BC9C5971608CF6000B30592 /* StackWaitMonitor.h in Headers */,
+				9BB4BDBD160CD21900714472 /* CommandDescriptor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +193,7 @@
 				71BB17F1132FBE24006D5060 /* ControlObjectStack.m in Sources */,
 				71BB17F3132FBE24006D5060 /* QuickConnect.m in Sources */,
 				9BC9C5981608CF6000B30592 /* StackWaitMonitor.m in Sources */,
+				9BB4BDBE160CD21900714472 /* CommandDescriptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

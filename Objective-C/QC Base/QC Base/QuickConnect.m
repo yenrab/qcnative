@@ -30,17 +30,66 @@
 #import "QuickConnect.h"
 #import "QCMapper.h"
 #import "ControlObjectStack.h"
+#import "CommandDescriptor.h"
 #import <CoreData/NSPersistentStoreCoordinator.h>
 
+@interface QuickConnect(hidden)
+- (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(NSOperation*)aCallback andTrackRequestCount:(int)theNumberOfRequests;
+
+@end
 
 @implementation QuickConnect
 
 @synthesize theMapper;
 @synthesize theCoordinator;
+@synthesize theGroupMap;
 
 - (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters{
-	ControlObjectStack *aHandler = [[ControlObjectStack alloc] initWithCommand:aCmd andParameters:parameters usingController:self.theMapper andCoordinator:theCoordinator];
-    [aHandler run];
+	[self handleRequest:aCmd withParameters:parameters runInBackground:YES withCallback:nil];
+}
+- (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(NSOperation*) aCallback{
+    NSArray *subCommands = [theGroupMap objectForKey:aCmd];
+    if(subCommands){
+        for(int i = 0; i < [subCommands count]; i++){
+            NSString *aSubCommand = [subCommands objectAtIndex:i];
+            [self handleRequest:aSubCommand withParameters:parameters runInBackground:backgroundFlag withCallback:aCallback];
+        }
+        return;
+    }
+    [self handleRequest:aCmd withParameters:parameters runInBackground:backgroundFlag withCallback:aCallback andTrackRequestCount:1];
+}
+
+
+- (void) handleArrayOfRequests: (NSArray*) commands withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(NSOperation*) aCallback{
+    int numRequestsToTrack = [commands count];
+    if(backgroundFlag){
+        numRequestsToTrack = 1;
+    }
+    for (int i = 0; i <[commands count]; i++) {
+        [self handleRequest:[commands objectAtIndex:i] withParameters:parameters runInBackground:backgroundFlag withCallback:aCallback];
+    }
+}
+
+- (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(NSOperation*)aCallback andTrackRequestCount:(int)theNumberOfRequests{
+    if(backgroundFlag){
+        ControlObjectStack *aStack = [[ControlObjectStack alloc] initWithCommand:aCmd andParameters:parameters usingController:self.theMapper andCoordinator:theCoordinator trackingRequestCount:theNumberOfRequests withCallback:aCallback];
+        [aStack run];
+    }
+    else{
+        [[[ControlObjectStack alloc] initWithCommand:aCmd andParameters:parameters usingController:self.theMapper andCoordinator:theCoordinator trackingRequestCount:theNumberOfRequests withCallback:aCallback] run];
+    }
+}
+
+- (void) handleRequest: (CommandDescriptor*)aDescriptor{
+    [self handleRequest:aDescriptor.command withParameters:aDescriptor.parameters runInBackground:aDescriptor.runInBackground withCallback:aDescriptor.callback];
+}
+
+- (void) handleBatchRequest: (NSArray*)theDescriptors{
+    int numDescriptors = [theDescriptors count];
+    for (int i = 0; i < numDescriptors; i++) {
+        CommandDescriptor *aDescriptor = [theDescriptors objectAtIndex:i];
+        [self handleRequest:aDescriptor.command withParameters:aDescriptor.parameters runInBackground:aDescriptor.runInBackground withCallback:aDescriptor.callback andTrackRequestCount:numDescriptors];
+    }
 }
 
 - (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass{
