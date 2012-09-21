@@ -27,12 +27,13 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import android.os.Handler;
+import android.os.Looper;
 
 /*
  * This class is used by the QuickConnect class to do the actual work of executing the call stack.  Its methods 
  * handle the threading issues such as when to execute control stack object handleIt methods in the main UI thread.
  */
-public class QCRequestHandler implements Runnable {
+public class ControlObjectStack implements Runnable {
 	private String command;
 	private HashMap<Object,Object> parameters;
 	private StackCallback aCallback;
@@ -41,7 +42,7 @@ public class QCRequestHandler implements Runnable {
 	private StackWaitMonitor theMonitor;
 	
 	
-	public QCRequestHandler(String command, HashMap<Object, Object> parameters, StackCallback aCallback, AtomicInteger numRequestsToTrack, Handler aHandler){
+	public ControlObjectStack(String command, HashMap<Object, Object> parameters, StackCallback aCallback, AtomicInteger numRequestsToTrack, Handler aHandler){
     
 		this.command = command;
 		this.parameters = parameters;
@@ -71,7 +72,7 @@ public class QCRequestHandler implements Runnable {
 				if(dispatchToDCO(command, parameters) == QC.STACK_CONTINUE){
 					theHandler.post(new Runnable(){
 						  public void run() {
-							  QCRequestHandler.this.dispatchToVCO(command, parameters);
+							  ControlObjectStack.this.dispatchToVCO(command, parameters);
 							  checkExecuteCallback();	
 						  }
 					});
@@ -117,7 +118,7 @@ public class QCRequestHandler implements Runnable {
 	public void dispatchToECO(final String command, final HashMap<Object,Object> parameters){
 		theHandler.post(new Runnable(){
 			  public void run() {
-				  QCRequestHandler.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
+				  ControlObjectStack.this.dispatchToHandlers(QuickConnect.getErrorMap(), command, parameters);
 			  }
 		});
 	}
@@ -144,7 +145,8 @@ public class QCRequestHandler implements Runnable {
 						if(result == QC.STACK_EXIT){
 							break;
 						}
-						if(result == QC.STACK_WAIT){
+						//don't wait the thread if it is the main UI thread due to executing a View Control Object
+						if(result == QC.STACK_WAIT && Looper.getMainLooper().getThread() != Thread.currentThread()){
 							this.theMonitor.makeStackWait();
 						}
 					}

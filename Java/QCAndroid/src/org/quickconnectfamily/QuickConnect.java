@@ -168,10 +168,10 @@ public class QuickConnect {
 
 	private static void handleRequest(String command, HashMap<Object, Object> parameters, boolean runInBackground, StackCallback aCallback, AtomicInteger numRequestsToTrack) {
 		if(runInBackground){
-			thePool.execute(new QCRequestHandler(command, parameters, aCallback, numRequestsToTrack, theMainThreadHandler));
+			thePool.execute(new ControlObjectStack(command, parameters, aCallback, numRequestsToTrack, theMainThreadHandler));
 		}
 		else{
-			new QCRequestHandler(command, parameters, aCallback, numRequestsToTrack, theMainThreadHandler).run();
+			new ControlObjectStack(command, parameters, aCallback, numRequestsToTrack, theMainThreadHandler).run();
 		}
 	}
 
@@ -195,7 +195,7 @@ public class QuickConnect {
 	 *            the stack.
 	 */
 	public static void handleError(String command,HashMap<Object, Object> parameters) {
-		new QCRequestHandler(command, parameters, null, new AtomicInteger(1), theMainThreadHandler).dispatchToECO(command,parameters);
+		new ControlObjectStack(command, parameters, null, new AtomicInteger(1), theMainThreadHandler).dispatchToECO(command,parameters);
 	}
 
 	protected static HashMap<String, ArrayList<ControlObject>> getValidationMap() {

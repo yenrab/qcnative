@@ -150,7 +150,7 @@ public class ControlObjectStack implements Runnable {
 						if(result == QC.STACK_EXIT){
 							break;
 						}
-						if(result == QC.STACK_WAIT){
+						if(result == QC.STACK_WAIT && !SwingUtilities.isEventDispatchThread()){
 							this.theMonitor.makeStackWait();
 						}
 					}
