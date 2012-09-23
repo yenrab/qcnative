@@ -1,16 +1,6 @@
-*.a
-Objective-C/QC Base/build/**/*
-Objective-C/QC Base/QC Base.xcodeproj/project.xcworkspace/xcuserdata/**/*
-Objective-C/Examples/CoreDataExample/CoreDataExample.xcodeproj/project.xcworkspace/xcuserdata/**/*
 .DS_Store
 
 *.xcscheme
-
-*.xcscheme
-
-Objective-C/QC Base/build/QC Base.build/Debug-iphonesimulator/QC Base.build/Objects-normal/i386/CommandDescriptor.d
-
-*.xcuserstate
 
 *.a
 
@@ -22,12 +12,20 @@ Objective-C/QC Base/QC Base.xcodeproj/xcuserdata/lee.xcuserdatad/xcschemes/xcsch
 
 Objective-C/Examples/CoreDataExample/CoreDataExample.xcodeproj/project.xcworkspace/xcuserdata/lee.xcuserdatad/UserInterfaceState.xcuserstate
 
-*.xcuserstate
-
-*.xcuserstate
-
-*.a
-
 Objective-C/QC Base/qc_native.a
 
-Objective-C/QC Base/qc_native.a
+*.d
+
+*.dia
+
+*.o
+
+*.LinkFileList
+
+*.hmap
+
+*.dep
+
+Objective-C/QC Base/build/QC Base.build/Debug-iphonesimulator/QC Base.build/Script-71BB1879132FC126006D5060.sh
+
+Objective-C/QC Base/build/QC Base.build/Debug-iphonesimulator/QC Base.build/build-state.dat
