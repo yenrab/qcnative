@@ -3,3 +3,5 @@ Objective-C/QC Base/build/**/*
 Objective-C/QC Base/QC Base.xcodeproj/project.xcworkspace/xcuserdata/**/*
 Objective-C/Examples/CoreDataExample/CoreDataExample.xcodeproj/project.xcworkspace/xcuserdata/**/*
 .DS_Store
+
+*.xcscheme
