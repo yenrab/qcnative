@@ -5,3 +5,7 @@ Objective-C/Examples/CoreDataExample/CoreDataExample.xcodeproj/project.xcworkspa
 .DS_Store
 
 *.xcscheme
+
+*.xcscheme
+
+Objective-C/QC Base/build/QC Base.build/Debug-iphonesimulator/QC Base.build/Objects-normal/i386/CommandDescriptor.d
