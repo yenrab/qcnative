@@ -11,3 +11,23 @@ Objective-C/Examples/CoreDataExample/CoreDataExample.xcodeproj/project.xcworkspa
 Objective-C/QC Base/build/QC Base.build/Debug-iphonesimulator/QC Base.build/Objects-normal/i386/CommandDescriptor.d
 
 *.xcuserstate
+
+*.a
+
+*.xcuserstate
+
+Objective-C/QC Base/QC Base.xcodeproj/xcuserdata/lee.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcuserstate
+
+Objective-C/Examples/CoreDataExample/CoreDataExample.xcodeproj/project.xcworkspace/xcuserdata/lee.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate
+
+*.xcuserstate
+
+*.a
+
+Objective-C/QC Base/qc_native.a
+
+Objective-C/QC Base/qc_native.a
