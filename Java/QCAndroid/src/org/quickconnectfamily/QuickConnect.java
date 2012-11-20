@@ -168,7 +168,8 @@ public class QuickConnect {
 
 	private static void handleRequest(String command, HashMap<Object, Object> parameters, boolean runInBackground, StackCallback aCallback, AtomicInteger numRequestsToTrack) {
 		if(runInBackground){
-			thePool.execute(new ControlObjectStack(command, parameters, aCallback, numRequestsToTrack, theMainThreadHandler));
+			thePool.execute(new ControlObjectStack(command, parameters, 
+					aCallback, numRequestsToTrack, theMainThreadHandler));
 		}
 		else{
 			new ControlObjectStack(command, parameters, aCallback, numRequestsToTrack, theMainThreadHandler).run();

@@ -58,7 +58,6 @@ public class ControlObjectStack implements Runnable {
 	 * This method executes first, the validation control objects, then the data control objects, and then the view control objects.
 	 */
 	public void run() {
-		System.out.println("running request handler");
 		/*
 		 * This try-catch is there to make sure the app
 		 * doesn't crash if a control object is attempting

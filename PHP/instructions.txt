@@ -1,0 +1,4 @@
+Select 'Copy Files' that is shown when your project target is expanded.  
+Click the blue 'Info' button.  Change the path to point at the directory of the 
+PHP application server you have on your machine.  This will cause the files in 
+your application to be deployed everytime you click build.

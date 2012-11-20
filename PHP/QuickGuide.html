@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>QuickConnectPHP Creation Quick Guide</title>
+</head>
+<body>
+<h1>QuickConnectPHP Creation Quick Guide</h1>
+<h2>Application Creation Steps</h2>
+<ol>
+	<li>If you are using Oracle, change the loginBR function to use the OracleDataAccessObject (still in pre-release version)</li>
+	<li>Change the user name, password, and database URL to reflect your actual database</li>
+	<li>If you are using MySQL, change the database schema to reflect your schema to use</li>
+</ol>
+
+<h2>Application Implementation Steps</h2>
+Do once:<br />
+change the name of QuickConnect.php to reflect the name of your application.
+<br/>
+<br/>
+For each new piece of functionality:
+<ol>
+	<li>Write any ValCF's, validation control functions, needed for this new command</li>
+	<li>Write zero or more DCF's, data control functions, for the desired new functionality in the functions file</li>
+	<li>Write one or more VCF's, view control functions, to format the response to the client.  This can be text, HTML, XML, JSON, etc. 
+		depending on what the client application expects</li>
+	<li>Map the command that will be passed on the http request to the ValCF's, DCF's, and VCF's.  Do this in the mappings file.</li>
+</ol>
+</body>
+</html>
