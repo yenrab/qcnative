@@ -1,0 +1,49 @@
+<erl>
+%%
+%% Copyright 2007 Lee S. Barney
+		
+%% This file is part of QuickConnectYaws.
+
+%% QuickConnectYaws is free software: you can redistribute it and/or modify
+%% it under the terms of the GNU Lesser General Public License as published by
+%% the Free Software Foundation, either version 3 of the License, or
+%% (at your option) any later version.
+
+%% QuickConnectYaws is distributed in the hope that it will be useful,
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% GNU Lesser General Public License for more details.
+
+%% You should have received a copy of the GNU Lesser General Public License
+%% along with QuickConnectYaws.  If not, see <http://www.gnu.org/licenses/>.
+%%
+
+%%
+% modules must be identified in the yaws.conf file using the 'runmod' key value or they can be placed in the ebin of the server.
+% hrl files can be placed in 'include_dir' entries found in the /usr/local/etc/yaws.conf file.
+% -include("QuickConnectYaws/control_functions/app_controller.hrl").
+% define the out function for a Request.  Yaws will always pass the request structure to the out method
+% the return value must always be html or the erlang html generation return value 'ehtml'.
+
+% the keysearch function returns the tuple associated with the first parameter.  The second parameter is
+% the position in the tuple of the value desired.
+% The tuple for the login command is {"cmd","login"}
+%  The third parameter is the list to search.
+%%
+out(Request) ->
+    %% spawn two processes to handle the map generation.
+    Command_map = commandmappings:create_command_map(),
+    Security_map = securitymappings:create_security_map(),
+    
+    Passed = appcontroller:dispatch_to_security(Request, Security_map),
+    if
+    %% since security has passed, we know that the cmd key/value pair exists and can be safely called
+    Passed == true ->
+        {ok,Command_name} = yaws_api:getvar(Request, "cmd");
+    Passed == false ->
+        Command_name = "NoCmd"
+    end,      
+    Data = appcontroller:dispatch_to_b_rule(Command_name, Request, Command_map),
+    Display = appcontroller:dispatch_to_view(Command_name, Data, Command_map),
+    
+Display.
+</erl>

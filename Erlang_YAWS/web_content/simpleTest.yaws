@@ -1,0 +1,28 @@
+<html>
+
+
+<h1>Trying to get the command parameter out and print it alone in the page.</h1>
+<erl>
+
+% define the out function for a Request.  Yaws will always pass the request structure to the out method
+% the return value must always be html or the erlang html generation return value 'ehtml'.
+
+% the keysearch function returns the tuple associated with the first parameter.  The second parameter is
+% the position in the tuple of the value to be compared.  
+% the tuple for the login command is [{"cmd","login"}]
+%The third parameter is the list to search.
+out(Request) -> 
+    %Command_pair = lists:keysearch("cmd",1,yaws_api:parse_query(Request)),
+    %{_,{_,Command_name}} = CommandPair,
+    {_,{_,Command_name}} = lists:keysearch("cmd",1,yaws_api:parse_query(Request)),
+
+
+
+{html, f("~s",["Command_name"])}.
+
+
+
+</erl>
+
+
+</html>

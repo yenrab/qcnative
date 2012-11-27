@@ -1,0 +1,3 @@
+A hanging get could be created by calling a function that has a reveive/done block within the view control function and then 
+sleeping the current process.  The next calls could activate the hanging get if the Pid of 
+the called function was passed in a cookie
