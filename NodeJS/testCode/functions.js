@@ -1,4 +1,4 @@
-var qc = require('../source/QuickConnectNode.js' )
+var qc = require('./QuickConnectNode.js' )
 
 /********
 This is where you will right the functions that will make up your stacks.

@@ -2,7 +2,7 @@
 
  *********/
  
-var qc = require('../source/QuickConnectNode.js')
+var qc = require('./QuickConnectNode.js')
 var funcs = require('./functions.js')
 
 var shouldPrint = true;
