@@ -1,5 +1,5 @@
 var functions = require('./functions.js')
-var qc = require('../source/mappingUtil.js')
+var qc = require('./mappingUtil.js')
 /*
  * map your control function stacks here. 
  */
@@ -7,7 +7,7 @@ var qc = require('../source/mappingUtil.js')
 qc.mapCommandToValCF( 'example', functions.checkDataValCF )
 qc.mapCommandToValCF( 'example', functions.checkAgainValCF )
 //for(var i = 0; i < 200; i++){
-    qc.mapCommandToDCF( 'example', functions.computeSomethingBCF )
+    qc.mapCommandToBCF( 'example', functions.computeSomethingBCF )
     qc.mapCommandToDCF( 'example', functions.somethingElseBCF )
 //}
 qc.mapCommandToDCF( 'example', functions.afterAsyncCallBCF )
