@@ -54,9 +54,9 @@ function someThingECF( data ){
 exports.someThingECF = someThingECF
 
 function doNothingDCF( data ){
-	console.log(this)
-	console.log(arguments)
-	console.log(arguments.caller)
+//	console.log(this)
+//	console.log(arguments)
+//	console.log(arguments.caller)
     return qc.STACK_CONTINUE
 }
 exports.doNothingDCF = doNothingDCF

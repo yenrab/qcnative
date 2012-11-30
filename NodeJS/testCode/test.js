@@ -14,7 +14,7 @@ function allDone(){
 	}
 }
 var commandArray = new Array()
-for(var i = 0; i < 1; i++){
+for(var i = 0; i < 1000; i++){
   //commandArray.push('example')
 	commandArray.push('just run')
 }
@@ -22,7 +22,7 @@ var parametersObject = {'initial':'hello', 'andra':'there', 'aNum':0}
 
 //handleRequest API: qc.handleRequest(aCommandArray, requestData, allStacksCompleteCallback, runParallel)
 //for(var i = 0; i < 10000; i++){
-  qc.handleRequest(commandArray, parametersObject, allDone, false)
+  qc.handleRequest(commandArray, parametersObject, allDone, true)
 //}
 
 
