@@ -70,10 +70,10 @@ qc.genrateUUID = function() {
 }
 
 qc.nextTick = function (fn, prefereNextTick) {
-	if (prefereNextTick || !setImmediate) {
+	if (prefereNextTick || !process.setImmediate) {
 		process.nextTick(fn)
 	} else {
-		setImmediate(fn)
+		process.setImmediate(fn)
 	}
 }
 exports.nextTick = qc.nextTick
