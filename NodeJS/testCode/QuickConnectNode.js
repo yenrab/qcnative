@@ -125,14 +125,14 @@ qc.handleRequest = function(aCommandArray, requestData
   if (!Array.isArray(aCommandArray)) {
     aCommandArray = [aCommandArray]
   }
-	var subCommands = groupMap[aCmd]
-	if(subCommands != null){
-		var numSubCommands = subCommands.length
-		for(var i = 0; i < numSubCommands; i++){
-			qc.handleRequest(subCommands[i], requestData, allStacksCompleteCallback, runParallel)
-		}
-		return;
-	}
+//	var subCommands = groupMap[aCmd]
+//	if(subCommands != null){
+//		var numSubCommands = subCommands.length
+//		for(var i = 0; i < numSubCommands; i++){
+//			qc.handleRequest(subCommands[i], requestData, allStacksCompleteCallback, runParallel)
+//		}
+//		return;
+//	}
   //clone the array of commands
   aCommandArray = aCommandArray.slice()
     

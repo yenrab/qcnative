@@ -3,7 +3,7 @@ require('./mappings.js')
 require('./functions.js')
 
 var validationMap = mappings.validationMap
-var datamap = mappings.datamap
+var dataMap = mappings.dataMap
 var viewMap = mappings.viewMap
 var errorMap = mappings.errorMap
 var groupMap = mappings.groupMap
@@ -44,7 +44,7 @@ exports.STACK_CONTINUE = qc.STACK_CONTINUE
 qc.executionMap = new Object()
 
 qc.validationMapConsumables = new Object()
-qc.datamapConsumables = new Object()
+qc.dataMapConsumables = new Object()
 qc.viewMapConsumables = new Object()
 qc.errorMapConsumables = new Object()
 
@@ -80,7 +80,7 @@ function handleRequestCallbackFunctionGenerator(aCommandArray, requestParameters
     var aCmd = aCommandArray.shift()
     var uuid = qc.genrateUUID()
     qc.validationMapConsumables[uuid] = (validationMap[aCmd] || [] ).slice()
-    qc.datamapConsumables[uuid] = (datamap[aCmd] || [] ).slice()
+    qc.dataMapConsumables[uuid] = (dataMap[aCmd] || [] ).slice()
     qc.viewMapConsumables[uuid] = (viewMap[aCmd] || [] ).slice()
     qc.errorMapConsumables[uuid] = (errorMap[aCmd] || [] ).slice()
         //debug('consumable errors: '+JSON.stringify(qc.errorMapConsumables))
@@ -94,7 +94,7 @@ function handleRequestCallbackFunctionGenerator(aCommandArray, requestParameters
   } else {
         if (allStacksCompleteCallback){
             //debug('calling External call back')
-            process.nextTick( allStacksCompleteCallback )
+            setImmediate( allStacksCompleteCallback )
         }
     return qc.doneWithRecursiveHandleRequest
   }
@@ -102,17 +102,17 @@ function handleRequestCallbackFunctionGenerator(aCommandArray, requestParameters
 /*
 *	commandParameterPairs is an array of {cmd:aCommand, parameters:{paramMap}, callback:aFunction} objects
 */
-qc.handleMultipleIndependentRequests(commandParameterPairs){
-		if(Array.isArray(commandParameterPairs){
-			var numPairs = commandParameterPairs.length
+qc.handleBatchRequest = function(commandParameterPairsArray){
+		if(Array.isArray(commandParameterPairsArray)){
+			var numPairs = commandParameterPairsArray.length
 			for(var i = 0; i < numPairs; i++){
-				var aPair = commandParameterPairs[i]
-				//true is used here in case the aPair.cmd is an array of commands
+				var aPair = commandParameterPairsArray[i]
+				//all commands aer run parallel in a batch
 				qc.handleRequest(aPair.cmd, aPair.parameters, aPair.callback, true)
 			}
 		}
 }
-exports.handleMultipleIndependentRequests = qc.handleMultipleIndependentRequests
+exports.handleBatchRequest = qc.handleBatchRequest
 
 qc.handleRequest = function(aCommandArray, requestData
                     , allStacksCompleteCallback, runParallel) {
@@ -177,14 +177,14 @@ function cloneConsumableStacks(aCommandArray, uuid){
   //debug("Command: "+aCmd)
   //if mappings are found then duplicate the mapped 
   //control function arrays for consumption
-  if (!validationMap[aCmd] && !datamap[aCmd] 
+  if (!validationMap[aCmd] && !dataMap[aCmd] 
           && !viewMap[aCmd] && !errorMap[aCmd]) {
     //debug("returning null as the command")
     return
   }
 
   qc.validationMapConsumables[uuid] = (validationMap[aCmd] || [] ).slice()
-  qc.datamapConsumables[uuid] = (datamap[aCmd] || [] ).slice()
+  qc.dataMapConsumables[uuid] = (dataMap[aCmd] || [] ).slice()
   qc.viewMapConsumables[uuid] = (viewMap[aCmd] || [] ).slice()
   if (errorMap[aCmd]){
     qc.errorMapConsumables[uuid] = (errorMap[aCmd]).slice()
@@ -192,24 +192,6 @@ function cloneConsumableStacks(aCommandArray, uuid){
   return aCmd
 }
 
-qc.handleBatchRequest = function(aRequestInfoArray) {
-  if (!aRequestInfoArray || aRequestInfoArray.length == 0){
-    console.warn('WARNING: attempting to execute a batch request without one or more command.')
-  }
-  var numCommandsInBatch = aRequestInfoArray.length
-  for (var i = 0; i < numCommandsInBatch; i++){
-    var requestInfo = aRequestInfoArray[i]
-    if (!requestInfo.cmdArray || !requestInfo.data){
-        console.warn('WARNING: Malformed request information "'
-                +JSON.stringify(requestInfo)
-                +'".  Request information must be an associative array with both "cmdArray" and "data" keys.')
-    }
-    qc.handleRequest(requestInfo['cmdArray'], requestInfo['data']
-      , requestInfo['allStacksCompleteCallback'], requestInfo['runParallel'])
-  }
-}
-
-exports.handleBatchRequest = qc.handleBatchRequest
 /*! \fn qc.handleError(aCommand, errorParameters)
  @brief handleError(aCommand, errorParameters) <br/>The qc.handleError function is the trigger for the execution of mapped error handling stacks.  Each call to handleRequest is runs as much of the stack as possible on a background worker thread.
  @param aCommand The <b>NSString</b> that uniquely identifies the stack of Control Functions you want executed.
@@ -273,25 +255,25 @@ function stackCompleteCallback( result, aCmd, dataAccumulator
         var callback = handleRequestCallbackFunctionGenerator(commandArray
                             , dataAccumulator, allStacksCompleteCallback)
         //debug('stack complete callback: '+callback)
-        process.nextTick(function(){callback() })
+        setImmediate(function(){callback() })
         return
     }
     if (allStacksCompleteCallback){
         //debug('all complete')
-        process.nextTick(allStacksCompleteCallback)
+        setImmediate(allStacksCompleteCallback)
     }
 }
 
 function callbackFunctionSelector(aCommandArray, dataAccumulator
                 , uuid, allStacksCompleteCallback ){
-    //debug('selector: '+qc.datamapConsumables[uuid])
+    //debug('selector: '+qc.dataMapConsumables[uuid])
     if ( qc.validationMapConsumables[uuid] 
         && qc.validationMapConsumables[uuid].length > 0 ){
     //debug('selected val callback')
     return ValCFCallback
     
-  } else if (qc.datamapConsumables[uuid] 
-            && (qc.datamapConsumables[uuid].length > 0
+  } else if (qc.dataMapConsumables[uuid] 
+            && (qc.dataMapConsumables[uuid].length > 0
             || (qc.validationMapConsumables[uuid] 
                   && qc.validationMapConsumables[uuid].length == 1))){
     //debug('selected business callback')
@@ -326,7 +308,7 @@ qc.cleanStack = function(uuid) {
   //debug('cleaning the stack')
   delete qc.executionMap[uuid]
   delete qc.validationMapConsumables[uuid]
-  delete qc.datamapConsumables[uuid]
+  delete qc.dataMapConsumables[uuid]
   delete qc.viewMapConsumables[uuid]
   delete qc.errorMapConsumables[uuid]
 }
@@ -363,7 +345,7 @@ function dispatchToECF(aCmd, dataAccumulator, uuid, callback) {
     commandFunction = functionsForCommand.shift() || commandFunction
   }
     //debug('calling from dispatchToECF')
-  process.nextTick( function() { callback(commandFunction(dataAccumulator)) } )
+  setImmediate( function() { callback(commandFunction(dataAccumulator)) } )
 }
 
 function dispatchToVCF(aCmd, dataAccumulator, uuid
@@ -397,7 +379,7 @@ function dispatchToVCF(aCmd, dataAccumulator, uuid
       }
     }
     //debug('calling from dispatchToVCF: '+callback)
-    process.nextTick( function() {callback( result, aCmd, dataAccumulator
+    setImmediate( function() {callback( result, aCmd, dataAccumulator
                         , uuid, commandArray, allStacksCompleteCallback )} )
   } catch(e) {
     var errorMessage = e.name 
@@ -405,15 +387,15 @@ function dispatchToVCF(aCmd, dataAccumulator, uuid
     errorMessage += "\nstack: " + e.stack
     qc.handleError(aCmd, errorMessage, uuid)
     //debug('calling from VCF error')
-    process.nextTick( callback )
+    setImmediate( callback )
   }
 }
 
 function dispatchToBCF(aCmd, dataAccumulator, uuid
                           , callback, commandArray, allStacksCompleteCallback) {
-  //debug('dispatching bcfs with: '+JSON.stringify(qc.datamapConsumables[ uuid ]))
-  if (!qc.datamapConsumables[ uuid ] 
-          || qc.datamapConsumables[ uuid ].length == 0){
+  //debug('dispatching bcfs with: '+JSON.stringify(qc.dataMapConsumables[ uuid ]))
+  if (!qc.dataMapConsumables[ uuid ] 
+          || qc.dataMapConsumables[ uuid ].length == 0){
     //debug('sending on to VCFs')
     dispatchToVCF(aCmd, dataAccumulator, uuid
                   , callbackFunctionSelector(commandArray, dataAccumulator, uuid
@@ -424,7 +406,7 @@ function dispatchToBCF(aCmd, dataAccumulator, uuid
   /*
   * Since this method is never called without passing a callback no check is needed to see if a callback was called.
   */
-  var commandFunction = qc.datamapConsumables[ uuid ].shift()
+  var commandFunction = qc.dataMapConsumables[ uuid ].shift()
   //debug('callback function is: '+callback.name)
   try {
     var result = commandFunction(dataAccumulator, uuid, commandArray
@@ -443,7 +425,7 @@ function dispatchToBCF(aCmd, dataAccumulator, uuid
       return
     }
     //debug('calling from dispatchToBCF')
-    process.nextTick( function() {callback( result, aCmd, dataAccumulator, uuid
+    setImmediate( function() {callback( result, aCmd, dataAccumulator, uuid
                                   , commandArray, allStacksCompleteCallback )})
   } catch(e) {
     var errorMessage = e.name 
@@ -451,7 +433,7 @@ function dispatchToBCF(aCmd, dataAccumulator, uuid
     errorMessage += "\nstack: " + e.stack
     qc.handleError(aCmd, errorMessage, uuid)
     //debug('calling from BCF error')
-    process.nextTick( callback )
+    setImmediate( callback )
   }
 }
 
@@ -480,7 +462,7 @@ function dispatchToValCF(aCmd, dataAccumulator, uuid, callback
     }
     //debug('about to process next tick: ')//+result+' '+aCommandArray+' '
     //        +aCmd+' '+callback)
-    process.nextTick( function() {callback( result, aCmd, dataAccumulator, uuid
+    setImmediate( function() {callback( result, aCmd, dataAccumulator, uuid
                           , aCommandArray, allStacksCompleteCallback )})
   } catch(e) {
     var errorMessage = e.name 
@@ -488,7 +470,7 @@ function dispatchToValCF(aCmd, dataAccumulator, uuid, callback
     errorMessage += "\nstack: " + e.stack
     qc.handleError(aCmd, errorMessage, uuid)
     //debug('calling from dispatchToValCF error')
-    process.nextTick( callback )
+    setImmediate( callback )
   }
 }
 
@@ -503,7 +485,7 @@ function requestHandler(aCmd, dataAccumulator, uuid
                     , callbackFunctionSelector(aCommandArray, dataAccumulator
                                 , uuid, allStacksCompleteCallback)
                     , aCommandArray, allStacksCompleteCallback)
-  } else if ( qc.datamapConsumables[uuid].length > 0 ) {
+  } else if ( qc.dataMapConsumables[uuid].length > 0 ) {
     //debug('businessing')
     dispatchToBCF(aCmd, dataAccumulator, uuid
                   , callbackFunctionSelector(aCommandArray, dataAccumulator
@@ -522,8 +504,8 @@ function requestHandler(aCmd, dataAccumulator, uuid
   }
 }
 
-function handleAsyncCompletion(uuid, resultKey, results, commandArray
-                                  , allStacksCompleteCallback, error) {
+function asyncStackContinue(uuid, resultKey, results, commandArray
+                                  , allStacksCompleteCallback) {
   //debug('async completion: '+JSON.stringify(commandArray))
   //debug(qc.executionMap)
   //debug(uuid)
@@ -531,12 +513,7 @@ function handleAsyncCompletion(uuid, resultKey, results, commandArray
   var aCmd = hold[0]
   var dataAccumulator = hold[1]
   dataAccumulator[resultKey] = results
-  if (error) {
-    console.error("ERROR: attempting to complete stack but encountered error: '"
-                  +error+"'.")
-    return
-  }
-  if ( qc.datamapConsumables[uuid].length > 0 ){
+  if ( qc.dataMapConsumables[uuid].length > 0 ){
     dispatchToBCF(aCmd, dataAccumulator, uuid
                     , callbackFunctionSelector(commandArray, dataAccumulator
                                     , uuid, allStacksCompleteCallback)
@@ -549,7 +526,21 @@ function handleAsyncCompletion(uuid, resultKey, results, commandArray
                     , commandArray, allStacksCompleteCallback)
   }
 }
-qc.handleAsyncCompletion = handleAsyncCompletion
+qc.asyncStackContinue = asyncStackContinue
 
-exports.handleAsyncCompletion = qc.handleAsyncCompletion
+exports.asyncStackContinue = qc.asyncStackContinue
+
+function asyncStackExit(uuid, resultKey, results, allStacksCompleteCallback){
+	var hold = qc.executionMap[uuid]
+  var aCmd = hold[0]
+  var dataAccumulator = hold[1]
+  dataAccumulator[resultKey] = results
+	qc.executionMap[uuid] = null
+	if(allStacksCompleteCallback){
+		allStacksCompleteCallback(dataAccumulator);
+	}
+}
+qc.asyncStackExit = asyncStackExit
+exports.asyncStackExit = qc.asyncStackExit
+
 exports.qc = qc

@@ -1,4 +1,4 @@
-var qc = require('../source/QuickConnectNode.js' )
+var qc = require('./QuickConnectNode.js' )
 
 /********
 This is where you will right the functions that will make up your stacks.
@@ -54,6 +54,9 @@ function someThingECF( data ){
 exports.someThingECF = someThingECF
 
 function doNothingDCF( data ){
+	console.log(this)
+	console.log(arguments)
+	console.log(arguments.caller)
     return qc.STACK_CONTINUE
 }
 exports.doNothingDCF = doNothingDCF

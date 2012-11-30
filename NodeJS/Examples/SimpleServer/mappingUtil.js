@@ -18,6 +18,8 @@
  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
  */
+var qc = require('./QuickConnectNode.js' )
+ 
  //Mapping objects
 var validationMap = new Object()
 var dataMap = new Object()
@@ -58,15 +60,15 @@ qc.mapCommandToDCF = function(aCmd, aDCF) {
 	if(aCmd == null || aDCF == null){
 		return qc.missingCommandError
 	}
-	var funcArray = datMap[aCmd]
+	var funcArray = dataMap[aCmd]
 	if(funcArray == null) {
 		funcArray = new Array()
 		dataMap[aCmd] = funcArray
 	}
 	funcArray.push(aDCF)
 }
-exports.mapCommandToBCF = qc.mapCommandToBCF//depricated
-exports.mapCommandToDCF = qc.mapCommandToBCF
+exports.mapCommandToBCF = qc.mapCommandToDCF//depricated
+exports.mapCommandToDCF = qc.mapCommandToDCF
 
 qc.mapCommandToVCF = function(aCmd, aVCF) {
 	//debug('mapCommandToVCF')
@@ -99,27 +101,27 @@ exports.mapCommandToECF = qc.mapCommandToECF
 
 /*
 *	this method has a first parameter that is the new command
-*	and a series of parameters that are the subcommands to be
-*	associated under the command group
+*	and an array of commands that are subcommands to be
+*	associated under the parent command
 */
 
-
-//these are more advanced uses of the framework
-qc.createCommandWithSubCommands = function(){
-	var numCommands = arguments.length
-	if(!numCommands <= 2){
+qc.mapCommandToSubCommands = function(command, subCommandArray){
+	if(!command || !subCommandArray){
 		return qc.missingCommandError
 	}
-	var parentCommand = arguments[0];
-	for(var i = 1; i < numCommands; i++){
-		var success = qc.addSubCommand(parentCommand, arguments[i])
+	if(!subCommandArray instanceof Array){
+		subCommandArray = [subCommandArray]
+	}
+	var numCommands = subCommandArray.length
+	for(var i = 0; i < numCommands; i++){
+		var success = qc.addSubCommand(command, arguments[i])
 		if(success == qc.missingCommandError){
 			groupMap[parentCommand] = null
 			return success
 		}
 	}
 }
-exports.createCommandWithSubCommands = qc.createCommandWithSubCommands
+exports.mapCommandToSubCommands = qc.mapCommandToSubCommands
 
 qc.addSubCommand = function(aCommand, aSubCommand){
 		if(aCommand == null || aSubCommand == null){
@@ -133,4 +135,3 @@ qc.addSubCommand = function(aCommand, aSubCommand){
 		subCommand.push(aSubCommand)
 		return qc.success;
 }
-exports.addSubCommand = qc.addCommandToGroup
