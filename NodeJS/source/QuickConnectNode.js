@@ -68,15 +68,23 @@ qc.genrateUUID = function() {
   })
   return uuid
 }
-
-qc.nextTick = function (fn, prefereNextTick) {
-	if (prefereNextTick || !process.setImmediate) {
-		process.nextTick(fn)
-	} else {
-		process.setImmediate(fn)
-	}
-}
+function testImmediate(){
+       var immediateExists = true
+       try{
+               setImmediate(function(){})
+       } catch (e) {
+               immediateExists = false
+       }
+       qc.nextTick = function (fn, prefereNextTick) {
+               if (prefereNextTick || !immediateExists) {
+                       process.nextTick(fn)
+               } else {
+                       setImmediate(fn)
+               }
+       }
 exports.nextTick = qc.nextTick
+}
+testImmediate();
 
 qc.doneWithRecursiveHandleRequest = function(){
     //debug("finished recursive handleRequest")
