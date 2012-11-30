@@ -69,6 +69,15 @@ qc.genrateUUID = function() {
   return uuid
 }
 
+qc.nextTick = function (fn, prefereNextTick) {
+	if (prefereNextTick || !setImmediate) {
+		process.nextTick(fn)
+	} else {
+		setImmediate(fn)
+	}
+}
+exports.nextTick = qc.nextTick
+
 qc.doneWithRecursiveHandleRequest = function(){
     //debug("finished recursive handleRequest")
 }
@@ -94,7 +103,7 @@ function handleRequestCallbackFunctionGenerator(aCommandArray, requestParameters
   } else {
         if (allStacksCompleteCallback){
             //debug('calling External call back')
-            setImmediate( allStacksCompleteCallback )
+            qc.nextTick( allStacksCompleteCallback )
         }
     return qc.doneWithRecursiveHandleRequest
   }
@@ -255,12 +264,12 @@ function stackCompleteCallback( result, aCmd, dataAccumulator
         var callback = handleRequestCallbackFunctionGenerator(commandArray
                             , dataAccumulator, allStacksCompleteCallback)
         //debug('stack complete callback: '+callback)
-        setImmediate(function(){callback() })
+        qc.nextTick(function(){callback() })
         return
     }
     if (allStacksCompleteCallback){
         //debug('all complete')
-        setImmediate(allStacksCompleteCallback)
+        qc.nextTick(allStacksCompleteCallback)
     }
 }
 
@@ -345,7 +354,7 @@ function dispatchToECF(aCmd, dataAccumulator, uuid, callback) {
     commandFunction = functionsForCommand.shift() || commandFunction
   }
     //debug('calling from dispatchToECF')
-  setImmediate( function() { callback(commandFunction(dataAccumulator)) } )
+  qc.nextTick( function() { callback(commandFunction(dataAccumulator)) } )
 }
 
 function dispatchToVCF(aCmd, dataAccumulator, uuid
@@ -379,7 +388,7 @@ function dispatchToVCF(aCmd, dataAccumulator, uuid
       }
     }
     //debug('calling from dispatchToVCF: '+callback)
-    setImmediate( function() {callback( result, aCmd, dataAccumulator
+    qc.nextTick( function() {callback( result, aCmd, dataAccumulator
                         , uuid, commandArray, allStacksCompleteCallback )} )
   } catch(e) {
     var errorMessage = e.name 
@@ -387,7 +396,7 @@ function dispatchToVCF(aCmd, dataAccumulator, uuid
     errorMessage += "\nstack: " + e.stack
     qc.handleError(aCmd, errorMessage, uuid)
     //debug('calling from VCF error')
-    setImmediate( callback )
+    qc.nextTick( callback )
   }
 }
 
@@ -425,7 +434,7 @@ function dispatchToBCF(aCmd, dataAccumulator, uuid
       return
     }
     //debug('calling from dispatchToBCF')
-    setImmediate( function() {callback( result, aCmd, dataAccumulator, uuid
+    qc.nextTick( function() {callback( result, aCmd, dataAccumulator, uuid
                                   , commandArray, allStacksCompleteCallback )})
   } catch(e) {
     var errorMessage = e.name 
@@ -433,7 +442,7 @@ function dispatchToBCF(aCmd, dataAccumulator, uuid
     errorMessage += "\nstack: " + e.stack
     qc.handleError(aCmd, errorMessage, uuid)
     //debug('calling from BCF error')
-    setImmediate( callback )
+    qc.nextTick( callback )
   }
 }
 
@@ -462,7 +471,7 @@ function dispatchToValCF(aCmd, dataAccumulator, uuid, callback
     }
     //debug('about to process next tick: ')//+result+' '+aCommandArray+' '
     //        +aCmd+' '+callback)
-    setImmediate( function() {callback( result, aCmd, dataAccumulator, uuid
+    qc.nextTick( function() {callback( result, aCmd, dataAccumulator, uuid
                           , aCommandArray, allStacksCompleteCallback )})
   } catch(e) {
     var errorMessage = e.name 
@@ -470,7 +479,7 @@ function dispatchToValCF(aCmd, dataAccumulator, uuid, callback
     errorMessage += "\nstack: " + e.stack
     qc.handleError(aCmd, errorMessage, uuid)
     //debug('calling from dispatchToValCF error')
-    setImmediate( callback )
+    qc.nextTick( callback )
   }
 }
 

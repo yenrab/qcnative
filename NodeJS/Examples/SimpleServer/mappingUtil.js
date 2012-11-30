@@ -67,7 +67,9 @@ qc.mapCommandToDCF = function(aCmd, aDCF) {
 	}
 	funcArray.push(aDCF)
 }
-exports.mapCommandToBCF = qc.mapCommandToDCF//depricated
+exports.mapCommandToBCF = function () {
+	console.warn("WARNING: mapCommandToBCF is depricated. Use mapCommandToDCF instead")
+	qc.mapCommandToDCF.apply(this,arguments)}//depricated
 exports.mapCommandToDCF = qc.mapCommandToDCF
 
 qc.mapCommandToVCF = function(aCmd, aVCF) {
