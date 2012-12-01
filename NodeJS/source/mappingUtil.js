@@ -19,8 +19,14 @@
  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
  */
+<<<<<<< HEAD
 
 //Mapping objects
+=======
+var qc = require('./QuickConnectNode.js' )
+ 
+ //Mapping objects
+>>>>>>> 338661184284d6c5f2366a9025a2f5e871086083
 var validationMap = new Object()
 var businessMap = new Object()
 var viewMap = new Object()
@@ -47,15 +53,29 @@ exports.mapCommandToValCF = mapCommandToValCF
 
 function mapCommandToBCF(aCmd, aBCF) {
 	//debug('mapCommandToBCF')
+<<<<<<< HEAD
 	var funcArray = businessMap[aCmd]
+=======
+	if(aCmd == null || aDCF == null){
+		return qc.missingCommandError
+	}
+	var funcArray = dataMap[aCmd]
+>>>>>>> 338661184284d6c5f2366a9025a2f5e871086083
 	if(funcArray == null) {
 		funcArray = new Array()
 		businessMap[aCmd] = funcArray
 	}
 	funcArray.push(aBCF)
 }
+<<<<<<< HEAD
 exports.mapCommandToBCF = mapCommandToBCF//depricated
 exports.mapCommandToDCF = mapCommandToBCF
+=======
+exports.mapCommandToBCF = function () {
+	console.warn("WARNING: mapCommandToBCF is depricated. Use mapCommandToDCF instead")
+	qc.mapCommandToDCF.apply(this,arguments)}//depricated
+exports.mapCommandToDCF = qc.mapCommandToDCF
+>>>>>>> 338661184284d6c5f2366a9025a2f5e871086083
 
 function mapCommandToVCF(aCmd, aVCF) {
 	//debug('mapCommandToVCF')

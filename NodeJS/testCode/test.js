@@ -14,7 +14,7 @@ function allDone(){
 	}
 }
 var commandArray = new Array()
-for(var i = 0; i < 200000; i++){
+for(var i = 0; i < 100; i++){
   //commandArray.push('example')
 	commandArray.push('just run')
 }
