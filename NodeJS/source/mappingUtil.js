@@ -1,6 +1,5 @@
 /*
- Copyright (c) 2012 AffinityAmp
- Created by Joshua Barney
+ Copyright (c) 2012 Lee Barney
  Permission is hereby granted, free of charge, to any person obtaining a
  copy of this software and associated documentation files (the "Software"),
  to deal in the Software without restriction, including without limitation the
@@ -19,29 +18,34 @@
  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
  */
-<<<<<<< HEAD
-
-//Mapping objects
-=======
 var qc = require('./QuickConnectNode.js' )
  
  //Mapping objects
->>>>>>> 338661184284d6c5f2366a9025a2f5e871086083
 var validationMap = new Object()
-var businessMap = new Object()
+var dataMap = new Object()
 var viewMap = new Object()
 var errorMap = new Object()
+var groupMap = new Object()
 
 
 //Making the objects available to Node
 exports.validationMap = validationMap
-exports.businessMap = businessMap
+exports.dataMap = dataMap
 exports.viewMap = viewMap
 exports.errorMap = errorMap
+exports.groupMap = groupMap
+
+qc.missingCommandError = 0
+exports.missingCommandError = qc.missingCommandError
+qc.success = 1
+exports.success = qc.success
 
 //Mapping functions
-function mapCommandToValCF(aCmd, aValCF) {
+qc.mapCommandToValCF = function(aCmd, aValCF) {
 	//debug('mapCommandToValCF')
+	if(aCmd == null || aValCF == null){
+		return qc.missingCommandError
+	}
 	var funcArray = validationMap[aCmd]
 	if(funcArray == null) {
 		funcArray = new Array()
@@ -49,36 +53,30 @@ function mapCommandToValCF(aCmd, aValCF) {
 	}
 	funcArray.push(aValCF)
 }
-exports.mapCommandToValCF = mapCommandToValCF
+exports.mapCommandToValCF = qc.mapCommandToValCF
 
-function mapCommandToBCF(aCmd, aBCF) {
+qc.mapCommandToDCF = function(aCmd, aDCF) {
 	//debug('mapCommandToBCF')
-<<<<<<< HEAD
-	var funcArray = businessMap[aCmd]
-=======
 	if(aCmd == null || aDCF == null){
 		return qc.missingCommandError
 	}
 	var funcArray = dataMap[aCmd]
->>>>>>> 338661184284d6c5f2366a9025a2f5e871086083
 	if(funcArray == null) {
 		funcArray = new Array()
-		businessMap[aCmd] = funcArray
+		dataMap[aCmd] = funcArray
 	}
-	funcArray.push(aBCF)
+	funcArray.push(aDCF)
 }
-<<<<<<< HEAD
-exports.mapCommandToBCF = mapCommandToBCF//depricated
-exports.mapCommandToDCF = mapCommandToBCF
-=======
 exports.mapCommandToBCF = function () {
 	console.warn("WARNING: mapCommandToBCF is depricated. Use mapCommandToDCF instead")
 	qc.mapCommandToDCF.apply(this,arguments)}//depricated
 exports.mapCommandToDCF = qc.mapCommandToDCF
->>>>>>> 338661184284d6c5f2366a9025a2f5e871086083
 
-function mapCommandToVCF(aCmd, aVCF) {
+qc.mapCommandToVCF = function(aCmd, aVCF) {
 	//debug('mapCommandToVCF')
+	if(aCmd == null || aVCF == null){
+		return qc.missingCommandError
+	}
 	var funcArray = viewMap[aCmd]
 	if(funcArray == null) {
 		funcArray = new Array()
@@ -86,11 +84,14 @@ function mapCommandToVCF(aCmd, aVCF) {
 	}
 	funcArray.push(aVCF)
 }
-exports.mapCommandToVCF = mapCommandToVCF
+exports.mapCommandToVCF = qc.mapCommandToVCF
 
 
-function mapCommandToECF(aCmd, aECF) {
+qc.mapCommandToECF = function (aCmd, aECF) {
 	//debug('mapCommandToECF')
+	if(aCmd == null || aECF == null){
+		return qc.missingCommandError
+	}
 	var funcArray = errorMap[aCmd]
 	if(funcArray == null) {
 		funcArray = new Array()
@@ -98,7 +99,41 @@ function mapCommandToECF(aCmd, aECF) {
 	}
 	funcArray.push(aECF)
 }
-exports.mapCommandToECF = mapCommandToECF
+exports.mapCommandToECF = qc.mapCommandToECF
 
+/*
+*	this method has a first parameter that is the new command
+*	and an array of commands that are subcommands to be
+*	associated under the parent command
+*/
 
+qc.mapCommandToSubCommands = function(command, subCommandArray){
+	if(!command || !subCommandArray){
+		return qc.missingCommandError
+	}
+	if(!subCommandArray instanceof Array){
+		subCommandArray = [subCommandArray]
+	}
+	var numCommands = subCommandArray.length
+	for(var i = 0; i < numCommands; i++){
+		var success = qc.addSubCommand(command, arguments[i])
+		if(success == qc.missingCommandError){
+			groupMap[parentCommand] = null
+			return success
+		}
+	}
+}
+exports.mapCommandToSubCommands = qc.mapCommandToSubCommands
 
+qc.addSubCommand = function(aCommand, aSubCommand){
+		if(aCommand == null || aSubCommand == null){
+			return qc.missingCommandError
+		}
+		var subCommands = groupMap[aCommand]
+		if(!subCommands){
+			subCommands = new Array()
+			groupMap[aCommand] = subCommands
+		}
+		subCommands.push(aSubCommand)
+		return qc.success;
+}
