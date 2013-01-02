@@ -91,9 +91,6 @@
     }
 }
 
-- (void) mapCommandToBCO:(NSString*)aCommand withObject:(Class)aClass{
-    [self mapCommandToDCO:aCommand withObject:aClass];
-}
 - (void) mapCommandToDCO:(NSString*)aCommand withObject:(Class)aClass{
     [theMapper mapCommandToDCO:aCommand withHandler:aClass];
 }
@@ -105,9 +102,6 @@
 }
 - (void) mapCommandToECO:(NSString*)aCommand withObject:(Class)aClass{
 	[theMapper mapCommandToECO:aCommand withHandler:aClass];
-}
-- (void) mapCommandToSCO:(NSString*)aCommand withObject:(Class)aClass{
-	[theMapper mapCommandToSCO:aCommand withHandler:aClass];
 }
 
 - (QuickConnect*) init{
