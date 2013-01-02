@@ -8,6 +8,3 @@ qc.mapCommandToVCF('test2', test2VCF)
 
 
 qc.mapCommandToSubCommands('first2','test1','test2')
-
-qc.mapCommandToDCF('music', getMusicDescriptionListDCF)
-qc.mapCommandToVCF('music', showMusicDescriptionListVCF)

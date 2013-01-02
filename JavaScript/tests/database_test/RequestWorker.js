@@ -29,7 +29,7 @@
 
 initializeMessaging()
 
-importScripts('QuickConnect.js','functions.js','mappings.js')
+importScripts('QuickConnect.js','databaseExt.js','functions.js','mappings.js')
 
 
 function initializeMessaging(){
@@ -63,24 +63,24 @@ function debug(aMessage){
 self.theStack = null;
 
 self.onmessage = function(event){
-  var callData = JSON.parse(event.data);
+	var callData = JSON.parse(event.data);
   //console.log('data: '+JSON.stringify(callData))
   if(!callData.data.continue){
     //console.log(callData.cmd+' cloning: '+callData.data.stackID)
-    self.uuid = callData.stackID
-    qc.cloneConsumableStacks(callData.cmd, callData.data.stackID)
+		self.uuid = callData.stackID
+		qc.cloneConsumableStacks(callData.cmd, callData.data.stackID)
   }
-  self.requestHandler(callData.cmd, callData.data)
+	self.requestHandler(callData.cmd, callData.data)
 }
 
 self.requestHandler = function(aCmd, parameters){
   parameters.thisRequestWorker = self
-  if(aCmd != null){
+	if(aCmd != null){
     if(qc.dispatchToValCF(aCmd, parameters, parameters.uuid) == qc.STACK_CONTINUE){
       if(qc.dispatchToDCF(aCmd, parameters, parameters.uuid) == qc.STACK_CONTINUE){
           delete parameters['thisRequestWorker']
           self.postMessage(JSON.stringify({'stackFlag':qc.STACK_CONTINUE, 'cmd':aCmd, 'data':parameters}))
       }
-    }
-  }
+		}
+	}
 }

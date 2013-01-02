@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script type="text/javascript" src="SetupQC.js"></script>
 		<script type="text/javascript" src="QuickConnect.js"></script>
 		<script type="text/javascript" src="functions.js"></script>
 		<script type="text/javascript" src="mappings.js"></script>
@@ -40,10 +39,6 @@
 				qc.handleRequest('first2', someParams, allDone, true)
 			}
 
-			function doMusic(){
-				qc.handleRequest('music', {'band':'eagles'}, done)
-			}
-
 
 
 		</script>
@@ -52,7 +47,6 @@
 		<input type='button' value='Test 1' onclick='doFirstTest()' />
 		<input type='button' value='Test 2' onclick='doSecondTest()' />
 		<input type='button' value='Test first two' onclick='doTwo()' />
-		<input type='button' value='AJAX test' onclick='doMusic()' />
 		<div id='display'></div>
 		<div id='musicDisplay'></div>
 	</body>

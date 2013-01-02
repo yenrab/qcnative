@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="QuickConnect.js"></script>
+		<script type="text/javascript" src="databaseExt.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+		<script type="text/javascript" src="mappings.js"></script>
+		<script type="text/javascript">
+			function setup(){
+				/*
+				 * initializing database here. It can be done in a file if you choose.
+				 */
+				var noSupportError = DataAccess.initialize("exampleDB", 2000);
+				if(noSupportError){
+					var inputs = document.getElementById('inputArea')
+					document.body.removeChild(inputs)
+					document.getElementById('display').innerHTML = noSupportError
+				}
+				/*
+				 * Since the DataAccesObject transact method is not being used within a stack the first parameter, 
+				 * responseID, should be passed a null value.
+				 */
+				//this line will create a table if it doesn't exist.
+				DataAccess.transact(null, "exampleDB", "CREATE TABLE IF NOT EXISTS person ('name' VARCHAR PRIMARY KEY, 'age' INTEGER);");
+				/*
+				 *  Populate the table.
+				 *  
+				 *  Inserts will fail once the values are set once since the 
+				 *  player_name field is a primary key. You will see a warning 
+				 *  the second time you load this file.
+				 */
+
+				DataAccess.transact(null, "exampleDB", "INSERT INTO person VALUES('bart',100);");
+				DataAccess.transact(null, "exampleDB", "INSERT INTO person VALUES('sue',1000);");
+				DataAccess.transact(null, "exampleDB", "INSERT INTO person VALUES('jose',500);");
+				DataAccess.transact(null, "exampleDB", "INSERT INTO person VALUES('sven',5000);");
+				DataAccess.transact(null, "exampleDB", "INSERT INTO person VALUES('inga',5500);");
+			}
+
+			/*
+			 * button listener methods
+			 */
+			
+			function displayAllPersons(){
+				document.getElementById('display').innerHTML = ''
+				qc.handleRequest('getAll',{'resultDisplayID':'display'}, done)
+			}
+			function doAdd(){
+				document.getElementById('display').innerHTML = ''
+				var aName = document.getElementById('nameInput').value
+				var anAge = document.getElementById('ageInput').value
+				qc.handleRequest('insert', {'name':aName, 'age':anAge,'resultDisplayID':'display'}, done)
+			}
+			function doFind(){
+				document.getElementById('display').innerHTML = ''
+				var aName = document.getElementById('nameInput').value
+				qc.handleRequest('find', {'name':aName, 'resultDisplayID':'display'})
+			}
+			function doRemove(){
+				document.getElementById('display').innerHTML = ''
+				var aName = document.getElementById('nameInput').value
+				qc.handleRequest('delete', {'name':aName, 'resultDisplayID':'display'})
+			}
+
+			/*
+			 * example completion function
+			 */
+
+			function done(data){
+				document.getElementById('display').innerHTML += '<br/>--------------done--------------'
+			}
+
+
+
+		</script>
+	</head>
+	<body onload='setup()'>
+		<div id='inputArea'>Input:
+			<br/>
+			Name:<input id='nameInput' />&nbsp;&nbsp;&nbsp;&nbsp;Age:<input id='ageInput' />
+			<br/>
+			<br/>
+			<input type='button' value='Show All Persons' onclick='displayAllPersons()' />
+			<input type='button' value='Add Person' onclick='doAdd()' />
+			<input type='button' value='Find Person' onclick='doFind()' />
+			<input type='button' value='Remove Person by Name' onclick='doRemove()' />
+		</div>
+		<div id='display'></div>
+	</body>
+</html>

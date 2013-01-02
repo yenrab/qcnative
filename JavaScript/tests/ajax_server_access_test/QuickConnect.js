@@ -22,6 +22,13 @@
  
  
  */
+
+var qc = new Object();
+
+qc.WAIT_FOR_DATA = 'wAiT';
+qc.STACK_EXIT = 'ExIt_StAcK';
+qc.STACK_CONTINUE = 'ContInUe';
+ 
 var validationMap = new Object()
 var dataMap = new Object()
 var viewMap = new Object()
@@ -35,6 +42,9 @@ qc.viewMapConsumables = new Object()
 
 qc.missingCommandError = 0
 qc.success = 1
+
+qc.workerThreadMap = new Object()
+qc.customFunctionMap = new Object()
 
 function debug(aMessage){
   console.log(aMessage)
@@ -55,17 +65,19 @@ qc.RequestHandlerPool = function(min_size) {
     for (var i = 0 ; i < min_size ; i++) {
         workerQueue.push(new qc.HandlerThread(this))
     }
-    this.executeHandleRequestTask = function(handleRequestJSON, continuationFunction) {
+    this.executeHandleRequestTask = function(handleRequestData, continuationFunction) {
         var workerThread = null;
         if (workerQueue.length > 0) {
             // get the worker from the front of the queue
             workerThread = workerQueue.shift()
+            //console.log('getting worker: '+workerThread)
         } else {
             // no free workers, create a new one
             workerThread = new qc.HandlerThread()
+            //console.log('created worker: '+workerThread)
         }
         workingThreads[workerThread.uuid] = workerThread
-        workerThread.run(handleRequestJSON, continuationFunction);
+        workerThread.run(handleRequestData, continuationFunction);
     }
     this.reuseWorkerThread = function(aWorkerThread){
       delete workingThreads[aWorkerThread.uuid]
@@ -85,41 +97,31 @@ function clearOldHandlerThreads(){
 
 setInterval(clearOldHandlerThreads, 60000);
 
-
 qc.HandlerThread = function() {
     var self = this
-    this.uuid = qc.generateUUID()
-    var theWorker = null
-    this.run = function(handleRequestJSON, continuationFunction) {
-        if(!theWorker){
-          theWorker = new Worker("RequestWorker.js")
+    this.theWorker = null
+    this.requestData = null
+    this.run = function(handleRequestData, continuationFunction) {
+        if(!this.theWorker){
+          this.workerFileName = 'RequestWorker.js'
+          if(handleRequestData.data.workerFileName){
+            this.workerFileName = handleRequestData.data.workerFileName
+          }
+          this.theWorker = new Worker(this.workerFileName)
         }
+        this.requestData = handleRequestData
+        var uuid = qc.generateUUID()
+        handleRequestData.data.stackID = uuid
+        qc.workerThreadMap[uuid] = this
         // create a new web worker
-        theWorker.continuationFunction = continuationFunction;
-        theWorker.onmessage = function(event) {
+        this.theWorker.continuationFunction = continuationFunction;
+        this.theWorker.onmessage = function(event) {
             //call back from worker
-            //dispatchToVCF's or dispatchToECF's
             var results = event.data
-            if(typeof(results) == 'string'){
+            if(results.constructor == String){
               results = JSON.parse(results)
             }
-            if(results.log){
-              console.log(results.log)
-            }
-            else if(results.err){
-              console.log(results.err)
-            }
-            else if(results.warn){
-              console.log(results.warn)
-            }
-            else if(results.alert){
-              alert(results.alert)
-            }
-            else if(results.qcErrorStack){
-              dispatchToECF(results.cmd, results.data)
-            }
-            else{
-              if(results.stackFlag == qc.STACK_CONTINUE){
+            if(results.stackFlag == qc.STACK_CONTINUE){
                 //free the thread early so the it is available before view code runs
                 requestPool.reuseWorkerThread(self)
                 var result = qc.dispatchToVCF(results.cmd, results.data)
@@ -129,14 +131,45 @@ qc.HandlerThread = function() {
                 else if(this.continuationFunction){
                   window[this.continuationFunction](results.data)
                 }
-              }
-              else if(results.stackFlag == qc.STACK_EXIT){
+            }
+            else if(results.stackFlag == qc.STACK_EXIT){
                 requestPool.reuseWorkerThread(self)
-              }
+            }
+            else if(results.log){
+              console.log(results.log)
+            }
+            else if(results.custom){
+              var customCallData = results.custom
+              qc.customFunctionMap[customCallData.cmd](customCallData.params)
+            }
+            else if(results.startStack){
+              var allStacksCompleteCallbackFunc = eval(results.allStacksCompleteCallback)
+              qc.handleRequest(results.aCommandArray, results.requestData, allStacksCompleteCallbackFunc, results.runParallel)
+            }
+            else if(results.err){
+              console.error(results.err)
+            }
+            else if(results.warn){
+              console.warn(results.warn)
+            }
+            else if(results.alert){
+              alert(results.alert)
+            }
+            else{
+              console.log('Error: unknown push to main page thread.')
             }
         }
-        theWorker.postMessage(handleRequestJSON)
+        //console.log('posting to worker: ')
+        this.theWorker.postMessage(JSON.stringify(handleRequestData))
     }
+}
+
+
+qc.continueStack = function(stackID, responseID, responseData){
+  var theThread = qc.workerThreadMap[stackID]
+  theThread.requestData.data[responseID] = responseData
+  theThread.requestData.data['continue'] = true
+  theThread.theWorker.postMessage(JSON.stringify(theThread.requestData))
 }
 
 var requestPool = new qc.RequestHandlerPool(1)
@@ -153,7 +186,29 @@ qc.handleRequest = function(aCommandArray, requestData
     aCommandArray = [aCommandArray]
   }
   requestData = requestData || new Object()
-    
+  var calledFromWithinStack = false;
+  if(requestData.stackID){
+    delete requestData['stackID']
+    calledFromWithinStack = true;
+  }/*
+  if(!calledFromWithinStack){
+    var aFunc = arguments.callee.caller
+    while(aFunc){
+      if(aFunc.qc_stack_command){
+        calledFromWithinStack = true
+        break
+      }
+      aFunc = arguments.callee.caller
+    }
+  }*/
+  if(calledFromWithinStack){
+    delete requestData['thisRequestWorker']
+    var postData = {'startStack':true, 'aCommandArray':aCommandArray,
+              'requestData':requestData,
+              'runParallel':runParallel}
+    theWorker.postMessage(JSON.stringify(postData))
+    return;
+  }
   if (runParallel){
     var numCommands = aCommandArray.length
     for (var i = 0; i < numCommands; i++){
@@ -164,17 +219,13 @@ qc.handleRequest = function(aCommandArray, requestData
           qc.handleRequest(subCommands.slice(), requestData, allStacksCompleteCallback, runParallel)
           return;
       }
-      var uuid = qc.generateUUID()
-      requestData.workerID = uuid
-      requestPool.executeHandleRequestTask(JSON.stringify({'cmd':aCmd, 'data':requestData}), allStacksCompleteCallback)
+      requestPool.executeHandleRequestTask({'cmd':aCmd, 'data':requestData}, allStacksCompleteCallback)
     }
   }
   else{
-    var uuid = qc.generateUUID()
     function executeNextCommand(){
       var aCommand = aCommandArray.shift()
-      requestPool.executeHandleRequestTask(JSON.stringify(
-          {'cmd':aCommand, 'data':requestData}),
+      requestPool.executeHandleRequestTask({'cmd':aCommand, 'data':requestData},
           aCommandArray.length > 1 ? executeNextCommand : allStacksCompleteCallback)
     }
       //shift the first command off of the array so the stack 
@@ -188,8 +239,7 @@ qc.handleRequest = function(aCommandArray, requestData
           }
           return;
       }
-      requestPool.executeHandleRequestTask(
-          JSON.stringify({'cmd':aCommand, 'data':requestData}),
+      requestPool.executeHandleRequestTask({'cmd':aCommand, 'data':requestData},
               aCommandArray.length > 0 ? executeNextCommand : allStacksCompleteCallback)
   }
 }
@@ -204,27 +254,26 @@ qc.handleBatchRequest = function(requestDefinitions){
 }
 
 qc.cloneConsumableStacks = function(aCmd, uuid){
-
+  //console.log('------------------in cloning: '+aCmd+"---------------------------")
   //if mappings are found then duplicate the mapped 
   //control function arrays for consumption
 
   if (!validationMap[aCmd] && !dataMap[aCmd] 
           && !viewMap[aCmd] && !errorMap[aCmd]) {
+    //console.log('no stacks found')
     return
   }
-
   qc.validationMapConsumables[uuid] = (validationMap[aCmd] || [] ).slice()
-
   qc.dataMapConsumables[uuid] = (dataMap[aCmd] || [] ).slice()
-  qc.viewMapConsumables[uuid] = (viewMap[aCmd] || [] ).slice()
   if (errorMap[aCmd]){
     qc.errorMapConsumables[uuid] = (errorMap[aCmd]).slice()
   }
   return true
 }
-
-qc.handleError = function(aCommand, errorParameters){
-	qc.dispatchToECF(aCommand, errorParameters);
+qc.handleError = function(aCommandArray, requestData
+                    , runParallel){
+  qc.handleRequest(aCommandArray, requestData
+                    , null, runParallel)
 }
 
 /*  
@@ -232,24 +281,28 @@ qc.handleError = function(aCommand, errorParameters){
 * any validation functions associated with a specific command.
 */
 qc.dispatchToValCF = function(command, parameters){
-  return qc.dispatchToCF(command, parameters, validationMap)
+  return qc.dispatchToCF(command, parameters, qc.validationMapConsumables)
 }
 /*  
 * The dispatchToDCF function is responsible for executing
 * any validation functions associated with a specific command.
 */
 qc.dispatchToDCF = function(command, parameters){
-    return qc.dispatchToCF(command, parameters, dataMap)
+    //console.log('doing dcfs: '+parameters.stackID)
+    return qc.dispatchToCF(command, parameters, qc.dataMapConsumables)
 }
 /*  
 * The dispatchToValCF function is responsible for executing
 * any validation functions associated with a specific command.
+* The stack is cloned here since it will run in the main thread/page.
 */
 qc.dispatchToVCF = function(command, parameters){
-  return qc.dispatchToCF(command, parameters, viewMap)
+  //console.log('validation id:'+parameters.stackID)
+  qc.viewMapConsumables[parameters.stackID] = (viewMap[command] || [] ).slice()
+  return qc.dispatchToCF(command, parameters, qc.viewMapConsumables)
 }
 qc.dispatchToCF = function(command, parameters, map){
-	var commandFuncs = map[command];
+	var commandFuncs = map[parameters.stackID];
 	if(commandFuncs){
 		var numFuncs = commandFuncs.length;
 		for(var i = 0; i < numFuncs; i++){

@@ -22,31 +22,36 @@
  
  
  */
-var qc = new Object()
 
-qc.WAIT_FOR_DATA = 'wAiT'
-qc.STACK_EXIT = 'ExIt_StAcK'
-qc.STACK_CONTINUE = 'ContInUe'
+ var theWorker = self
+ var customCommandMap = new Object()
 
-var console = new Object()
-console.log = function(aMessage){
-  if(aMessage){
-    self.postMessage({'log':aMessage})
+initializeMessaging()
+
+importScripts('QuickConnect.js','ajaxExt.js','functions.js','mappings.js')
+
+
+function initializeMessaging(){
+  self.console = new Object()
+  console.log = function(aMessage){
+    if(aMessage){
+      self.postMessage({'log':aMessage})
+    }
   }
-}
-console.error = function(aMessage){
-  if(aMessage){
-    self.postMessage({'err':aMessage})
+  console.error = function(aMessage){
+    if(aMessage){
+      self.postMessage({'err':aMessage})
+    }
   }
-}
-console.warn = function(aMessage){
-  if(aMessage){
-    self.postMessage({'warn':aMessage})
+  console.warn = function(aMessage){
+    if(aMessage){
+      self.postMessage({'warn':aMessage})
+    }
   }
-}
-var alert = function(aMessage){
-  if(aMessage){
-    self.postMessage({'alert':aMessage})
+  var alert = function(aMessage){
+    if(aMessage){
+      self.postMessage({'alert':aMessage})
+    }
   }
 }
 
@@ -54,28 +59,26 @@ function debug(aMessage){
   console.log(aMessage)
 }
 
-importScripts('QuickConnect.js','ServerAccess.js','functions.js','mappings.js')
-
-
-
 self.theStack = null;
+
 self.onmessage = function(event){
 	var callData = JSON.parse(event.data);
-	if(!self.theStack){
-		self.uuid = callData.uuid
-		self.theStack = qc.cloneConsumableStacks(callData.cmd)
-	}
+  //console.log('data: '+JSON.stringify(callData))
+  if(!callData.data.continue){
+    //console.log(callData.cmd+' cloning: '+callData.data.stackID)
+		self.uuid = callData.stackID
+		qc.cloneConsumableStacks(callData.cmd, callData.data.stackID)
+  }
 	self.requestHandler(callData.cmd, callData.data)
 }
 
 self.requestHandler = function(aCmd, parameters){
   parameters.thisRequestWorker = self
 	if(aCmd != null){
-    if(qc.dispatchToValCF(aCmd, parameters) == qc.STACK_CONTINUE){
-      if(qc.dispatchToDCF(aCmd, parameters) == qc.STACK_CONTINUE){
+    if(qc.dispatchToValCF(aCmd, parameters, parameters.uuid) == qc.STACK_CONTINUE){
+      if(qc.dispatchToDCF(aCmd, parameters, parameters.uuid) == qc.STACK_CONTINUE){
           delete parameters['thisRequestWorker']
           self.postMessage(JSON.stringify({'stackFlag':qc.STACK_CONTINUE, 'cmd':aCmd, 'data':parameters}))
-          self.theStack = null;
       }
 		}
 	}

@@ -158,14 +158,12 @@ ServerAccess.transact = function(responseId, transactionType, URL, responseDataT
             var queryResult = new Object();
             //default errorMessage
             if(http.aborted){
-                queryResult.errorNumber = -100;
-                queryResult.errorMessage = "Request timed out.";
+                queryResult = "Error: -100. Request timed out.";
             }
             else if(http.status != ServerAccess.HTTP_OK 
                     && http.status != ServerAccess.HTTP_LOCAL
                     && http.status != ServerAccess.OSX_HTTP_File_Access){
-                queryResult.errorNumber = http.status;
-                queryResult.errorMessage = "Bad access type.";
+                queryResult = "Error: "+http.status + "Bad access type.";
             }
 			/*
 			 *  Retrieve the data if the server returns that the 
@@ -176,11 +174,10 @@ ServerAccess.transact = function(responseId, transactionType, URL, responseDataT
             if(queryResult.errorNumber == null){
 				var unmodifiedData = http['response'+responseDataType];
 				if(responseDataType != ServerAccess.XML){
-					queryResult.results = unescape(unmodifiedData);
-                    queryResult.data = queryResult.results;
+					queryResult = unescape(unmodifiedData);
 				}
 				else{
-					queryResult.data = unmodifiedData;
+					queryResult = unmodifiedData;
 				}
             }
             stackParameters[responseId] = queryResult

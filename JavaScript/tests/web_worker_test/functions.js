@@ -37,15 +37,3 @@ function test2VCF(parameters){
 	return qc.STACK_CONTINUE
 }
 
-function getMusicDescriptionListDCF(parameters){
-	var parameterId = 'musicList'
-	//ServerAccess.transact(parameterId, 'GET', 'http://itunes.apple.com/search?term='+parameters.band, ServerAccess.JSON)
-	ServerAccess.transact(parameterId, 'GET', 'http://www.alfanous.org/json?list=recitations', ServerAccess.TEXT)
-	return qc.STACK_WAIT
-}
-
-function showMusicDescriptionListVCF(parameters){
-	document.getElementById('musicDisplay').innerHTML = JSON.stringify(parameters.musicList)
-	return qc.STACK_CONTINUE
-}
-

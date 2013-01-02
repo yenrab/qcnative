@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="QuickConnect.js"></script>
+		<script type="text/javascript" src="ajaxExt.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+		<script type="text/javascript" src="mappings.js"></script>
+		<script type="text/javascript">
+
+			function doAjax(){
+				qc.handleRequest('ajax', {}, done)
+			}
+
+			function done(data){
+				document.getElementById('display').innerText += '\n-------------done-------------'
+			}
+		</script>
+	</head>
+	<body>
+		<input type='button' value='AJAX test' onclick='doAjax()' />
+		<div id='display'></div>
+	</body>
+</html>
