@@ -23,6 +23,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "QCMapper.h"
+#import "ControlObjectStack.h"
+#import "CommandDescriptor.h"
 
 @class QCMapper;
 

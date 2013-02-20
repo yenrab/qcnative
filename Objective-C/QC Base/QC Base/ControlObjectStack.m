@@ -175,7 +175,8 @@
 
 
 - (void) executeCallback{
-    if (self.numberOfRequestsToTrack-- <= 0) {
+    int num = [self numberOfRequestsToTrack];
+    if (--num <= 0 && self.callback) {
         self.callback();
     }
 }

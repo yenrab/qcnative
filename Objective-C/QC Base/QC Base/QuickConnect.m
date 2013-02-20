@@ -28,9 +28,6 @@
  */
 
 #import "QuickConnect.h"
-#import "QCMapper.h"
-#import "ControlObjectStack.h"
-#import "CommandDescriptor.h"
 
 @interface QuickConnect(hidden)
 - (void) handleRequest: (NSString*) aCmd withParameters:(NSMutableDictionary*) parameters runInBackground:(BOOL)backgroundFlag withCallback:(void (^)(void))aCallbackBlock andTrackRequestCount:(int)theNumberOfRequests;

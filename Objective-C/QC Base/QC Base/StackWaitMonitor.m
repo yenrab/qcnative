@@ -34,10 +34,11 @@
 -(void)makeStackWait{
     [self.theCondition lock];
     [self.theCondition wait];
+    [self.theCondition unlock];
 }
 
 -(void)continueStack{
     [self.theCondition signal];
-    [self.theCondition unlock];
+//    [self.theCondition unlock];
 }
 @end
