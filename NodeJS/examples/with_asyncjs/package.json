@@ -1,0 +1,13 @@
+{
+    "author": "Joshua Barney <joshmbarney@icloud.com>",
+    "homepage": "TODO",
+    "name": "with_asyncjs",
+    "description": "An example of using asyncjs functions inside of qcnode",
+    "version": "0.0.1",
+    "private": false,
+    "dependencies": {
+        "qcnode": "1.3.5",
+        "async": "0.2.9"
+    },
+    "main": "./async.js"
+}

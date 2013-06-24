@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+var QuickConnect = require('qcnode').QuickConnect,
+op = require('optimist'),
+qc = new QuickConnect
+
+op.usage("Usage: $0 echojoin [-s <joiner>]")
+
+qc.command('help')
+.vcf(function(data, qc){
+    op.showHelp()
+    return qc.STACK_CONTINUE
+})
+
+qc.command('echojoin')
+.vcf(function(data,qc){
+    console.log(data.args.join(data.space))
+    return qc.STACK_CONTINUE
+})
+
+var userArgs = op.options('s', {
+    alias: 'space',
+    default: ' '
+}).argv,
+
+args = userArgs._
+try {
+    qc.run(args.shift(),{args:args, space:userArgs.space},{})
+} catch (error) {
+    qc.run('help')
+}
