@@ -3,10 +3,14 @@ var Mapper = require('./Mapper'),
 
 function QuickConnect(ops) {
     var mapper, debug
-    
+
     if (!ops) {
         ops = {}
     }
+    if (!ops.mixins) {
+      ops.mixins = {}
+    }
+
     this.options = ops
 
     this.WAIT_FOR_DATA = 'wAiT'
@@ -19,6 +23,9 @@ function QuickConnect(ops) {
     debug = ops.debug || console.log
     this.debug = debug
 
+    if (ops.mixins.base) {
+      ops.mixins.base.call(this)
+    }
 }
 
 function fakeQC(self){
@@ -72,7 +79,7 @@ function cloneConsumableStacks(aCmd) {
     },
     mapper = this.mapper
 
-    //if mappings are found then duplicate the mapped 
+    //if mappings are found then duplicate the mapped
     //control function arrays for consumption
     if (!mapper.validationMap[aCmd] && !mapper.dataMap[aCmd] && !mapper.viewMap[aCmd]) {
         return
@@ -85,24 +92,47 @@ function cloneConsumableStacks(aCmd) {
     return funcs
 }
 
+function cloneAnonymousStack(map) {
+    var funcs = {
+    }
+
+    if (   !(map.ValCF && map.ValCF.length)
+        && !(map.DCF && map.DCF.length)
+        && !(map.VCF && map.VCF.length) ) {
+        return
+    }
+
+    funcs.validationMapConsumables = (map.ValCF || []).slice()
+    funcs.dataMapConsumables = (map.DCF || []).slice()
+    funcs.viewMapConsumables = (map.VCF || []).slice()
+
+    return funcs
+}
+
 function handleRequest(aCmd, requestData, callbacks ) {
     var stack, uuid, funcs, event
-    
+
     if (Array.isArray(aCmd)) {
       aCmd = aCmd.join(this.mapper.isolateDelimiter)
     }
-    
+
     if (callbacks && callbacks.constructor != Object) {
         callbacks = {
             'end': callbacks
         }
     }
     uuid = genrateUUID()
-    funcs = cloneConsumableStacks.call(this, aCmd)
+
+    if (aCmd && aCmd.constructor != String) {
+        funcs = cloneAnonymousStack.call(this, aCmd)
+    } else {
+        funcs = cloneConsumableStacks.call(this, aCmd)
+    }
+
     if (!funcs) {
         throw new Error('Attempting to execute the command "' + (aCmd || 'missing') + '" for which no control functions are mapped.')
     }
-    stack = new Stack([uuid, aCmd], funcs, requestData, fakeQC(this), this.options.testing)
+    stack = new Stack([uuid, aCmd], funcs, requestData, fakeQC(this), this.options)
     for (event in callbacks) {
         stack.on(event, callbacks[event])
     }

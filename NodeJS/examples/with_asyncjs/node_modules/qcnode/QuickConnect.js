@@ -7,6 +7,10 @@ function QuickConnect(ops) {
     if (!ops) {
         ops = {}
     }
+    if (!ops.mixins) {
+      ops.mixins = {}
+    }
+    
     this.options = ops
 
     this.WAIT_FOR_DATA = 'wAiT'
@@ -19,6 +23,9 @@ function QuickConnect(ops) {
     debug = ops.debug || console.log
     this.debug = debug
 
+    if (ops.mixins.base) {
+      ops.mixins.base.call(this)
+    }
 }
 
 function fakeQC(self){
@@ -102,7 +109,7 @@ function handleRequest(aCmd, requestData, callbacks ) {
     if (!funcs) {
         throw new Error('Attempting to execute the command "' + (aCmd || 'missing') + '" for which no control functions are mapped.')
     }
-    stack = new Stack([uuid, aCmd], funcs, requestData, fakeQC(this), this.options.testing)
+    stack = new Stack([uuid, aCmd], funcs, requestData, fakeQC(this), this.options)
     for (event in callbacks) {
         stack.on(event, callbacks[event])
     }

@@ -1,4 +1,4 @@
-QCNode 1.3.5
+QCNode 1.4.x
 ======
 
 The QuickConnect Framework for Node.js. Flow control, application controller logic, and so much more!
@@ -17,7 +17,7 @@ The QuickConnect framework for Node.js is designed to help the developer quickly
 There are many ways!
 
 ### Simple Example
-```
+```javascript
 QuickConnect = require('qcnode').QuickConnect
 var qc = new QuickConnect
 
@@ -67,7 +67,7 @@ stack.on('end', function(data, index){
 ```
 
 ### Less Simple Example
-```
+```javascript
 qc.isolate('request' function(){
 	this.isolate( 'GET', function(){
 		this.command('contest', function(){
@@ -121,7 +121,7 @@ Um… No I didn't! Pay no attention to the man behind the callbacks! This code g
 
 Well, fine. These examples are actually written in a shorthand that was helpful while writting coffeescript. it looks like this in coffeescript:
 
-```
+```coffeescript
 qc.isolate 'request', ->
 	@isolate 'GET', ->
 		@command 'contest', ->
@@ -139,11 +139,11 @@ qc.isolate 'request', ->
 
 It's pretty simple to write and read with that shorthand. Here is what is actually happening _in the code:_
 
-```
+```javascript
 var delim = qc.mapper.isolateDelimiter
 qc.mapper.mapCommandToValCF(['request','GET','contest'].join(delim), myValCF)
 qc.mapper.mapCommandToValCF(['request','GET','contest'].join(delim), myDCF)
-ect...
+//ect...
 ```
 
 That is also very readable, but it takes a lot of characters.
@@ -151,7 +151,7 @@ That is also very readable, but it takes a lot of characters.
 ### Do you like Chaining?
 Since `isolate`,`command`, and the `cf` functions all return the same object that is `this` in the callbacks, you can chain! Here is an example from the qc tests:
 
-```
+```javascript
 basic.command('basic stack to call')
     .valcf(function(data, qc){
         if (data.helol) {
@@ -188,13 +188,13 @@ basic.command('basic stack to call')
 That's probably a more javascript-y way.
 You just have to remember that `isolate`, `command`, and `cf` functions do not return the same object. This is not valid:
 
-```
+```javascript
 //error!
 basic.isolate(isol).command(mycom).valcf(myfunc).command(otherCom).ect(…)
 ```
 Remember, if you can chain something, you can store it.
 
-```
+```javascript
 iso = basic.isolate(isol)
 comOne = iso.command(mycom)
 comOne.valcf(myfunc).dcf(dfunc)
@@ -202,12 +202,15 @@ comTwo = iso.command(otherCom)
 comTwo.ect(...)
 ```
 
+## Could you change "X" to be "y"?
+No, but **you** can with [mixins!](https://github.com/QuickConnect/QCNode/wiki/Mixin-Guide)
+
 ## So?
 
 So this is awesome! You can use QC in the way that works for you. It's more than just flow control, it's designed to help you get things done faster, higher, and stronger. 
 
 ## But how can I use it in ...?
-Head on over to [our example page!](https://github.com/JoshRagem/QCNode/wiki/examples)
+Head on over to [our example page!](https://github.com/QuickConnect/QCNode/wiki/examples)
 
 ## QC History
 QuickConnect started as a response to some of the problems encountered writing code for Enterprise Java servers. The framework pattern evolved for several years in a hybrid mobile environment (QCHybrid, iOS and Android) which provided tools for rapid prototyping of cross-platform apps. 
@@ -232,6 +235,7 @@ We feel the core logic of QC is pretty set in version 1.0.0, but if you have ide
 
 # Licence
 MIT
+
 Copyright (c) 2013 Joshua Barney, Lee Barney
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

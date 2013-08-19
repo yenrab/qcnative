@@ -114,3 +114,9 @@ basic.isolate(['josh','is','cool'],function(){
         })
     })
 })
+
+basic.isolate('josh').isolate('josh').isolate('josh').isolate('josh')
+.command('josh').valcf(function(data){
+    data.done = true
+    return true
+})

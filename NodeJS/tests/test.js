@@ -1,7 +1,7 @@
 var resolve = require('path').resolve,
     mod = require(resolve(__dirname,'../')),
 	QuickConnect = mod.QuickConnect,
-	fs = require('fs')
+	fs = require('fs'),
 	
 test = new QuickConnect
 

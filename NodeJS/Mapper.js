@@ -5,7 +5,7 @@ function QuickConnectMapper(ops) {
   this.isolateDelimiter = ops.delimiter || '-'
   var self = this
   
-  defaultEvents = function(self){
+  function defaultEvents(self, command){
     return {
       end: function(){
         self.asyncStackContinue()
@@ -14,12 +14,27 @@ function QuickConnectMapper(ops) {
         self.asyncStackError(err)
       },
       validateFail: function(fails){
-        self.asyncStackError(new Error(fails))
+        var err = new Error("dstack Validation Error in " + command)
+        err.command = command
+        err.stack = fails
+        self.asyncStackError(err)
       }
     }
   }
   
+  function QCCommandEnvironment(fn) {
+    if (fn) {
+      fn.call(this)
+    }
+  }
+  
   function newMapper(command, space) {
+    var constr = ops.mixins.command
+    QCCommandEnvironment.prototype = newMapperPrototype(command, space)
+    return new QCCommandEnvironment(constr)
+  }
+  
+  function newMapperPrototype(command, space) {
     var com = space?(space + self.isolateDelimiter + command):command
     return {
       valcf: function () {
@@ -51,7 +66,7 @@ function QuickConnectMapper(ops) {
 //          }
 //        } 
         self.mapCommandToDCF(com, function(data, qc){
-          ev = defaultEvents(qc)
+          ev = defaultEvents(qc, com)
           for (0;0;0)/*evn in events*/ {
             ev[evn] = events[evn]
           }
@@ -63,18 +78,29 @@ function QuickConnectMapper(ops) {
     }
   }
   
+  function QCIsolateEnvironment(fn) {
+    if (fn) {
+      fn.call(this)
+    }
+  }
+  
   function newIsolator(spaces) {
+    var constr = ops.mixins.isolate
+    QCIsolateEnvironment.prototype = newIsolatorPrototype(spaces)
+    return new QCIsolateEnvironment(constr)
+  }
+  
+  function newIsolatorPrototype(spaces) {
     if (!Array.isArray(spaces)) {
       spaces = [spaces]
     }
 
     return {
-      spaces: [],
       isolate: function (innerSpaces, callback) {
         if (!Array.isArray(innerSpaces)) {
           innerSpaces = [innerSpaces]
         }
-        innerSpaces = [spaces].concat(innerSpaces)
+        innerSpaces = spaces.concat(innerSpaces)
         
         return self.isolate.call(self, innerSpaces, callback)
       },
@@ -91,7 +117,7 @@ function QuickConnectMapper(ops) {
   
   function mapCommandToValCF(aCmd, aValCF) {
     if(aCmd == null || aValCF == null){
-      return
+      throw new Error("Attempting to map '" + aValCF + "' to '" + aCmd + "'" )
     }
     var funcArray = this.validationMap[aCmd]
     if(funcArray == null) {
@@ -104,7 +130,7 @@ function QuickConnectMapper(ops) {
   
   function mapCommandToDCF(aCmd, aDCF) {
     if(aCmd == null || aDCF == null){
-      return
+      throw new Error("Attempting to map '" + aDCF + "' to '" + aCmd + "'" )
     }
     var funcArray = this.dataMap[aCmd]
     if(funcArray == null) {
@@ -117,7 +143,7 @@ function QuickConnectMapper(ops) {
   
   function mapCommandToVCF(aCmd, aVCF) {
     if(aCmd == null || aVCF == null){
-      return
+      throw new Error("Attempting to map '" + aVCF + "' to '" + aCmd + "'" )
     }
     var funcArray = this.viewMap[aCmd]
     if(funcArray == null) {
@@ -130,13 +156,13 @@ function QuickConnectMapper(ops) {
   
   function checkForStack(name){
     var isThere = true
-    isThere = this.viewMap[name] && this.validationMap[name] && this.dataMap[name]
+    isThere = this.viewMap[name] || this.validationMap[name] || this.dataMap[name]
     return !!isThere
   }
   this.checkForStack = checkForStack
   
   function command(command, callback) {
-    fakeMapper = newMapper(command)
+    var fakeMapper = newMapper(command)
     if( callback ){
         callback.call(fakeMapper)
     }

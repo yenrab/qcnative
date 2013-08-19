@@ -6,23 +6,6 @@ var mod = require('../../'),
 
 
 basic = new QuickConnect
-other = new QuickConnect
-
-other.command('wheeeee!', function(){
-    this.valcf(function(data,qc){
-        assert(data.done)
-        return qc.STACK_CONTINUE
-    })
-})
-
-other.isolate('iso', function(){
-  this.command('wheeeee!', function(){
-      this.valcf(function(data,qc){
-          assert(data.done)
-          return qc.STACK_CONTINUE
-      })
-  })
-})
 module.exports = basic
 
 basic.command('basic stack to call', function(){
@@ -59,17 +42,11 @@ basic.command('basic stack to call', function(){
     })
 })
 
-basic.command('included stack', function(){
-    this.valcf(function(data, qc){
-        assert(!data.done)
-        assert(qc)
-        return qc.STACK_CONTINUE
-    })
-    this.dstack('basic stack to call')
-    this.dstack('wheeeee!', other)
-    this.dstack(['iso','wheeeee!'], other)
-    this.vcf(function(data, qc){
-        assert(data.done)
-        return qc.STACK_CONTINUE
-    })
-})
+function fakeCF(){return this.STACK_CONTINUE}
+
+basic.command('check for one valcf')
+.valcf(fakeCF)
+basic.command('check for one dcf')
+.dcf(fakeCF)
+basic.command('check for one vcf')
+.vcf(fakeCF)

@@ -70,6 +70,6 @@ basic.command('included stack', function(){
     this.dstack(['iso','wheeeee!'], other)
     this.vcf(function(data, qc){
         assert(data.done)
-        return qc.WAIT_FOR_DATA
+        return qc.STACK_CONTINUE
     })
 })
