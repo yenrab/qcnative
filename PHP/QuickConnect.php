@@ -21,7 +21,7 @@
 <?php
 	//the application controller maps
 	$validationMap = array();
-	$businessMap = array();
+	$dataMap = array();
 	$viewMap = array();
 	$errorMap = array();
 	//include the files containing the Controller objects
@@ -47,7 +47,7 @@
 			$result = dispatchToDCFs($command, $parameters);
 			if($result != QC::STACK_EXIT){
 			//dispatch the request to generate the display information
-				dispatchToVCFs($command, $data, $parameters);
+				dispatchToVCFs($command, $parameters);
 			}
 		}
 	}
@@ -59,21 +59,19 @@
 		return dispatchTo($validationMap, $cmd, $parameters, null);
 	}
 	function dispatchToDCFs($cmd, $parameters){
-		global $businessMap;
-		return dispatchTo($businessMap, $cmd, $parameters, null);
+		global $dataMap;
+		return dispatchTo($dataMap, $cmd, $parameters, null);
 	}
-	function dispatchToVCFs($cmd, $data, $parameters)
+	function dispatchToVCFs($cmd, $parameters)
 	{
 		global $viewMap;
-		return dispatchTo($viewMap, $cmd, $parameters, $data);
+		return dispatchTo($viewMap, $cmd, $parameters);
 	}
-	function dispatchToECFs($cmd, $parameters, $message){
+	function dispatchToECFs($cmd, $parameters){
 		global $errorMap;
-		$data = array();
-		$data[] = $message;
-		return dispatchTo($errorMap, $cmd, $parameters, $data);
+		return dispatchTo($errorMap, $cmd, $parameters);
 	}
-	function dispatchTo($aMap, $cmd, $parameters, $data){
+	function dispatchTo($aMap, $cmd, $parameters){
 		global $errorMap;
 		global $viewMap;
 		$mappingFunctions = $aMap[$cmd];
@@ -81,7 +79,7 @@
 			$numFuncs = count($mappingFunctions);
 			for($i = 0; $i < $numFuncs; $i++){
 				$controlFunction = $mappingFunctions[$i];
-				$controlFunction($parameters, $data);
+				$controlFunction($parameters);
 				if($aResult == QC::STACK_EXIT){
 					return QC::STACK_EXIT;
 				}

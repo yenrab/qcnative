@@ -19,7 +19,7 @@
  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */?>
 <?php
-function mapCommandToBCF($cmd, $bcf){
+function mapCommandToDCF($cmd, $bcf){
 	global $businessMap;
 	$businessMap = mapCommandTo($businessMap, $cmd, $bcf);
 
